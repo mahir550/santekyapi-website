@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santek Admin Panel</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0d1f3c;--orange:#e85d1a;--orange-dark:#c44d10;--accent:#2e7de9;
+  --bg:#f0f2f7;--panel:#fff;--border:#e2e8f0;--border2:#c8d3e0;
+  --text:#1a2540;--muted:#6b7a99;--soft:#f5f7fc;
+  --green:#16a34a;--red:#dc2626;--yellow:#d97706;--blue:#2e7de9;
+  --green-bg:#dcfce7;--red-bg:#fee2e2;--yellow-bg:#fef3c7;--blue-bg:#dbeafe;
+  --r:8px;--r-lg:14px;
+  --shadow:0 2px 8px rgba(0,0,0,.08);--shadow-lg:0 8px 32px rgba(0,0,0,.14);
+  --font:'Segoe UI',system-ui,-apple-system,sans-serif;
+}
+html,body{height:100%;font-family:var(--font);background:var(--bg);color:var(--text);font-size:14px}
+
+/* ══ SPLASH ══ */
+#splash{position:fixed;inset:0;background:linear-gradient(135deg,#0d1f3c 0%,#1a3358 100%);display:flex;align-items:center;justify-content:center;z-index:1000}
+.splash-card{text-align:center;max-width:400px;width:90%;padding:48px 40px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.15);border-radius:20px}
+.splash-icon{font-size:46px;margin-bottom:16px;display:block}
+.splash-title{font-size:22px;font-weight:700;color:#fff;margin-bottom:6px}
+.splash-sub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:28px;line-height:1.6}
+.splash-field{text-align:left;margin-bottom:14px}
+.splash-field label{display:block;font-size:10px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.splash-field input{width:100%;padding:12px 14px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.18);border-radius:10px;font-size:14px;color:#fff;font-family:var(--font);outline:none;transition:border-color .2s}
+.splash-field input::placeholder{color:rgba(255,255,255,.25)}
+.splash-field input:focus{border-color:var(--orange)}
+.splash-btn{width:100%;padding:13px;background:var(--orange);border:none;border-radius:10px;color:#fff;font-size:14px;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .2s;margin-bottom:10px}
+.splash-btn:hover{background:var(--orange-dark);transform:translateY(-1px)}
+.splash-err{font-size:12px;color:#fca5a5;min-height:18px;margin-bottom:8px;transition:opacity .2s;opacity:0}
+.splash-err.show{opacity:1}
+.splash-note{font-size:11px;color:rgba(255,255,255,.22);margin-top:4px}
+
+/* ══ APP ══ */
+#app{display:none;flex-direction:column;height:100vh;overflow:hidden}
+
+/* Header */
+.hdr{background:var(--navy);height:50px;display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;border-bottom:2px solid rgba(232,93,26,.6)}
+.hdr-logo{width:28px;height:28px;background:var(--orange);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.hdr-title{font-weight:700;font-size:15px;color:#fff}
+.hdr-sep{width:1px;height:20px;background:rgba(255,255,255,.15)}
+.hdr-badge{font-size:11px;font-weight:600;padding:3px 10px;border-radius:8px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.55)}
+.hdr-spacer{flex:1}
+.hdr-time{font-size:11px;color:rgba(255,255,255,.3)}
+.hdr-btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.7);font-size:12px;padding:6px 13px;border-radius:7px;cursor:pointer;font-family:var(--font);display:inline-flex;align-items:center;gap:6px;transition:all .2s}
+.hdr-btn:hover{background:rgba(255,255,255,.16);color:#fff}
+.hdr-btn .ico{display:inline-block;transition:transform .5s}
+.hdr-btn.spinning .ico{animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Body */
+.body{display:flex;flex:1;overflow:hidden}
+
+/* Sidebar */
+.sidebar{width:220px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:10px 8px;gap:2px}
+.nav-group-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:10px 10px 4px;display:block}
+.nav-btn{display:flex;align-items:center;gap:9px;width:100%;padding:9px 10px;border:none;background:none;border-radius:var(--r);cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);font-family:var(--font);text-align:left;transition:all .15s;position:relative}
+.nav-btn:hover{background:var(--soft);color:var(--text)}
+.nav-btn.active{background:#eff6ff;color:var(--accent);font-weight:600}
+.nav-ico{width:28px;height:28px;border-radius:6px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:background .15s}
+.nav-btn.active .nav-ico{background:#dbeafe}
+.nav-badge{margin-left:auto;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;background:var(--border);color:var(--muted);min-width:22px;text-align:center}
+.nav-btn.active .nav-badge{background:#bfdbfe;color:#1e4fa8}
+.nav-new-dot{position:absolute;top:7px;right:8px;width:7px;height:7px;border-radius:50%;background:var(--orange);display:none}
+.nav-btn.has-new .nav-new-dot{display:block}
+
+/* Main */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
+
+/* Toolbar */
+.toolbar{padding:11px 16px;border-bottom:1px solid var(--border);background:var(--panel);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.toolbar-title{font-size:15px;font-weight:700;color:var(--text);white-space:nowrap}
+.toolbar-spacer{flex:1}
+.search-wrap{position:relative;display:flex;align-items:center}
+.search-wrap .ico{position:absolute;left:10px;color:var(--muted);font-size:13px;pointer-events:none}
+.search-box{padding:7px 12px 7px 30px;border:1.5px solid var(--border);border-radius:var(--r);font-size:13px;font-family:var(--font);color:var(--text);background:#fff;outline:none;min-width:190px;transition:border-color .15s}
+.search-box:focus{border-color:var(--accent)}
+.filter-select{padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--r);font-size:13px;font-family:var(--font);color:var(--text);background:#fff;outline:none;cursor:pointer;transition:border-color .15s}
+.filter-select:focus{border-color:var(--accent)}
+.export-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;background:var(--soft);border:1.5px solid var(--border);border-radius:var(--r);font-size:12px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--font);transition:all .15s;white-space:nowrap}
+.export-btn:hover{background:var(--border);color:var(--text)}
+
+/* Stats */
+.stats-row{padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--border);display:flex;gap:10px;flex-shrink:0}
+.stat-card{flex:1;background:var(--soft);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;min-width:0}
+.stat-val{font-size:24px;font-weight:700;color:var(--text);line-height:1}
+.stat-lbl{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* Table wrapper */
+.table-wrap{flex:1;overflow:auto}
+.table-wrap::-webkit-scrollbar{width:5px;height:5px}
+.table-wrap::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+table{width:100%;border-collapse:collapse;font-size:13px;background:#fff}
+thead{position:sticky;top:0;z-index:2}
+thead th{background:var(--soft);border-bottom:2px solid var(--border);padding:9px 14px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);white-space:nowrap;user-select:none}
+tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s}
+tbody tr:hover{background:#f4f8ff}
+tbody td{padding:9px 14px;color:var(--text);vertical-align:middle}
+.td-id{color:var(--muted);font-size:11px;width:36px}
+.td-date{white-space:nowrap;color:var(--muted);font-size:12px}
+.td-date small{display:block;font-size:11px}
+.td-name{font-weight:600;white-space:nowrap}
+.td-email{color:var(--accent);font-size:12px}
+.td-trunc{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted);font-size:12px}
+
+/* Status badge */
+.badge{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px;white-space:nowrap}
+.badge-new{background:var(--blue-bg);color:var(--blue)}
+.badge-reviewing{background:var(--yellow-bg);color:var(--yellow)}
+.badge-approved{background:var(--green-bg);color:var(--green)}
+.badge-rejected{background:var(--red-bg);color:var(--red)}
+
+/* Empty / Loading */
+.center-msg{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px 20px;color:var(--muted);text-align:center;gap:12px}
+.spinner{width:30px;height:30px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}
+
+/* Pagination */
+.pagination{padding:10px 16px;border-top:1px solid var(--border);background:var(--panel);display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);flex-shrink:0;flex-wrap:wrap}
+.pg-info{flex:1;white-space:nowrap}
+.pg-btn{width:30px;height:28px;border:1px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;font-size:12px;color:var(--text);display:inline-flex;align-items:center;justify-content:center;transition:all .15s;font-family:var(--font)}
+.pg-btn:hover:not(:disabled){background:var(--soft)}
+.pg-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700}
+.pg-btn:disabled{opacity:.35;cursor:default;pointer-events:none}
+
+/* ══ MODAL ══ */
+.modal-bg{position:fixed;inset:0;background:rgba(13,31,60,.5);z-index:500;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-bg.open{opacity:1;pointer-events:all}
+.modal{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:100%;max-width:580px;max-height:86vh;display:flex;flex-direction:column;transform:translateY(12px);transition:transform .22s}
+.modal-bg.open .modal{transform:translateY(0)}
+.modal-hdr{padding:16px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.modal-icon{width:32px;height:32px;border-radius:8px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.modal-title{font-size:15px;font-weight:700;color:var(--text);flex:1}
+.modal-date{font-size:11px;color:var(--muted)}
+.modal-close{background:none;border:none;font-size:17px;cursor:pointer;color:var(--muted);width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.modal-close:hover{background:var(--soft);color:var(--text)}
+.modal-body{flex:1;overflow-y:auto;padding:20px}
+.modal-body::-webkit-scrollbar{width:4px}
+.modal-body::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.d-item{display:flex;flex-direction:column;gap:4px}
+.d-item.full{grid-column:1/-1}
+.d-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+.d-val{font-size:13px;color:var(--text);word-break:break-word;line-height:1.6}
+.d-val a{color:var(--accent);text-decoration:none}
+.d-val a:hover{text-decoration:underline}
+.d-msg{background:var(--soft);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-size:13px;color:var(--text);line-height:1.65;white-space:pre-wrap;word-break:break-word}
+.modal-footer{padding:14px 20px;border-top:1px solid var(--border);display:flex;align-items:center;gap:10px;background:var(--soft);border-radius:0 0 var(--r-lg) var(--r-lg)}
+.modal-footer .lbl{font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+.status-select{flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--r);font-size:13px;font-family:var(--font);color:var(--text);background:#fff;outline:none;cursor:pointer;transition:border-color .15s}
+.status-select:focus{border-color:var(--accent)}
+.save-btn{padding:8px 20px;background:var(--orange);border:none;border-radius:var(--r);color:#fff;font-size:13px;font-weight:700;font-family:var(--font);cursor:pointer;white-space:nowrap;transition:all .2s}
+.save-btn:hover{background:var(--orange-dark)}
+
+/* Toast */
+.toast{position:fixed;bottom:18px;right:18px;background:var(--navy);color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:500;box-shadow:var(--shadow-lg);z-index:9999;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;max-width:300px}
+.toast.show{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ══ SPLASH / GİRİŞ ══ -->
+<div id="splash">
+  <div class="splash-card">
+    <span class="splash-icon">🛡️</span>
+    <div class="splash-title">Santek Admin Panel</div>
+    <p class="splash-sub">Form başvurularını görüntülemek için<br>erişim şifrenizi girin</p>
+    <div class="splash-field">
+      <label>Erişim Şifresi</label>
+      <input type="password" id="tokenInput" placeholder="••••••••••••" autocomplete="current-password">
+    </div>
+    <div class="splash-err" id="loginErr">Hatalı şifre. Lütfen tekrar deneyin.</div>
+    <button class="splash-btn" onclick="doLogin()">Giriş Yap →</button>
+    <p class="splash-note">Şifrenizi Cloudflare Worker → Settings → ADMIN_TOKEN'dan ayarlayabilirsiniz</p>
+  </div>
+</div>
+
+<!-- ══ APP ══ -->
+<div id="app">
+
+  <!-- Header -->
+  <div class="hdr">
+    <div class="hdr-logo">🛡️</div>
+    <div class="hdr-title">Santek Admin</div>
+    <div class="hdr-sep"></div>
+    <span class="hdr-badge">Form Yönetimi</span>
+    <div class="hdr-spacer"></div>
+    <span class="hdr-time" id="lastTime"></span>
+    <button class="hdr-btn" id="refreshBtn" onclick="loadCurrent(true)">
+      <span class="ico">↻</span> Yenile
+    </button>
+    <button class="hdr-btn" onclick="doLogout()">↩ Çıkış</button>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <span class="nav-group-lbl">Bölümler</span>
+      <button class="nav-btn active" id="nav-contact" onclick="switchSection('contact')">
+        <span class="nav-ico">✉️</span>
+        İletişim Formları
+        <span class="nav-badge" id="badge-contact">—</span>
+        <span class="nav-new-dot"></span>
+      </button>
+      <button class="nav-btn" id="nav-bayilik" onclick="switchSection('bayilik')">
+        <span class="nav-ico">🤝</span>
+        Bayilik Başvuruları
+        <span class="nav-badge" id="badge-bayilik">—</span>
+        <span class="nav-new-dot"></span>
+      </button>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="toolbar-title" id="toolbarTitle">İletişim Formları</div>
+        <div class="toolbar-spacer"></div>
+        <div class="search-wrap">
+          <span class="ico">🔍</span>
+          <input class="search-box" id="searchInput" type="text" placeholder="İsim, e-posta, şirket..." oninput="onSearch()">
+        </div>
+        <select class="filter-select" id="statusFilter" style="display:none" onchange="onFilter()">
+          <option value="">Tüm Durumlar</option>
+          <option value="new">🔵 Yeni</option>
+          <option value="reviewing">🟡 İnceleniyor</option>
+          <option value="approved">🟢 Onaylandı</option>
+          <option value="rejected">🔴 Reddedildi</option>
+        </select>
+        <button class="export-btn" onclick="exportCSV()">📥 CSV</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-val" id="stat-total">—</div>
+          <div class="stat-lbl">Toplam Kayıt</div>
+        </div>
+        <div class="stat-card" id="stat-card-new" style="display:none">
+          <div class="stat-val" id="stat-new" style="color:var(--blue)">—</div>
+          <div class="stat-lbl">Yeni Başvuru</div>
+        </div>
+        <div class="stat-card" id="stat-card-approved" style="display:none">
+          <div class="stat-val" id="stat-approved" style="color:var(--green)">—</div>
+          <div class="stat-lbl">Onaylanan</div>
+        </div>
+        <div class="stat-card" id="stat-card-rejected" style="display:none">
+          <div class="stat-val" id="stat-rejected" style="color:var(--red)">—</div>
+          <div class="stat-lbl">Reddedilen</div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap" id="tableWrap">
+        <div class="center-msg"><div class="spinner"></div></div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination"></div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL ══ -->
+<div class="modal-bg" id="modalBg" onclick="onBgClick(event)">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div class="modal-icon" id="modalIcon">✉️</div>
+      <div class="modal-title" id="modalTitle">Detay</div>
+      <div class="modal-date" id="modalDate"></div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter" style="display:none">
+      <span class="lbl">Durum:</span>
+      <select class="status-select" id="statusSelect">
+        <option value="new">🔵 Yeni</option>
+        <option value="reviewing">🟡 İnceleniyor</option>
+        <option value="approved">🟢 Onaylandı</option>
+        <option value="rejected">🔴 Reddedildi</option>
+      </select>
+      <button class="save-btn" onclick="saveStatus()">Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+
+// ── State ────────────────────────────────────────────────────────────────────
+let TOKEN = '';
+let SECTION = 'contact';
+let PAGE = 1;
+let TOTAL_PAGES = 1;
+let SEARCH_TIMER;
+let CURRENT = null; // { section, id }
+const CACHE = { contact: [], bayilik: [] };
+
+// ── Auth ─────────────────────────────────────────────────────────────────────
+function doLogin() {
+  const t = document.getElementById('tokenInput').value.trim();
+  if (!t) return;
+  TOKEN = t;
+  verifyToken();
+}
+
+async function verifyToken() {
+  try {
+    const r = await api('/api/admin/contact?limit=1');
+    if (!r.ok) { showErr(); return; }
+    sessionStorage.setItem('sat', TOKEN);
+    document.getElementById('splash').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    switchSection('contact');
+    loadBadges();
+  } catch { showErr(); }
+}
+
+function showErr() {
+  const el = document.getElementById('loginErr');
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+function doLogout() {
+  sessionStorage.removeItem('sat');
+  TOKEN = '';
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('splash').style.display = 'flex';
+  document.getElementById('tokenInput').value = '';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('tokenInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doLogin();
+  });
+  const saved = sessionStorage.getItem('sat');
+  if (saved) { TOKEN = saved; verifyToken(); }
+});
+
+// ── API ──────────────────────────────────────────────────────────────────────
+function api(path, opts = {}) {
+  return fetch(path, {
+    ...opts,
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + TOKEN, ...(opts.headers || {}) }
+  });
+}
+
+// ── Sections ─────────────────────────────────────────────────────────────────
+function switchSection(s) {
+  SECTION = s;
+  PAGE = 1;
+  document.getElementById('searchInput').value = '';
+  document.getElementById('statusFilter').value = '';
+  document.getElementById('nav-contact').classList.toggle('active', s === 'contact');
+  document.getElementById('nav-bayilik').classList.toggle('active', s === 'bayilik');
+  document.getElementById('statusFilter').style.display = s === 'bayilik' ? '' : 'none';
+  document.getElementById('toolbarTitle').textContent = s === 'contact' ? 'İletişim Formları' : 'Bayilik Başvuruları';
+  // Bayilik stat cards
+  ['stat-card-new','stat-card-approved','stat-card-rejected'].forEach(id =>
+    document.getElementById(id).style.display = s === 'bayilik' ? '' : 'none'
+  );
+  loadSection(s);
+}
+
+function loadCurrent(refresh) {
+  if (refresh) {
+    const btn = document.getElementById('refreshBtn');
+    btn.classList.add('spinning');
+    setTimeout(() => btn.classList.remove('spinning'), 800);
+  }
+  loadSection(SECTION);
+  loadBadges();
+}
+
+// ── Load data ────────────────────────────────────────────────────────────────
+async function loadSection(s) {
+  showLoading();
+
+  const q = encodeURIComponent(document.getElementById('searchInput').value.trim());
+  const st = document.getElementById('statusFilter').value;
+  let url = `/api/admin/${s}?page=${PAGE}&limit=50`;
+  if (q) url += `&q=${q}`;
+  if (s === 'bayilik' && st) url += `&status=${st}`;
+
+  try {
+    const r = await api(url);
+    if (!r.ok) { showTableError(); return; }
+    const data = await r.json();
+
+    CACHE[s] = data.data || [];
+    document.getElementById('stat-total').textContent = data.total ?? 0;
+    TOTAL_PAGES = Math.max(1, Math.ceil((data.total || 0) / 50));
+
+    if (s === 'bayilik') loadBayilikStats();
+
+    renderTable(s, CACHE[s]);
+    renderPagination(data.total || 0);
+
+    document.getElementById('lastTime').textContent =
+      'Son: ' + new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+  } catch {
+    showTableError();
+  }
+}
+
+async function loadBadges() {
+  try {
+    const [rc, rb] = await Promise.all([
+      api('/api/admin/contact?limit=1'),
+      api('/api/admin/bayilik?limit=1')
+    ]);
+    const dc = await rc.json(), db = await rb.json();
+    document.getElementById('badge-contact').textContent = dc.total ?? 0;
+    document.getElementById('badge-bayilik').textContent = db.total ?? 0;
+  } catch {}
+}
+
+async function loadBayilikStats() {
+  try {
+    const [rN, rA, rR] = await Promise.all([
+      api('/api/admin/bayilik?status=new&limit=1'),
+      api('/api/admin/bayilik?status=approved&limit=1'),
+      api('/api/admin/bayilik?status=rejected&limit=1')
+    ]);
+    const dN = await rN.json(), dA = await rA.json(), dR = await rR.json();
+    document.getElementById('stat-new').textContent      = dN.total ?? 0;
+    document.getElementById('stat-approved').textContent = dA.total ?? 0;
+    document.getElementById('stat-rejected').textContent = dR.total ?? 0;
+    // Show orange dot if new applications exist
+    document.getElementById('nav-bayilik').classList.toggle('has-new', (dN.total ?? 0) > 0);
+  } catch {}
+}
+
+// ── Render ───────────────────────────────────────────────────────────────────
+function renderTable(s, rows) {
+  const wrap = document.getElementById('tableWrap');
+  if (!rows.length) {
+    wrap.innerHTML = `<div class="center-msg"><div style="font-size:36px">📭</div><div>Henüz kayıt bulunmuyor.</div></div>`;
+    return;
+  }
+
+  if (s === 'contact') {
+    wrap.innerHTML = `<table>
+      <thead><tr>
+        <th>#</th><th>Tarih</th><th>Ad Soyad</th><th>E-posta</th><th>Şirket</th><th>Konu</th><th>Mesaj</th>
+      </tr></thead>
+      <tbody>${rows.map(r => `
+        <tr onclick="openModal('contact',${r.id})">
+          <td class="td-id">${r.id}</td>
+          <td class="td-date">${fmtDate(r.created_at)}</td>
+          <td class="td-name">${esc(r.ad)}${r.soyad ? ' ' + esc(r.soyad) : ''}</td>
+          <td class="td-email">${esc(r.eposta)}</td>
+          <td>${esc(r.sirket || '—')}</td>
+          <td>${esc(r.konu || '—')}</td>
+          <td class="td-trunc">${esc(r.mesaj)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+  } else {
+    wrap.innerHTML = `<table>
+      <thead><tr>
+        <th>#</th><th>Tarih</th><th>Ad Soyad</th><th>Şirket</th><th>Şehir</th><th>E-posta</th><th>Telefon</th><th>Faaliyet Alanı</th><th>Durum</th>
+      </tr></thead>
+      <tbody>${rows.map(r => `
+        <tr onclick="openModal('bayilik',${r.id})">
+          <td class="td-id">${r.id}</td>
+          <td class="td-date">${fmtDate(r.created_at)}</td>
+          <td class="td-name">${esc(r.ad)}${r.soyad ? ' ' + esc(r.soyad) : ''}</td>
+          <td>${esc(r.sirket)}</td>
+          <td>${esc(r.sehir || '—')}</td>
+          <td class="td-email">${esc(r.eposta)}</td>
+          <td>${esc(r.telefon || '—')}</td>
+          <td class="td-trunc">${esc(r.faaliyet_alani || '—')}</td>
+          <td>${badge(r.status)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+  }
+}
+
+function badge(s) {
+  const map = {
+    new:       ['badge-new',      '🔵 Yeni'],
+    reviewing: ['badge-reviewing','🟡 İnceleniyor'],
+    approved:  ['badge-approved', '🟢 Onaylandı'],
+    rejected:  ['badge-rejected', '🔴 Reddedildi']
+  };
+  const [cls, lbl] = map[s] || ['badge-new', s];
+  return `<span class="badge ${cls}">${lbl}</span>`;
+}
+
+// ── Modal ────────────────────────────────────────────────────────────────────
+function openModal(s, id) {
+  const r = CACHE[s].find(x => x.id === id);
+  if (!r) return;
+  CURRENT = { section: s, id };
+
+  document.getElementById('modalIcon').textContent  = s === 'contact' ? '✉️' : '🤝';
+  document.getElementById('modalTitle').textContent = s === 'contact' ? `İletişim #${id}` : `Bayilik Başvurusu #${id}`;
+  document.getElementById('modalDate').textContent  = fmtDateFull(r.created_at);
+
+  let html = '<div class="detail-grid">';
+  if (s === 'contact') {
+    html += di('Ad',     r.ad);
+    html += di('Soyad',  r.soyad  || '—');
+    html += di('E-posta', `<a href="mailto:${esc(r.eposta)}">${esc(r.eposta)}</a>`);
+    html += di('Şirket', r.sirket || '—');
+    html += di('Konu',   r.konu   || '—', false);
+    html += `<div class="d-item full"><div class="d-lbl">Mesaj</div><div class="d-msg">${esc(r.mesaj)}</div></div>`;
+  } else {
+    html += di('Ad',            r.ad);
+    html += di('Soyad',         r.soyad  || '—');
+    html += di('Şirket',        r.sirket);
+    html += di('Şehir',         r.sehir  || '—');
+    html += di('E-posta',       `<a href="mailto:${esc(r.eposta)}">${esc(r.eposta)}</a>`);
+    html += di('Telefon',       r.telefon ? `<a href="tel:${esc(r.telefon)}">${esc(r.telefon)}</a>` : '—');
+    html += di('Faaliyet Alanı',r.faaliyet_alani || '—', false);
+    html += di('Durum',         badge(r.status), false);
+    if (r.mesaj) html += `<div class="d-item full"><div class="d-lbl">Mesaj / Not</div><div class="d-msg">${esc(r.mesaj)}</div></div>`;
+  }
+  html += '</div>';
+
+  document.getElementById('modalBody').innerHTML = html;
+  const footer = document.getElementById('modalFooter');
+  footer.style.display = s === 'bayilik' ? '' : 'none';
+  if (s === 'bayilik') document.getElementById('statusSelect').value = r.status || 'new';
+
+  document.getElementById('modalBg').classList.add('open');
+}
+
+function di(lbl, val, half = true) {
+  return `<div class="d-item${half ? '' : ' full'}"><div class="d-lbl">${lbl}</div><div class="d-val">${val}</div></div>`;
+}
+
+function closeModal() {
+  document.getElementById('modalBg').classList.remove('open');
+  CURRENT = null;
+}
+
+function onBgClick(e) {
+  if (e.target === document.getElementById('modalBg')) closeModal();
+}
+
+async function saveStatus() {
+  if (!CURRENT || CURRENT.section !== 'bayilik') return;
+  const newStatus = document.getElementById('statusSelect').value;
+  const r = CACHE.bayilik.find(x => x.id === CURRENT.id);
+  if (!r) return;
+  if (r.status === newStatus) { closeModal(); return; }
+
+  try {
+    const res = await api(`/api/admin/bayilik/${CURRENT.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status: newStatus })
+    });
+    if (res.ok) {
+      r.status = newStatus;
+      renderTable('bayilik', CACHE.bayilik);
+      loadBayilikStats();
+      loadBadges();
+      toast('✓ Durum güncellendi');
+      closeModal();
+    } else {
+      toast('Hata: Güncelleme başarısız');
+    }
+  } catch {
+    toast('Bağlantı hatası');
+  }
+}
+
+// ── Pagination ────────────────────────────────────────────────────────────────
+function renderPagination(total) {
+  const el = document.getElementById('pagination');
+  if (total === 0) { el.innerHTML = ''; return; }
+  const start = (PAGE - 1) * 50 + 1;
+  const end   = Math.min(PAGE * 50, total);
+  let html = `<span class="pg-info">${start}–${end} / ${total} kayıt</span>`;
+  html += `<button class="pg-btn" onclick="goPage(${PAGE-1})" ${PAGE===1?'disabled':''}>‹</button>`;
+  const lo = Math.max(1, Math.min(PAGE - 2, TOTAL_PAGES - 4));
+  const hi = Math.min(TOTAL_PAGES, lo + 4);
+  for (let i = lo; i <= hi; i++)
+    html += `<button class="pg-btn${i===PAGE?' active':''}" onclick="goPage(${i})">${i}</button>`;
+  html += `<button class="pg-btn" onclick="goPage(${PAGE+1})" ${PAGE===TOTAL_PAGES?'disabled':''}>›</button>`;
+  el.innerHTML = html;
+}
+
+function goPage(p) {
+  if (p < 1 || p > TOTAL_PAGES || p === PAGE) return;
+  PAGE = p;
+  loadSection(SECTION);
+}
+
+// ── Search / Filter ──────────────────────────────────────────────────────────
+function onSearch() {
+  clearTimeout(SEARCH_TIMER);
+  SEARCH_TIMER = setTimeout(() => { PAGE = 1; loadSection(SECTION); }, 380);
+}
+
+function onFilter() {
+  PAGE = 1;
+  loadSection(SECTION);
+}
+
+// ── Export CSV ────────────────────────────────────────────────────────────────
+function exportCSV() {
+  const rows = CACHE[SECTION];
+  if (!rows.length) return;
+  let headers, cols;
+  if (SECTION === 'contact') {
+    headers = ['ID','Tarih','Ad','Soyad','E-posta','Şirket','Konu','Mesaj'];
+    cols = r => [r.id, r.created_at, r.ad, r.soyad, r.eposta, r.sirket, r.konu, r.mesaj];
+  } else {
+    headers = ['ID','Tarih','Ad','Soyad','Şirket','E-posta','Telefon','Şehir','Faaliyet Alanı','Durum','Mesaj'];
+    cols = r => [r.id, r.created_at, r.ad, r.soyad, r.sirket, r.eposta, r.telefon, r.sehir, r.faaliyet_alani, r.status, r.mesaj];
+  }
+  const csv = [headers, ...rows.map(cols)]
+    .map(row => row.map(v => `"${String(v ?? '').replace(/"/g,'""')}"`).join(','))
+    .join('\n');
+  const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `santek-${SECTION}-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function showLoading() {
+  document.getElementById('tableWrap').innerHTML =
+    '<div class="center-msg"><div class="spinner"></div><span>Yükleniyor…</span></div>';
+  document.getElementById('pagination').innerHTML = '';
+}
+
+function showTableError() {
+  document.getElementById('tableWrap').innerHTML =
+    '<div class="center-msg"><div style="font-size:32px">⚠️</div><div>Veri yüklenemedi. Bağlantı hatası.</div></div>';
+}
+
+function fmtDate(dt) {
+  if (!dt) return '—';
+  try {
+    const d = new Date(dt.replace(' ','T') + 'Z');
+    return d.toLocaleDateString('tr-TR',{day:'2-digit',month:'2-digit',year:'numeric'}) +
+      '<small>' + d.toLocaleTimeString('tr-TR',{hour:'2-digit',minute:'2-digit'}) + '</small>';
+  } catch { return dt; }
+}
+
+function fmtDateFull(dt) {
+  if (!dt) return '';
+  try { return new Date(dt.replace(' ','T') + 'Z').toLocaleString('tr-TR'); }
+  catch { return dt; }
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>

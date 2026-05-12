@@ -1,0 +1,11 @@
+name = "santekyapi-forms-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "santekyapi-db"
+database_id = "717516d2-398f-4bf2-b125-e39136ced991"
+
+[triggers]
+routes = [{ pattern = "www.santekyapi.com.tr/api/*", zone_name = "santekyapi.com.tr" }]

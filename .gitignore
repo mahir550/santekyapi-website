@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# APP_PACK — 3D configurators managed via R2 (Phase 2)
+APP_PACK/
+APP_PACK.zip
+
+# Versioned backup HTML files
+santek-panel*.html
+santek-website-*.html
+santek-website_*.html
+santek-website-guncellenmis*.html
+teknovet.html
+Example_website.html
+files.zip
+files/
+
+# Large scratch media
+*.mov
+*.webm
+videoframe_*.png
+QS_Everythingfits_*
+
+# Apache config (replaced by _redirects on Cloudflare Pages)
+htaccess
+
+# Node (wrangler)
+node_modules/

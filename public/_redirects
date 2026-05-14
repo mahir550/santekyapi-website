@@ -1,9 +1,3 @@
-# Landing pages — clean URLs without .html
-/lp/qbrick-modular   /lp/qbrick-modular.html   200
-/lp/qbrick-cozum     /lp/qbrick-cozum.html     200
-/lp/qbrick-katalog   /lp/qbrick-katalog.html   200
-/lp/qbrick-roi       /lp/qbrick-roi.html       200
-
 # Brand pages (SPA routes)
 /marka/qbrick-system    /index.html   200
 /marka/wolfcraft        /index.html   200
@@ -15,5 +9,8 @@
 /bayilik                /index.html   200
 /iletisim               /index.html   200
 
-# Default SPA fallback
+# Landing pages — Cloudflare Pages auto-strips .html so /lp/qbrick-modular works for /lp/qbrick-modular.html
+# No explicit rules needed — files in public/lp/ are served at their paths.
+
+# Default SPA fallback (must be last)
 /*                      /index.html   200

@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qbrick System — Profesyonel Modüler Alet Sistemi | Santek</title>
+  <meta name="description" content="İsveç mühendisliği, IP66 koruma, 100 kg yükleme. Türkiye resmî distribütörü Santek. Mağaza, Amazon veya WhatsApp'tan satın alın." />
+  <link rel="icon" type="image/png" href="/santek-logo.png" />
+  <meta property="og:title" content="Qbrick System — Profesyonel Modüler Alet Sistemi | Santek" />
+  <meta property="og:description" content="İsveç mühendisliği · IP66 · 5 yıl garanti. Türkiye resmî distribütöründen satın alın." />
+  <meta property="og:image" content="https://www.qbricksystem.com/wp-content/uploads/2025/02/Hero-RED-desktop-8.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://www.qbricksystem.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --cyan:#00BCD4;--cyan-dk:#00A0B4;--cyan-deep:#007A8A;--cyan-soft:#E1F5F8;
+      --navy:#0B2348;--navy-2:#0F2E5C;--navy-mid:#1A3E7A;
+      --white:#fff;--off-white:#FAFCFD;--light:#F4F8FA;
+      --text:#0A2540;--mid:#4A5568;--muted:#8A96A8;--border:rgba(10,37,64,.08);
+      --amz:#FF9900;--amz-dk:#e68900;
+      --wa:#25D366;--wa-dk:#1ebe5b;
+      --gold:#f59e0b;--green:#16a34a;
+      --shadow-sm:0 1px 2px rgba(10,37,64,.04),0 1px 3px rgba(10,37,64,.06);
+      --shadow-md:0 4px 10px rgba(10,37,64,.06),0 12px 32px rgba(10,37,64,.08);
+      --shadow-lg:0 20px 60px rgba(10,37,64,.15);
+    }
+    body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+    /* TOP BAR */
+    .top-bar{background:var(--navy);color:rgba(255,255,255,.85);font-size:12px;padding:8px 40px;text-align:center;letter-spacing:.2px;font-weight:500;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+    .top-bar span,.top-bar a{display:inline-flex;align-items:center;gap:6px;color:inherit;text-decoration:none}
+    .top-bar a:hover{color:var(--cyan)}
+    .top-bar .sep{opacity:.3}
+    .top-bar .accent{color:var(--cyan)}
+    .top-bar .wa-num{color:#25D366;font-weight:600}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.96);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--border);height:64px;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
+    .nav a img,.nav-logo img{height:28px;width:auto;display:block}
+    .nav-center{display:flex;gap:28px}
+    .nav-center a{font-size:14px;font-weight:500;color:var(--mid);text-decoration:none;transition:color .15s}
+    .nav-center a:hover{color:var(--cyan-dk)}
+    .nav-right{display:flex;gap:8px;align-items:center}
+    .btn-amz-sm,.btn-shop-sm,.btn-wa-sm{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:9px 16px;border-radius:8px;text-decoration:none;transition:all .15s}
+    .btn-amz-sm{background:var(--amz);color:#111}
+    .btn-amz-sm:hover{background:var(--amz-dk);transform:translateY(-1px)}
+    .btn-shop-sm{background:var(--cyan);color:var(--white)}
+    .btn-shop-sm:hover{background:var(--cyan-dk);transform:translateY(-1px)}
+    .btn-wa-sm{background:var(--wa);color:var(--white)}
+    .btn-wa-sm:hover{background:var(--wa-dk);transform:translateY(-1px)}
+    .btn-amz-sm svg,.btn-shop-sm svg,.btn-wa-sm svg{width:14px;height:14px}
+
+    /* HERO */
+    .hero{min-height:600px;display:grid;grid-template-columns:1.05fr 1fr;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,#0F3972 100%);position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,188,212,.05) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+    .hero::after{content:'';position:absolute;top:-20%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,188,212,.12),transparent 70%);pointer-events:none}
+    .hero-content{padding:64px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,188,212,.1);border:1px solid rgba(0,188,212,.25);color:#7FE3F0;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:22px;width:fit-content}
+    .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,188,212,.25)}
+    .hero h1{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(30px,5.2vw,60px);color:var(--white);line-height:1.05;margin-bottom:16px;letter-spacing:-.02em}
+    .hero h1 em{font-style:italic;color:var(--cyan);font-weight:400}
+    .hero-sub{font-size:clamp(15px,2.2vw,17px);color:rgba(255,255,255,.7);line-height:1.65;margin-bottom:22px;max-width:440px}
+
+    .hero-proof{display:flex;align-items:center;gap:14px;margin-bottom:28px;flex-wrap:wrap}
+    .stars-row{display:flex;align-items:center;gap:8px}
+    .stars-row .stars{color:var(--gold);font-size:14px;letter-spacing:1px}
+    .stars-row .rating{font-size:14px;font-weight:700;color:var(--white)}
+    .proof-sep{width:1px;height:16px;background:rgba(255,255,255,.15)}
+    .proof-text{font-size:13px;color:rgba(255,255,255,.65)}
+    .proof-text strong{color:rgba(255,255,255,.9);font-weight:600}
+
+    .hero-cta-group{display:flex;flex-direction:column;gap:10px;max-width:420px;margin-bottom:24px}
+    .cta-primary{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:12px;text-decoration:none;transition:all .15s;font-family:inherit;border:none;cursor:pointer}
+    .cta-primary:hover{transform:translateY(-1px)}
+    .cta-primary .cta-left-side{display:flex;align-items:center;gap:12px}
+    .cta-primary .cta-icon{width:38px;height:38px;border-radius:9px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .cta-primary .cta-icon svg{width:18px;height:18px}
+    .cta-primary .cta-label{font-size:15px;font-weight:700;letter-spacing:-.01em}
+    .cta-primary .cta-sub-label{font-size:12px;opacity:.85;font-weight:400;margin-top:1px}
+    .cta-primary .cta-arrow{font-size:18px;opacity:.7;transition:transform .15s}
+    .cta-primary:hover .cta-arrow{transform:translateX(3px)}
+    .cta-shop{background:var(--cyan);color:var(--white);box-shadow:0 4px 16px rgba(0,188,212,.25)}
+    .cta-shop:hover{background:var(--cyan-dk);box-shadow:0 8px 24px rgba(0,188,212,.35)}
+    .cta-wa{background:var(--wa);color:var(--white);box-shadow:0 4px 16px rgba(37,211,102,.25)}
+    .cta-wa:hover{background:var(--wa-dk);box-shadow:0 8px 24px rgba(37,211,102,.35)}
+    .cta-amazon{background:var(--amz);color:#111}
+    .cta-amazon:hover{background:var(--amz-dk)}
+    .cta-bulk{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:var(--white)}
+    .cta-bulk:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25)}
+
+    .hero-trust{display:flex;gap:18px;margin-top:4px;flex-wrap:wrap}
+    .trust-chip{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.6);font-weight:500}
+    .trust-chip svg{width:13px;height:13px;color:var(--cyan)}
+
+    .hero-visual{position:relative;overflow:hidden}
+    .hero-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,transparent 35%,transparent 100%)}
+    .hero-visual img{width:100%;height:100%;object-fit:cover;object-position:center}
+
+    /* PREMIUM PROOF (NEW) */
+    .premium-proof{background:var(--white);padding:48px 40px;border-bottom:1px solid var(--border)}
+    .premium-proof-inner{max-width:1240px;margin:0 auto}
+    .premium-proof-head{text-align:center;margin-bottom:32px}
+    .premium-proof-tag{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--cyan-deep);margin-bottom:8px}
+    .premium-proof-title{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);color:var(--text);letter-spacing:-.01em}
+    .premium-proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .pp-item{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:22px;background:var(--off-white);border:1px solid var(--border);border-radius:14px;transition:all .2s}
+    .pp-item:hover{box-shadow:var(--shadow-md);border-color:rgba(0,188,212,.25);transform:translateY(-2px)}
+    .pp-icon{width:48px;height:48px;border-radius:12px;background:var(--cyan-soft);color:var(--cyan-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .pp-icon svg{width:24px;height:24px;stroke-width:2}
+    .pp-title{font-size:15.5px;font-weight:700;color:var(--text);letter-spacing:-.01em;line-height:1.3}
+    .pp-desc{font-size:13px;color:var(--mid);line-height:1.5}
+
+    /* CHANNEL STRIP */
+    .channel-strip{background:var(--navy);border-top:1px solid rgba(255,255,255,.05)}
+    .channel-strip-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+    .channel-item{padding:22px 22px;display:flex;align-items:center;gap:14px;border-right:1px solid rgba(255,255,255,.06);transition:background .15s;text-decoration:none}
+    .channel-item:last-child{border-right:none}
+    .channel-item:hover{background:rgba(255,255,255,.03)}
+    .ch-icon{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .ch-icon svg{width:20px;height:20px}
+    .ch-icon.shop{background:rgba(0,188,212,.15);color:var(--cyan)}
+    .ch-icon.amz{background:rgba(255,153,0,.15);color:var(--amz)}
+    .ch-icon.bulk{background:rgba(255,255,255,.08);color:rgba(255,255,255,.8)}
+    .ch-icon.wa{background:rgba(37,211,102,.15);color:var(--wa)}
+    .ch-label{font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:2px}
+    .ch-title{font-size:14.5px;font-weight:700;color:var(--white);margin-bottom:1px;letter-spacing:-.01em}
+    .ch-desc{font-size:11.5px;color:rgba(255,255,255,.5)}
+
+    /* SECTIONS */
+    .sec{padding:88px 40px}
+    .sec.light{background:var(--off-white)}
+    .container{max-width:1240px;margin:0 auto}
+    .sec-tag{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--cyan-deep);margin-bottom:10px}
+    .sec-title{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(26px,3.2vw,42px);color:var(--text);line-height:1.15;letter-spacing:-.02em}
+    .sec-sub{font-size:15px;color:var(--mid);line-height:1.7}
+
+    /* PRODUCT GRID */
+    .series-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:24px}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .product-card{position:relative;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--white);display:flex;flex-direction:column;transition:all .2s}
+    .product-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:rgba(0,188,212,.3)}
+    .product-badge{position:absolute;top:12px;left:12px;z-index:2;font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:5px 10px;border-radius:5px}
+    .product-badge.hot{background:#FEE2E2;color:#DC2626}
+    .product-badge.new{background:#DCFCE7;color:#16A34A}
+    .product-badge.top{background:var(--cyan-soft);color:var(--cyan-deep)}
+    .product-stock{position:absolute;top:12px;right:12px;z-index:2;font-size:10.5px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.92);padding:4px 8px;border-radius:5px}
+    .product-stock .stock-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 2px rgba(22,163,74,.2)}
+    .product-img{background:var(--light);padding:24px;display:flex;align-items:center;justify-content:center;min-height:200px}
+    .product-img img{max-height:160px;max-width:100%;object-fit:contain;transition:transform .25s}
+    .product-card:hover .product-img img{transform:scale(1.05)}
+    .product-body{padding:16px 16px 14px;flex:1;display:flex;flex-direction:column}
+    .product-series-tag{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan-deep);margin-bottom:5px}
+    .product-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:7px;line-height:1.3;letter-spacing:-.01em}
+    .product-rating{display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:11.5px;color:var(--muted)}
+    .product-rating .stars-sm{color:var(--gold);letter-spacing:.5px;font-size:11px}
+    .product-rating .rating-count{font-weight:500}
+    .product-desc{font-size:12.5px;color:var(--mid);line-height:1.55;margin-bottom:14px;flex:1}
+    .product-actions{display:flex;flex-direction:column;gap:6px}
+    .btn-buy-shop,.btn-buy-amz{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:700;padding:10px 12px;border-radius:8px;text-decoration:none;transition:all .15s}
+    .btn-buy-shop{background:var(--cyan);color:var(--white)}
+    .btn-buy-shop:hover{background:var(--cyan-dk)}
+    .btn-buy-amz{background:var(--amz);color:#111}
+    .btn-buy-amz:hover{background:var(--amz-dk)}
+    .btn-buy-shop svg,.btn-buy-amz svg{width:14px;height:14px}
+    .bulk-link{text-align:center;font-size:11px;color:var(--muted);padding-top:5px;text-decoration:none;transition:color .15s;font-weight:500}
+    .bulk-link:hover{color:var(--cyan-dk)}
+
+    /* VIDEO */
+    .video-sec{background:var(--navy);padding:88px 40px;color:var(--white);position:relative;overflow:hidden}
+    .video-sec::before{content:'';position:absolute;top:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,188,212,.1),transparent 70%);pointer-events:none}
+    .video-sec .sec-tag{color:#7FE3F0}
+    .video-sec .sec-title{color:var(--white)}
+    .video-layout{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start;margin-top:40px;position:relative;z-index:1}
+    .video-main{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;cursor:pointer;border:1px solid rgba(255,255,255,.08);text-decoration:none;display:block}
+    .video-main img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+    .video-main:hover img{transform:scale(1.03)}
+    .video-main-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,35,72,.1) 0%,rgba(11,35,72,.6) 100%);display:flex;align-items:center;justify-content:center}
+    .play-big{width:78px;height:78px;border-radius:50%;background:var(--cyan);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(0,188,212,.2),0 8px 32px rgba(0,0,0,.4);transition:transform .2s}
+    .video-main:hover .play-big{transform:scale(1.05)}
+    .play-big svg{width:24px;height:24px;fill:white;margin-left:3px}
+    .video-main-info{position:absolute;left:24px;right:24px;bottom:20px}
+    .video-main-info h4{font-family:'DM Serif Display',serif;font-weight:400;font-size:22px;color:var(--white);letter-spacing:-.01em}
+    .video-main-info p{font-size:13px;color:rgba(255,255,255,.7);font-weight:500}
+    .video-side{display:flex;flex-direction:column;gap:12px}
+    .vtile{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08);text-decoration:none;display:flex;align-items:stretch;background:rgba(255,255,255,.03);transition:all .2s;cursor:pointer}
+    .vtile:hover{border-color:rgba(0,188,212,.4);background:rgba(255,255,255,.06)}
+    .vtile-img{position:relative;flex-shrink:0;width:120px;aspect-ratio:16/10;overflow:hidden}
+    .vtile-img img{width:100%;height:100%;object-fit:cover}
+    .vtile-img::after{content:'';position:absolute;inset:0;background:rgba(11,35,72,.35)}
+    .play-sm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;background:rgba(0,188,212,.95);display:flex;align-items:center;justify-content:center;z-index:1}
+    .play-sm svg{width:11px;height:11px;fill:white;margin-left:2px}
+    .vtile-label{padding:12px 14px;flex:1;display:flex;flex-direction:column;justify-content:center}
+    .vtile-title{font-size:13px;font-weight:600;color:rgba(255,255,255,.9);margin-bottom:2px;line-height:1.3}
+    .vtile-sub{font-size:11px;color:rgba(255,255,255,.45)}
+    .yt-cta{margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px;background:#FF0000;color:var(--white);font-size:13.5px;font-weight:700;padding:11px 20px;border-radius:9px;text-decoration:none;transition:background .15s}
+    .yt-cta:hover{background:#cc0000}
+
+    /* BULK GATE */
+    .bulk-section{padding:88px 40px;background:linear-gradient(135deg,var(--navy) 0%,#0F3972 100%);position:relative;overflow:hidden}
+    .bulk-section::before{content:'';position:absolute;bottom:-30%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,188,212,.1),transparent 70%);pointer-events:none}
+    .bulk-inner{max-width:880px;margin:0 auto;text-align:center;position:relative;z-index:1}
+    .bulk-inner .sec-tag{color:#7FE3F0;text-align:center}
+    .bulk-inner .sec-title{color:var(--white);text-align:center;margin-bottom:10px}
+    .bulk-inner .sec-sub{color:rgba(255,255,255,.65);text-align:center;margin-bottom:32px;max-width:540px;margin-left:auto;margin-right:auto}
+    .bulk-wa-cta{display:inline-flex;align-items:center;gap:9px;background:var(--wa);color:var(--white);font-size:14px;font-weight:700;padding:13px 22px;border-radius:10px;text-decoration:none;margin-bottom:36px;transition:all .15s;box-shadow:0 4px 16px rgba(37,211,102,.25)}
+    .bulk-wa-cta:hover{background:var(--wa-dk);transform:translateY(-1px)}
+    .bulk-wa-cta svg{width:16px;height:16px}
+    .qty-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .qty-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;padding:28px 22px;cursor:pointer;transition:all .2s;text-align:center}
+    .qty-card:hover{background:rgba(0,188,212,.08);border-color:rgba(0,188,212,.4);transform:translateY(-2px)}
+    .qty-card.selected{background:rgba(0,188,212,.12);border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan)}
+    .qty-icon{width:48px;height:48px;border-radius:12px;margin:0 auto 14px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:var(--cyan)}
+    .qty-card.selected .qty-icon{background:rgba(0,188,212,.2)}
+    .qty-icon svg{width:22px;height:22px}
+    .qty-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:4px;letter-spacing:-.01em}
+    .qty-sub{font-size:13px;color:rgba(255,255,255,.55)}
+    .qty-redirect{display:none;margin-top:32px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:32px}
+    .qty-redirect.show{display:block}
+    .qty-redirect h4{font-family:'DM Serif Display',serif;font-weight:400;font-size:22px;color:var(--white);margin-bottom:8px}
+    .qty-redirect p{font-size:14px;color:rgba(255,255,255,.65);margin-bottom:24px}
+    .redirect-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .bulk-form-wrap{display:none;margin-top:32px}
+    .bulk-form-wrap.show{display:block}
+    .bulk-form{background:var(--white);border-radius:20px;padding:40px;text-align:left;box-shadow:var(--shadow-lg)}
+    .bulk-form h4{font-family:'DM Serif Display',serif;font-weight:400;font-size:24px;color:var(--text);margin-bottom:6px}
+    .bulk-form .fsub{font-size:13.5px;color:var(--muted);margin-bottom:28px}
+    .frow2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+    .fg label{font-size:12.5px;font-weight:600;color:var(--text)}
+    .fg input,.fg select,.fg textarea{border:1.5px solid rgba(10,37,64,.1);border-radius:9px;padding:12px 14px;font-size:14px;font-family:inherit;color:var(--text);outline:none;transition:all .15s;background:var(--white)}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,188,212,.12)}
+    .fg textarea{resize:vertical;min-height:84px}
+    .form-submit{width:100%;background:var(--cyan);color:var(--white);font-size:15px;font-weight:700;padding:15px;border-radius:10px;border:none;cursor:pointer;font-family:inherit;transition:all .15s;margin-top:6px;box-shadow:0 4px 16px rgba(0,188,212,.25)}
+    .form-submit:hover{background:var(--cyan-dk);transform:translateY(-1px)}
+    .form-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:12px}
+    .form-success{display:none;text-align:center;padding:32px 16px}
+    .form-success.show{display:block}
+    .form-success-icon{width:64px;height:64px;border-radius:50%;background:#DCFCE7;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--green)}
+    .form-success-icon svg{width:32px;height:32px}
+    .form-success h4{font-family:'DM Serif Display',serif;font-weight:400;font-size:22px;color:var(--text);margin-bottom:6px}
+    .form-success p{font-size:14px;color:var(--mid)}
+
+    /* FINAL CTA */
+    .final-cta{background:var(--white);padding:80px 40px;text-align:center}
+    .final-cta-inner{max-width:760px;margin:0 auto}
+    .final-cta h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:clamp(28px,3.5vw,42px);color:var(--text);line-height:1.15;letter-spacing:-.02em;margin-bottom:14px}
+    .final-cta h2 em{font-style:italic;color:var(--cyan-dk);font-weight:400}
+    .final-cta p{font-size:15px;color:var(--mid);line-height:1.65;margin-bottom:32px}
+    .final-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-final-shop,.btn-final-wa{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:700;padding:15px 28px;border-radius:11px;text-decoration:none;transition:all .15s}
+    .btn-final-shop{background:var(--cyan);color:var(--white);box-shadow:0 6px 20px rgba(0,188,212,.3)}
+    .btn-final-shop:hover{background:var(--cyan-dk);transform:translateY(-1px)}
+    .btn-final-wa{background:var(--wa);color:var(--white);box-shadow:0 6px 20px rgba(37,211,102,.3)}
+    .btn-final-wa:hover{background:var(--wa-dk);transform:translateY(-1px)}
+    .btn-final-shop svg,.btn-final-wa svg{width:18px;height:18px}
+
+    /* FOOTER */
+    .footer{background:#081B3A;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px}
+    .footer a img,.footer-logo img{height:22px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.85}
+    .footer-copy{font-size:12px;color:rgba(255,255,255,.4)}
+    .footer-links{display:flex;gap:24px}
+    .footer-links a{font-size:12.5px;color:rgba(255,255,255,.55);text-decoration:none}
+    .footer-links a:hover{color:var(--white)}
+
+    /* MOBILE STICKY CTA */
+    .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--white);border-top:1px solid var(--border);padding:10px 12px env(safe-area-inset-bottom);box-shadow:0 -8px 24px rgba(10,37,64,.1);gap:10px}
+    .sticky-cta a{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;font-size:14px;font-weight:700;padding:14px 8px;border-radius:10px;text-decoration:none}
+    .sticky-cta .sc-wa{background:var(--wa);color:var(--white)}
+    .sticky-cta .sc-shop{background:var(--cyan);color:var(--white)}
+    .sticky-cta svg{width:15px;height:15px}
+
+    /* PRODUCT MODAL */
+    .modal-bd{position:fixed;inset:0;background:rgba(10,37,64,.65);backdrop-filter:blur(6px);z-index:400;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .2s}
+    .modal-bd.show{display:flex;opacity:1}
+    .modal-bx{background:var(--white);border-radius:20px;max-width:720px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg);position:relative;transform:translateY(20px);transition:transform .25s}
+    .modal-bd.show .modal-bx{transform:translateY(0)}
+    .modal-cl{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:var(--off-white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--mid);transition:all .15s;z-index:2;padding:0}
+    .modal-cl:hover{background:var(--text);color:var(--white);border-color:var(--text)}
+    .modal-cl svg{width:16px;height:16px;stroke-width:2.5}
+    .modal-gr{display:grid;grid-template-columns:1fr 1fr;gap:0}
+    .modal-im{background:var(--light);padding:36px;display:flex;align-items:center;justify-content:center;min-height:300px;border-radius:20px 0 0 20px}
+    .modal-im img{max-height:240px;max-width:100%;object-fit:contain}
+    .modal-co{padding:36px 32px 32px}
+    .modal-sr{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan-deep);margin-bottom:6px}
+    .modal-nm{font-family:'DM Serif Display',serif;font-weight:400;font-size:24px;color:var(--text);letter-spacing:-.01em;margin-bottom:8px;line-height:1.2}
+    .modal-rt{display:flex;align-items:center;gap:6px;margin-bottom:14px;font-size:12px;color:var(--muted)}
+    .modal-rt .stars{color:var(--gold);letter-spacing:.5px;font-size:12px}
+    .modal-ds{font-size:14px;color:var(--mid);line-height:1.6;margin-bottom:18px}
+    .modal-sp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}
+    .modal-sp-i{background:var(--off-white);border:1px solid var(--border);border-radius:9px;padding:9px 12px}
+    .modal-sp-l{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;font-weight:600;margin-bottom:3px}
+    .modal-sp-v{font-size:13.5px;font-weight:700;color:var(--text);letter-spacing:-.01em}
+    .modal-ac{display:flex;flex-direction:column;gap:8px}
+    .modal-ac a{display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;padding:13px 18px;border-radius:10px;text-decoration:none;transition:all .15s}
+    .modal-ac .ma-s{background:var(--cyan);color:var(--white);box-shadow:0 4px 14px rgba(0,188,212,.22)}
+    .modal-ac .ma-s:hover{background:var(--cyan-dk);transform:translateY(-1px)}
+    .modal-ac .ma-a{background:var(--amz);color:#111}
+    .modal-ac .ma-a:hover{background:var(--amz-dk);transform:translateY(-1px)}
+    .modal-ac .ma-w{background:var(--wa);color:var(--white)}
+    .modal-ac .ma-w:hover{background:var(--wa-dk)}
+    .modal-ac svg{width:15px;height:15px}
+    .modal-bk{text-align:center;display:block;font-size:12.5px;color:var(--muted);margin-top:12px;text-decoration:none;font-weight:500}
+    .modal-bk:hover{color:var(--cyan-dk)}
+    body.no-scroll{overflow:hidden}
+
+    /* FILTER PILLS */
+    .filter-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+    .filter-pill{background:var(--off-white);border:1.5px solid var(--border);color:var(--mid);font-size:13px;font-weight:600;padding:8px 16px;border-radius:100px;cursor:pointer;transition:all .15s;font-family:inherit;letter-spacing:.1px}
+    .filter-pill:hover{border-color:var(--cyan);color:var(--cyan-dk)}
+    .filter-pill.active{background:var(--navy);border-color:var(--navy);color:var(--white)}
+
+    /* Clickable product cards */
+    .product-card[data-pid],.catalog-card[data-pid],.cat-card[data-pid]{cursor:pointer}
+
+    /* B2B form scroll & overlap fix */
+    .bulk-form input,.bulk-form select,.bulk-form textarea,.bulk-form button{scroll-margin-bottom:140px}
+    .bulk-form-wrap.show{margin-top:48px;margin-bottom:40px}
+    #panel-bulk{scroll-margin-top:24px}
+    .qty-cards{scroll-margin-top:80px}
+    .bulk-section{border-top:3px solid rgba(0,188,212,.4)}
+    body:has(.bulk-form-wrap.show) .sticky-cta,body.form-open .sticky-cta{display:none!important}
+    body:has(.bulk-form-wrap.show),body.form-open{padding-bottom:0!important}
+
+    /* RESPONSIVE */
+    @media(max-width:1100px){
+      .product-grid{grid-template-columns:repeat(3,1fr)}
+      .premium-proof-grid{grid-template-columns:repeat(4,1fr)}
+      .channel-strip-inner{grid-template-columns:repeat(2,1fr)}
+      .channel-item:nth-child(2){border-right:none}
+      .channel-item:nth-child(3),.channel-item:nth-child(4){border-top:1px solid rgba(255,255,255,.06)}
+    }
+    @media(max-width:900px){
+      .top-bar{font-size:11.5px;gap:14px;padding:7px 18px}
+      .top-bar .wa-num{display:none}
+      .nav-center{display:none}
+      .nav{padding:0 18px}
+      .nav-right{gap:6px}
+      .btn-amz-sm,.btn-shop-sm,.btn-wa-sm{padding:8px 12px;font-size:12.5px}
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-visual{height:220px;order:-1}
+      .hero-visual::after{background:linear-gradient(180deg,transparent 0%,transparent 50%,var(--navy) 100%)}
+      .hero-visual img{object-position:center 35%}
+      .hero-content{padding:36px 22px 40px}
+      .hero-cta-group{max-width:none}
+      .premium-proof{padding:48px 20px}
+      .premium-proof-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+      .pp-item{padding:18px}
+      .channel-strip-inner{grid-template-columns:1fr}
+      .channel-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+      .channel-item:last-child{border-bottom:none}
+      .sec{padding:64px 20px}
+      .video-sec{padding:64px 20px}
+      .video-layout{grid-template-columns:1fr}
+      .bulk-section{padding:64px 20px 100px}
+      .final-cta{padding:64px 20px 90px}
+      .product-grid{grid-template-columns:repeat(2,1fr)}
+      .qty-cards{grid-template-columns:1fr}
+      .frow2{grid-template-columns:1fr}
+      .redirect-btns{flex-direction:column}
+      .footer{padding:24px 20px;flex-direction:column;align-items:flex-start}
+      .sticky-cta{display:flex}
+      body{padding-bottom:80px}
+    }
+    @media(max-width:640px){
+      .modal-bd{padding:0;align-items:flex-end}
+      .modal-bx{max-height:92vh;border-radius:20px 20px 0 0}
+      .modal-gr{grid-template-columns:1fr}
+      .modal-im{min-height:200px;padding:24px;border-radius:20px 20px 0 0}
+      .modal-im img{max-height:180px}
+      .modal-co{padding:24px 20px}
+      .modal-nm{font-size:20px}
+      .filter-pills{margin-bottom:20px;gap:6px}
+      .filter-pill{font-size:12px;padding:7px 12px}
+    }
+    @media(max-width:480px){
+      .hero h1{line-height:1.08}
+      .hero-content{padding:28px 16px 36px}
+      .hero-visual{height:200px}
+      .hero-eyebrow{font-size:10px;padding:5px 12px;margin-bottom:18px}
+      .hero-sub{margin-bottom:20px}
+      .hero-cta-group{gap:9px}
+      .cta-primary{padding:13px 14px}
+      .cta-primary .cta-icon{width:34px;height:34px}
+      .cta-primary .cta-label{font-size:14px}
+      .cta-primary .cta-sub-label{font-size:11px}
+      .hero-trust{gap:12px}
+      .premium-proof{padding:40px 16px}
+      .premium-proof-grid{gap:10px}
+      .pp-item{padding:14px;gap:8px}
+      .pp-icon{width:40px;height:40px}
+      .pp-icon svg{width:20px;height:20px}
+      .pp-title{font-size:14px}
+      .pp-desc{font-size:12px}
+      .sec,.video-sec,.bulk-section,.final-cta{padding:48px 16px}
+      .bulk-section{padding-bottom:100px}
+      .final-cta{padding-bottom:90px}
+      .product-grid{gap:12px}
+      .product-img{min-height:160px;padding:18px}
+      .product-img img{max-height:130px}
+      .product-body{padding:14px}
+      .product-name{font-size:14px}
+      .btn-buy-shop,.btn-buy-amz{font-size:12.5px;padding:10px}
+      .qty-card{padding:22px 16px}
+      .bulk-form{padding:24px 18px}
+      .top-bar{font-size:10.5px;gap:8px}
+      .sticky-cta{padding:8px 8px env(safe-area-inset-bottom);gap:7px}
+      .sticky-cta a{padding:13px 6px;font-size:13px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 7h13l5 5v5h-3a3 3 0 11-6 0H9a3 3 0 11-6 0V7z"/></svg> 24 saat içinde kargo</span>
+  <span class="sep">•</span>
+  <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-7 8-13a8 8 0 10-16 0c0 6 8 13 8 13z"/></svg> Türkiye resmî distribütörü</span>
+  <span class="sep">•</span>
+  <a href="https://wa.me/905427280728?text=Merhaba%2C+Qbrick+System+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" rel="noopener"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7.8.3 1.4.5 1.8.6.8.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.9L2 22l5.3-1.3c1.4.8 3.1 1.3 4.7 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg> <span class="wa-num">0 542 728 07 28</span></a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/"><img src="/santek-logo.png" alt="Santek" width="120" height="28" /></a>
+  <div class="nav-center">
+    <a href="#products">Ürünler</a>
+    <a href="#video">Videolar</a>
+    <a href="#bulk">Toplu Alım</a>
+  </div>
+  <div class="nav-right">
+    <a href="https://wa.me/905427280728?text=Merhaba%2C+Qbrick+System+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="btn-wa-sm" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7.8.3 1.4.5 1.8.6.8.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg> WhatsApp</a>
+    <a href="https://www.amazon.com.tr/s?k=Qbrick+System" target="_blank" class="btn-amz-sm" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg> Amazon</a>
+    <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-shop-sm" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Mağaza</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="dot"></span>Türkiye Resmî Distribütörü</div>
+    <h1>Her aletin<br/><em>sistemi</em> var</h1>
+    <p class="hero-sub">İsveç mühendisliği ile tasarlanan modüler alet sistemi. IP66 koruma, 100 kg yükleme, 5 yıl üretici garantisi — mağaza veya Amazon'dan hemen alın.</p>
+
+    <div class="hero-proof">
+      <div class="stars-row">
+        <span class="stars">★★★★★</span>
+        <span class="rating">4.8</span>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-text"><strong>30 yıl</strong> İsveç mühendisliği · Türkiye resmî distribütörü</div>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="https://shop.santekyapi.com.tr" target="_blank" class="cta-primary cta-shop" rel="noopener">
+        <div class="cta-left-side">
+          <div class="cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></div>
+          <div><div class="cta-label">Online Mağazada Satın Al</div><div class="cta-sub-label">shop.santekyapi.com.tr · Stokta</div></div>
+        </div>
+        <span class="cta-arrow">→</span>
+      </a>
+      <a href="https://wa.me/905427280728?text=Merhaba%2C+Qbrick+System+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="cta-primary cta-wa" rel="noopener">
+        <div class="cta-left-side">
+          <div class="cta-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 2.4 1 2.9.8 3.4.8.5-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg></div>
+          <div><div class="cta-label">WhatsApp'tan Bilgi Al</div><div class="cta-sub-label">0 542 728 07 28 · Anında yanıt</div></div>
+        </div>
+        <span class="cta-arrow">→</span>
+      </a>
+      <a href="https://www.amazon.com.tr/s?k=Qbrick+System" target="_blank" class="cta-primary cta-amazon" rel="noopener">
+        <div class="cta-left-side">
+          <div class="cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg></div>
+          <div><div class="cta-label">Amazon.com.tr</div><div class="cta-sub-label">Prime ücretsiz kargo</div></div>
+        </div>
+        <span class="cta-arrow">→</span>
+      </a>
+      <a href="#bulk" class="cta-primary cta-bulk">
+        <div class="cta-left-side">
+          <div class="cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></div>
+          <div><div class="cta-label">Toplu Alım Teklifi</div><div class="cta-sub-label">6+ adet B2B fiyat</div></div>
+        </div>
+        <span class="cta-arrow">↓</span>
+      </a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>IP66 Korumalı</div>
+      <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>5 Yıl Garanti</div>
+      <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>14 Gün İade</div>
+      <div class="trust-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>24 Saat Kargo</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="https://www.qbricksystem.com/wp-content/uploads/2025/02/Hero-RED-desktop-8.jpg" alt="Qbrick System ONE — profesyonel modüler alet kasası" width="800" height="600" fetchpriority="high" decoding="async" />
+  </div>
+</section>
+
+<!-- PREMIUM PROOF -->
+<section class="premium-proof">
+  <div class="premium-proof-inner">
+    <div class="premium-proof-head">
+      <div class="premium-proof-tag">Kanıtlanmış Dayanıklılık</div>
+      <h2 class="premium-proof-title">Profesyonel saha şartları için tasarlandı</h2>
+    </div>
+    <div class="premium-proof-grid">
+      <div class="pp-item">
+        <div class="pp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/></svg></div>
+        <div>
+          <div class="pp-title">İsveç Mühendisliği</div>
+          <div class="pp-desc">1995'ten beri Qbrick System AB — Avrupa'nın en uzun deneyimli modüler kasa üreticisi.</div>
+        </div>
+      </div>
+      <div class="pp-item">
+        <div class="pp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2.5c-3.5 4-7 8-7 12 0 4 3 7 7 7s7-3 7-7c0-4-3.5-8-7-12z"/></svg></div>
+        <div>
+          <div class="pp-title">IP66 Sertifikalı</div>
+          <div class="pp-desc">Yağmur, toz, çamur, basınçlı su sıçraması — saha şartlarında bağımsız test edildi.</div>
+        </div>
+      </div>
+      <div class="pp-item">
+        <div class="pp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 4h12l1 4H5l1-4z"/><path d="M5 8h14v12H5z"/><path d="M9 12h6M9 16h6"/></svg></div>
+        <div>
+          <div class="pp-title">100 kg Yükleme</div>
+          <div class="pp-desc">ONE serisi kasalar 100 kg'a kadar yükleme kapasitesi taşır — profesyonel saha testi.</div>
+        </div>
+      </div>
+      <div class="pp-item">
+        <div class="pp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+        <div>
+          <div class="pp-title">PP + Metal Aksamlar</div>
+          <div class="pp-desc">Plastik değil — endüstriyel polipropilen gövde, metal akslar, çelik kilitler.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<div class="channel-strip">
+  <div class="channel-strip-inner">
+    <a href="https://shop.santekyapi.com.tr" target="_blank" class="channel-item" rel="noopener">
+      <div class="ch-icon shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></div>
+      <div>
+        <div class="ch-label">Online Mağaza</div>
+        <div class="ch-title">shop.santekyapi.com.tr</div>
+        <div class="ch-desc">Tüm ürünler stokta · Güvenli ödeme</div>
+      </div>
+    </a>
+    <a href="https://www.amazon.com.tr/s?k=Qbrick+System" target="_blank" class="channel-item" rel="noopener">
+      <div class="ch-icon amz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg></div>
+      <div>
+        <div class="ch-label">Amazon.com.tr</div>
+        <div class="ch-title">Qbrick System</div>
+        <div class="ch-desc">Prime üyelerine ücretsiz kargo</div>
+      </div>
+    </a>
+    <a href="https://wa.me/905427280728?text=Merhaba%2C+Qbrick+System+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="channel-item" rel="noopener">
+      <div class="ch-icon wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 2.4 1 2.9.8 3.4.8.5-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg></div>
+      <div>
+        <div class="ch-label">WhatsApp Destek</div>
+        <div class="ch-title">0 542 728 07 28</div>
+        <div class="ch-desc">Sorularınızı anında yanıtlıyoruz</div>
+      </div>
+    </a>
+    <a href="#bulk" class="channel-item">
+      <div class="ch-icon bulk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></div>
+      <div>
+        <div class="ch-label">Toplu Alım</div>
+        <div class="ch-title">6+ Adet Özel Fiyat</div>
+        <div class="ch-desc">B2B fiyatlandırma · 24 saat yanıt</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="sec light" id="products">
+  <div class="container">
+    <div class="series-header">
+      <div>
+        <div class="sec-tag">Ürün Serileri</div>
+        <h2 class="sec-title">4 seri, sınırsız konfigürasyon</h2>
+      </div>
+      <p class="sec-sub" style="max-width:380px;">ONE, TWO, PRO ve PRIME — birbirleriyle tam uyumlu. İstediğiniz seriden başlayın, genişletin.</p>
+    </div>
+    <div class="filter-pills">
+      <button class="filter-pill active" data-s="all" onclick="filterProducts('all')">Tümü</button>
+      <button class="filter-pill" data-s="one" onclick="filterProducts('one')">ONE 2.0</button>
+      <button class="filter-pill" data-s="two" onclick="filterProducts('two')">TWO</button>
+      <button class="filter-pill" data-s="pro" onclick="filterProducts('pro')">PRO 2.0</button>
+      <button class="filter-pill" data-s="prime" onclick="filterProducts('prime')">PRIME</button>
+    </div>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-badge hot">Çok Tercih Edilen</div>
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_450_2.0_Profi_FRONT-300x300.png" alt="ONE 450 2.0 Profi" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">ONE 2.0 · Amiral</div>
+          <div class="product-name">ONE 450 2.0 Profi</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.8</span></div>
+          <div class="product-desc">IP66, 100 kg kapasite. Profesyonel kullanıma özel en güçlü çözüm.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+ONE+450" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/09/ONE_Cart_2.0_FRONT-1-300x300.png" alt="ONE Cart 2.0" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">ONE 2.0</div>
+          <div class="product-name">ONE Cart 2.0</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.8</span></div>
+          <div class="product-desc">Tüm ONE serisi kasalarla uyumlu platform arabası. Metal akslar, kilitli tekerlekler.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+Cart" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/09/ONE_Drawer_3_Toolbox_2.0_FRONT-300x300.png" alt="ONE Drawer 3 Toolbox" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">ONE 2.0</div>
+          <div class="product-name">ONE Drawer 3 Toolbox</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.8</span></div>
+          <div class="product-desc">3 çekmeceli sistem. El aletlerinizi kategorilere göre düzenleyin.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+Drawer" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge new">En Yeni</div>
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/09/PRIME_Cart-FRONT-1.png" alt="PRIME Cart" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">PRIME · 2022</div>
+          <div class="product-name">PRIME Cart</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.8</span></div>
+          <div class="product-desc">9" lastik tekerlekler, teleskopik sap, IP66. 2022'nin amiral gemisi.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+PRIME" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/TWO_Cart_Vario-FRONT.png" alt="TWO Cart Plus Vario" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">TWO</div>
+          <div class="product-name">TWO Cart Plus Vario</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.7</span></div>
+          <div class="product-desc">DIY'dan profesyonele. Kompakt, çok işlevli, ONE serisi ile uyumlu.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+TWO" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-badge top">Kompakt</div>
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/PRO_Cart_2.0_Plus-FRONT.png" alt="PRO Cart 2.0 Plus" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">PRO 2.0</div>
+          <div class="product-name">PRO Cart 2.0 Plus</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.8</span></div>
+          <div class="product-desc">En kompakt boyut. Dar ve ulaşılması güç alanlarda çalışanlar için.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+PRO" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_Transport_Platform_2.0_Allterrain_FRONT-300x300.png" alt="ONE All-Terrain Platform" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">ONE 2.0</div>
+          <div class="product-name">ONE All-Terrain Platform</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.8</span></div>
+          <div class="product-desc">Büyük arazi tekerlekleri, her zemin için. Dış mekan ve inşaat için.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_Organizer_XL_2.0_FRONT-300x300.png" alt="ONE Organizer XL 2.0" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">ONE 2.0</div>
+          <div class="product-name">ONE Organizer XL 2.0</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.7</span></div>
+          <div class="product-desc">Küçük parçalar, vidalar ve aksesuarlar için. Bölmeli yapı, şeffaf kapak.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+Organizer" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/TWO_Cart_Vario-FRONT.png" alt="TWO Cart Plus" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">TWO</div>
+          <div class="product-name">TWO Cart Plus</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.7</span></div>
+          <div class="product-desc">TWO serisinin güçlendirilmiş versiyonu. Profesyonel kullanım için ek aksesuar yuvaları.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+TWO+Cart+Plus" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/PRO_Cart_2.0_Plus-FRONT.png" alt="PRO 700 Vario" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">PRO 2.0</div>
+          <div class="product-name">PRO 700 2.0 Vario</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.7</span></div>
+          <div class="product-desc">PRO serisinin en büyük boyu. Çok yönlü iç düzen, profesyonel saha için.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+PRO+700" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/09/PRIME_Cart-FRONT-1.png" alt="PRIME Toolbox" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">PRIME · 2022</div>
+          <div class="product-name">PRIME Toolbox</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.8</span></div>
+          <div class="product-desc">PRIME serisinin standalone kasası. Yeni nesil tasarım, IP66 koruma.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+PRIME+Toolbox" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-stock"><span class="stock-dot"></span>Stokta</div>
+        <div class="product-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/PRO_Cart_2.0_Plus-FRONT.png" alt="PRO 500 Vario" loading="lazy" decoding="async" /></div>
+        <div class="product-body">
+          <div class="product-series-tag">PRO 2.0</div>
+          <div class="product-name">PRO 500 2.0 Vario</div>
+          <div class="product-rating"><span class="stars-sm">★★★★★</span> <span>4.7</span></div>
+          <div class="product-desc">Orta boy PRO serisi kasa. Kompakt iç düzen, dar alanlar için ideal.</div>
+          <div class="product-actions">
+            <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-buy-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg> Mağazadan Al</a>
+            <a href="https://www.amazon.com.tr/s?k=Qbrick+System+PRO+500" target="_blank" class="btn-buy-amz" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg> Amazon'da Bul</a>
+            <a href="#bulk" class="bulk-link">10+ adet için toplu fiyat →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://shop.santekyapi.com.tr" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:var(--white);font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none" rel="noopener">200+ Ürünün Tamamını Mağazada Gör →</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-sec" id="video">
+  <div class="container">
+    <div class="sec-tag">Videolar</div>
+    <h2 class="sec-title" style="color:var(--white)">Qbrick'i aksiyonda izleyin</h2>
+    <div class="video-layout">
+      <a class="video-main" href="https://www.youtube.com/@QbrickSystem" target="_blank" rel="noopener">
+        <img src="https://www.qbricksystem.com/wp-content/uploads/2025/02/Hero-RED-desktop-8.jpg" alt="Qbrick System tanıtım videosu" loading="lazy" decoding="async" />
+        <div class="video-main-overlay">
+          <div class="play-big"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+        </div>
+        <div class="video-main-info">
+          <h4>ONE RED ULTRA HD — Resmi Tanıtım</h4>
+          <p>YouTube'da izlemek için tıklayın · @QbrickSystem</p>
+        </div>
+      </a>
+      <div class="video-side">
+        <a class="vtile" href="https://www.youtube.com/@QbrickSystem" target="_blank" rel="noopener">
+          <div class="vtile-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2025/02/Hero-BLK-desktop-8.jpg" alt="" loading="lazy" decoding="async" /><div class="play-sm"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+          <div class="vtile-label"><div class="vtile-title">BLACK Koleksiyon</div><div class="vtile-sub">Yeni seri tanıtımı</div></div>
+        </a>
+        <a class="vtile" href="https://www.youtube.com/@QbrickSystem" target="_blank" rel="noopener">
+          <div class="vtile-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/08/STUDIO.png" alt="" loading="lazy" decoding="async" /><div class="play-sm"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+          <div class="vtile-label"><div class="vtile-title">Qbrick Studio</div><div class="vtile-sub">3D konfigüratör rehberi</div></div>
+        </a>
+        <a class="vtile" href="https://www.youtube.com/@QbrickSystem" target="_blank" rel="noopener">
+          <div class="vtile-img"><img src="https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_450_2.0_Profi_FRONT-300x300.png" alt="" loading="lazy" decoding="async" /><div class="play-sm"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+          <div class="vtile-label"><div class="vtile-title">ONE 2.0 İncelemesi</div><div class="vtile-sub">Detaylı ürün tanıtımı</div></div>
+        </a>
+        <a href="https://www.youtube.com/@QbrickSystem" target="_blank" class="yt-cta" rel="noopener">
+          <svg width="18" height="13" viewBox="0 0 18 13" fill="white"><path d="M17.6 2C17.4 1.3 16.9.7 16.1.5 14.7.2 9 .2 9 .2S3.3.2 1.9.5C1.1.7.6 1.3.4 2 0 3.4 0 6.3 0 6.3s0 2.9.4 4.3c.2.7.7 1.3 1.5 1.5C3.3 12.4 9 12.4 9 12.4s5.7 0 7.1-.3c.8-.2 1.3-.8 1.5-1.5.4-1.4.4-4.3.4-4.3s0-2.9-.4-4.3zM7.2 9V3.6l4.8 2.7L7.2 9z"/></svg>
+          YouTube Kanalına Git
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BULK GATE -->
+<section class="bulk-section" id="bulk">
+  <div class="bulk-inner">
+    <div class="sec-tag">Toplu Alım</div>
+    <h2 class="sec-title">Çoklu mu alıyorsunuz?</h2>
+    <p class="sec-sub">En uygun satın alma yolunu birlikte bulalım. 6 adetten itibaren özel B2B fiyatlandırma.</p>
+    <a href="https://wa.me/905427280728?text=Toplu+al%C4%B1m+i%C3%A7in+teklif+istiyorum." target="_blank" class="bulk-wa-cta" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 2.4 1 2.9.8 3.4.8.5-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+      WhatsApp'tan Hızlı Teklif Al
+    </a>
+
+    <div class="qty-cards">
+      <div class="qty-card" onclick="selectQty('single', this)">
+        <div class="qty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6L4 2H2"/></svg></div>
+        <div class="qty-title">1–5 Adet</div>
+        <div class="qty-sub">Bireysel veya küçük alım</div>
+      </div>
+      <div class="qty-card" onclick="selectQty('mid', this)">
+        <div class="qty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+        <div class="qty-title">6–20 Adet</div>
+        <div class="qty-sub">Takım veya küçük işletme</div>
+      </div>
+      <div class="qty-card" onclick="selectQty('bulk', this)">
+        <div class="qty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V7a1 1 0 011-1h6v15M10 21h11V11a1 1 0 00-1-1h-3"/></svg></div>
+        <div class="qty-title">21+ Adet</div>
+        <div class="qty-sub">Kurumsal / fabrika</div>
+      </div>
+    </div>
+
+    <div class="qty-redirect" id="panel-single">
+      <h4>Hemen satın alabilirsiniz!</h4>
+      <p>1–5 adet için online mağazamız veya Amazon.com.tr'den kolayca sipariş verebilirsiniz.</p>
+      <div class="redirect-btns">
+        <a href="https://shop.santekyapi.com.tr" target="_blank" class="cta-primary cta-shop" style="flex:1;max-width:280px" rel="noopener">
+          <div class="cta-left-side"><div class="cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/></svg></div><div><div class="cta-label">Online Mağaza</div><div class="cta-sub-label">shop.santekyapi.com.tr</div></div></div>
+          <span class="cta-arrow">→</span>
+        </a>
+        <a href="https://www.amazon.com.tr/s?k=Qbrick+System" target="_blank" class="cta-primary cta-amazon" style="flex:1;max-width:280px" rel="noopener">
+          <div class="cta-left-side"><div class="cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5"/></svg></div><div><div class="cta-label">Amazon.com.tr</div><div class="cta-sub-label">Prime kargo</div></div></div>
+          <span class="cta-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="bulk-form-wrap" id="panel-bulk">
+      <div class="bulk-form">
+        <h4>Toplu Alım Teklif Formu</h4>
+        <div class="fsub">Bilgilerinizi bırakın, 24 saat içinde fiyat teklifimizi iletiyoruz.</div>
+        <div id="form-fields">
+          <div class="frow2">
+            <div class="fg"><label>Ad</label><input type="text" id="f-ad" placeholder="Ahmet" /></div>
+            <div class="fg"><label>Soyad</label><input type="text" id="f-soyad" placeholder="Yılmaz" /></div>
+          </div>
+          <div class="fg"><label>Şirket / İşletme</label><input type="text" id="f-sirket" placeholder="ABC Sanayi Ltd." /></div>
+          <div class="frow2">
+            <div class="fg"><label>E-posta *</label><input type="email" id="f-eposta" placeholder="info@sirket.com" /></div>
+            <div class="fg"><label>Telefon</label><input type="tel" id="f-tel" placeholder="0532 XXX XX XX" /></div>
+          </div>
+          <div class="fg">
+            <label>İlgilendiğiniz seri</label>
+            <select id="f-konu">
+              <option value="">Seri seçin</option>
+              <option>ONE 2.0</option><option>TWO</option><option>PRO 2.0</option>
+              <option>PRIME</option><option>Birden fazla seri</option>
+            </select>
+          </div>
+          <div class="fg"><label>Notunuz (opsiyonel)</label><textarea id="f-mesaj" placeholder="Ürün detayı, adet, teslimat süresi vb..."></textarea></div>
+          <button class="form-submit" onclick="submitBulk()">Toplu Alım Teklifi İste →</button>
+          <div class="form-note">🔒 KVKK uyumlu · 24 saat içinde dönüş garantisi</div>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>Talebiniz alındı!</h4>
+          <p>24 saat içinde ekibimiz size dönecek.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Aletlerinizi taşımak, düzenlemek ve <em>korumak</em> için sistemli bir çözüme geçin.</h2>
+    <p>Türkiye stoğundan 24 saatte kargo · 5 yıl garanti · Resmî distribütör güvencesi</p>
+    <div class="final-cta-btns">
+      <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-final-shop" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+        Ürünleri İncele
+      </a>
+      <a href="https://wa.me/905427280728?text=Merhaba%2C+Qbrick+System+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="btn-final-wa" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 2.4 1 2.9.8 3.4.8.5-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+        WhatsApp'tan Bilgi Al
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <a href="/"><img src="/santek-logo.png" alt="Santek" loading="lazy" decoding="async" /></a>
+  <div class="footer-links">
+    <a href="https://shop.santekyapi.com.tr" target="_blank" rel="noopener">Mağaza</a>
+    <a href="https://www.amazon.com.tr/s?k=Qbrick+System" target="_blank" rel="noopener">Amazon</a>
+    <a href="https://wa.me/905427280728" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://www.qbricksystem.com" target="_blank" rel="noopener">Qbrick Global</a>
+  </div>
+  <span class="footer-copy">© 2025 Santek — Qbrick System TR Resmi Distribütörü</span>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-bd" id="mb" onclick="if(event.target===this)closeProduct()">
+  <div class="modal-bx">
+    <button class="modal-cl" onclick="closeProduct()" aria-label="Kapat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="modal-gr">
+      <div class="modal-im"><img id="mim" src="" alt="" /></div>
+      <div class="modal-co">
+        <div class="modal-sr" id="msr"></div>
+        <h3 class="modal-nm" id="mnm"></h3>
+        <div class="modal-rt"><span class="stars">★★★★★</span> <span id="mrt">4.8</span> · doğrulanmış değerlendirmeler</div>
+        <p class="modal-ds" id="mds"></p>
+        <div class="modal-sp" id="msp"></div>
+        <div class="modal-ac">
+          <a id="mls" href="#" target="_blank" rel="noopener" class="ma-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Mağazada Ara</a>
+          <a id="mla" href="#" target="_blank" rel="noopener" class="ma-a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg> Amazon'da Bul</a>
+          <a id="mlw" href="#" target="_blank" rel="noopener" class="ma-w"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 2.4 1 2.9.8 3.4.8.5-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg> WhatsApp'tan Sor</a>
+        </div>
+        <a href="#bulk" class="modal-bk" onclick="closeProduct()">10+ adet için toplu fiyat teklifi →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MOBILE STICKY CTA -->
+<div class="sticky-cta">
+  <a href="https://wa.me/905427280728?text=Merhaba%2C+Qbrick+System+hakk%C4%B1nda+bilgi+almak+istiyorum." target="_blank" class="sc-wa" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2.2 3.4 5.3 4.7 2.4 1 2.9.8 3.4.8.5-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg> WhatsApp</a>
+  <a href="https://shop.santekyapi.com.tr" target="_blank" class="sc-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Ürünleri İncele</a>
+</div>
+
+<script>
+const API = 'https://santekyapi-forms-api.mahir550.workers.dev';
+const WA_BASE = 'https://wa.me/905427280728';
+const SHOP_BASE = 'https://shop.santekyapi.com.tr/arama/?';
+const AMZ_BASE = 'https://www.amazon.com.tr/s?k=';
+
+const PRODUCTS = {
+  'one-450-profi':{s:'ONE 2.0 · Amiral',ss:'one',n:'ONE 450 2.0 Profi',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_450_2.0_Profi_FRONT-300x300.png',d:'Profesyonel kullanıma özel en güçlü çözüm. 100 kg yükleme kapasitesi, IP66 su ve toz koruması, M8 montaj yuvaları, geri dönüşümlü PP gövde.',r:'4.8',sp:[{l:'Koruma',v:'IP66'},{l:'Kapasite',v:'100 kg'},{l:'Malzeme',v:'PP + Metal'},{l:'Aksesuar',v:'M8 yuvalar'}],aq:'Qbrick+ONE+450+Profi',sq:'ONE+450+Profi'},
+  'one-350-vario':{s:'ONE 2.0',ss:'one',n:'ONE 350 2.0 Vario',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_350_2.0_Vario_FRONT-300x300.png',d:'Orta boy modüler kasa. ONE serisi ile tam uyumlu, çekmece ve organizer eklemeye uygun, taşıma için ideal.',r:'4.8',sp:[{l:'Koruma',v:'IP66'},{l:'Kapasite',v:'40 kg'},{l:'Malzeme',v:'PP'},{l:'Uyumluluk',v:'ONE Cart'}],aq:'Qbrick+ONE+350+Vario',sq:'ONE+350+Vario'},
+  'one-350-technik':{s:'ONE 2.0',ss:'one',n:'ONE 350 2.0 Technik',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_350_2.0_Technik_FRONT-300x300.png',d:'Teknik aletler için tasarlanmış orta boy kasa. Şeffaf polikarbonat kapak, içerik bir bakışta görünür.',r:'4.8',sp:[{l:'Kapak',v:'PC şeffaf'},{l:'Koruma',v:'IP66'},{l:'Boyut',v:'350'},{l:'Uyumluluk',v:'ONE serisi'}],aq:'Qbrick+ONE+350+Technik',sq:'ONE+350+Technik'},
+  'one-200-vario':{s:'ONE 2.0',ss:'one',n:'ONE 200 2.0 Vario',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_200_2.0_Vario_FRONT-300x300.png',d:'Küçük boy modüler kasa. Hafif yük için ideal, sistemin en üstüne yerleşir, taşıması kolay.',r:'4.7',sp:[{l:'Boyut',v:'200'},{l:'Koruma',v:'IP66'},{l:'Malzeme',v:'PP'},{l:'Uyumluluk',v:'ONE Cart'}],aq:'Qbrick+ONE+200+Vario',sq:'ONE+200+Vario'},
+  'one-cart':{s:'ONE 2.0',ss:'one',n:'ONE Cart 2.0',i:'https://www.qbricksystem.com/wp-content/uploads/2024/09/ONE_Cart_2.0_FRONT-1-300x300.png',d:'Tüm ONE serisi kasalarla uyumlu platform arabası. Metal akslar, kilitlenen tekerlekler, teleskopik sap.',r:'4.8',sp:[{l:'Tekerlek',v:'Kilitli'},{l:'Aks',v:'Metal'},{l:'Sap',v:'Teleskopik'},{l:'Taşıma',v:'100 kg'}],aq:'Qbrick+ONE+Cart+2.0',sq:'ONE+Cart+2.0'},
+  'one-drawer-3':{s:'ONE 2.0',ss:'one',n:'ONE Drawer 3 Toolbox 2.0',i:'https://www.qbricksystem.com/wp-content/uploads/2024/09/ONE_Drawer_3_Toolbox_2.0_FRONT-300x300.png',d:'3 çekmeceli sistem. El aletlerinizi kategorilere göre düzenleyin, metal raylar üzerinde sessiz açma-kapama.',r:'4.7',sp:[{l:'Çekmece',v:'3 adet'},{l:'Ray',v:'Metal'},{l:'Koruma',v:'IP66'},{l:'Kapasite',v:'25 kg'}],aq:'Qbrick+ONE+Drawer+3',sq:'ONE+Drawer+3+Toolbox'},
+  'one-drawer-2':{s:'ONE 2.0',ss:'one',n:'ONE Drawer 2 Toolbox 2.0',i:'https://www.qbricksystem.com/wp-content/uploads/2024/09/ONE_Drawer_2_Toolbox_2.0_FRONT-300x300.png',d:'2 çekmeceli toolbox. Daha az parça için kompakt çözüm, ONE serisi ile birleştirilebilir.',r:'4.7',sp:[{l:'Çekmece',v:'2 adet'},{l:'Ray',v:'Metal'},{l:'Koruma',v:'IP66'},{l:'Uyumluluk',v:'ONE serisi'}],aq:'Qbrick+ONE+Drawer+2',sq:'ONE+Drawer+2+Toolbox'},
+  'one-allterrain':{s:'ONE 2.0',ss:'one',n:'ONE All-Terrain Platform',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_Transport_Platform_2.0_Allterrain_FRONT-300x300.png',d:'Büyük arazi tekerlekleri, her zemin için. Dış mekan, inşaat sahası, kaba zemin — şişme lastik tekerlek.',r:'4.8',sp:[{l:'Tekerlek',v:'Şişme arazi'},{l:'Aks',v:'Metal'},{l:'Yükleme',v:'100 kg'},{l:'Kullanım',v:'Dış mekan'}],aq:'Qbrick+ONE+Allterrain+Platform',sq:'ONE+Allterrain+Platform'},
+  'one-organizer-xl':{s:'ONE 2.0',ss:'one',n:'ONE Organizer XL 2.0',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_Organizer_XL_2.0_FRONT-300x300.png',d:'Küçük parçalar, vidalar ve aksesuarlar için. Bölmeli yapı, şeffaf kapak, çıkarılabilir kutular.',r:'4.6',sp:[{l:'Bölme',v:'Çoklu'},{l:'Kapak',v:'PC şeffaf'},{l:'Boyut',v:'XL'},{l:'Uyumluluk',v:'ONE serisi'}],aq:'Qbrick+ONE+Organizer+XL',sq:'ONE+Organizer+XL'},
+  'one-organizer-m':{s:'ONE 2.0',ss:'one',n:'ONE Organizer M 2.0',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_Organizer_M_2.0_FRONT-300x300.png',d:'Orta boy organizer. Aksesuar ve küçük parça düzeni için ideal kompakt çözüm.',r:'4.6',sp:[{l:'Bölme',v:'Orta'},{l:'Kapak',v:'PC şeffaf'},{l:'Boyut',v:'M'},{l:'Uyumluluk',v:'ONE serisi'}],aq:'Qbrick+ONE+Organizer+M',sq:'ONE+Organizer+M'},
+  'one-box-plus':{s:'ONE 2.0',ss:'one',n:'ONE Box Plus 2.0',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/ONE_Box_Plus_2.0_FRONT-300x300.png',d:'Klasik kasa formatı, geniş iç hacim. Çeşitli aksesuarlarla özelleştirilebilir, sistem ile uyumlu.',r:'4.7',sp:[{l:'Format',v:'Box'},{l:'Koruma',v:'IP66'},{l:'Hacim',v:'Plus'},{l:'Uyumluluk',v:'ONE serisi'}],aq:'Qbrick+ONE+Box+Plus',sq:'ONE+Box+Plus'},
+  'one-longer':{s:'ONE',ss:'one',n:'ONE Longer Technik',i:'https://www.qbricksystem.com/wp-content/uploads/2025/01/Qbrick_System_ONE_Longer_Technik-300x300.png',d:'Uzun aletler için tasarlanmış özel kasa. PC şeffaf kapak, kanca ve aksesuar montajı için yuvalar.',r:'4.7',sp:[{l:'Boy',v:'Uzun'},{l:'Kapak',v:'PC şeffaf'},{l:'Koruma',v:'IP66'},{l:'Hedef',v:'Uzun aletler'}],aq:'Qbrick+ONE+Longer+Technik',sq:'ONE+Longer+Technik'},
+  'two-cart-vario':{s:'TWO',ss:'two',n:'TWO Cart Plus Vario',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/TWO_Cart_Vario-FRONT.png',d:'DIY ve profesyonel arası ideal. Kompakt, çok işlevli, ONE serisi ile uyumlu, taşınabilir.',r:'4.7',sp:[{l:'Boyut',v:'Kompakt'},{l:'Tekerlek',v:'Metal aks'},{l:'Sap',v:'Teleskopik'},{l:'Uyumluluk',v:'ONE'}],aq:'Qbrick+TWO+Cart+Vario',sq:'TWO+Cart+Plus+Vario'},
+  'two-transport':{s:'TWO',ss:'two',n:'TWO Transport Platform',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/TWO_Transport_Platform-FRONT.png',d:'TWO serisi platform arabası. Hafif kasalar için kompakt taşıma çözümü, çift tekerlekli.',r:'4.5',sp:[{l:'Format',v:'Platform'},{l:'Tekerlek',v:'Metal aks'},{l:'Boyut',v:'Kompakt'},{l:'Uyumluluk',v:'TWO/ONE'}],aq:'Qbrick+TWO+Transport+Platform',sq:'TWO+Transport+Platform'},
+  'pro-cart-plus':{s:'PRO 2.0',ss:'pro',n:'PRO Cart 2.0 Plus',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/PRO_Cart_2.0_Plus-FRONT.png',d:'En kompakt boyut. Dar ve ulaşılması güç alanlarda çalışanlar için ideal mobil çözüm.',r:'4.8',sp:[{l:'Boyut',v:'Ultra kompakt'},{l:'Koruma',v:'IP54/55'},{l:'Tekerlek',v:'Sessiz'},{l:'Uyumluluk',v:'ONE Vario'}],aq:'Qbrick+PRO+Cart+2.0+Plus',sq:'PRO+Cart+2.0+Plus'},
+  'prime-cart':{s:'PRIME · 2022',ss:'prime',n:'PRIME Cart',i:'https://www.qbricksystem.com/wp-content/uploads/2024/09/PRIME_Cart-FRONT-1.png',d:'30 yıllık deneyimin doruk noktası. 9" lastik tekerlekler, teleskopik sap, IP66 koruma, polikarbonat kapak.',r:'4.8',sp:[{l:'Tekerlek',v:'9" lastik'},{l:'Koruma',v:'IP66'},{l:'Sap',v:'Teleskopik'},{l:'Kapak',v:'PC şeffaf'}],aq:'Qbrick+PRIME+Cart',sq:'PRIME+Cart'},
+  'prime-toolbox':{s:'PRIME · 2022',ss:'prime',n:'PRIME Toolbox',i:'https://www.qbricksystem.com/wp-content/uploads/2024/09/PRIME_Cart-FRONT-1.png',d:'PRIME serisinin standalone kasası. Aynı yeni nesil tasarım, IP66 koruma, ergonomik tutamaç.',r:'4.8',sp:[{l:'Format',v:'Standalone'},{l:'Koruma',v:'IP66'},{l:'Kapak',v:'PC şeffaf'},{l:'Uyumluluk',v:'PRIME Cart'}],aq:'Qbrick+PRIME+Toolbox',sq:'PRIME+Toolbox'},
+  'pro-700-vario':{s:'PRO 2.0',ss:'pro',n:'PRO 700 2.0 Vario',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/PRO_Cart_2.0_Plus-FRONT.png',d:'PRO serisinin en büyük boyu. Çok yönlü iç düzen, profesyonel saha için kompakt çözüm.',r:'4.7',sp:[{l:'Boyut',v:'700'},{l:'Koruma',v:'IP55'},{l:'Kapak',v:'PC şeffaf'},{l:'Uyumluluk',v:'PRO Cart'}],aq:'Qbrick+PRO+700+Vario',sq:'PRO+700+Vario'},
+  'pro-500-vario':{s:'PRO 2.0',ss:'pro',n:'PRO 500 2.0 Vario',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/PRO_Cart_2.0_Plus-FRONT.png',d:'Orta boy PRO serisi kasa. Kompakt iç düzen, dar alanlar için ideal.',r:'4.7',sp:[{l:'Boyut',v:'500'},{l:'Koruma',v:'IP55'},{l:'Kapak',v:'PC şeffaf'},{l:'Uyumluluk',v:'PRO Cart'}],aq:'Qbrick+PRO+500+Vario',sq:'PRO+500+Vario'},
+  'pro-toolbox':{s:'PRO 2.0',ss:'pro',n:'PRO Toolbox',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/PRO_Cart_2.0_Plus-FRONT.png',d:'PRO serisi temel toolbox. Hafif yük için kompakt, tüm PRO aksesuarlarıyla uyumlu.',r:'4.6',sp:[{l:'Format',v:'Toolbox'},{l:'Koruma',v:'IP54'},{l:'Boyut',v:'Kompakt'},{l:'Uyumluluk',v:'PRO Cart'}],aq:'Qbrick+PRO+Toolbox',sq:'PRO+Toolbox'},
+  'two-cart-plus':{s:'TWO',ss:'two',n:'TWO Cart Plus',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/TWO_Cart_Vario-FRONT.png',d:'TWO serisinin güçlendirilmiş versiyonu. Daha yüksek yükleme, ek aksesuar yuvaları, profesyonel kullanım.',r:'4.7',sp:[{l:'Boyut',v:'Kompakt+'},{l:'Tekerlek',v:'Metal aks'},{l:'Sap',v:'Teleskopik'},{l:'Uyumluluk',v:'TWO/ONE'}],aq:'Qbrick+TWO+Cart+Plus',sq:'TWO+Cart+Plus'},
+  'two-toolbox':{s:'TWO',ss:'two',n:'TWO Storage Toolbox',i:'https://www.qbricksystem.com/wp-content/uploads/2024/11/TWO_Cart_Vario-FRONT.png',d:'Standalone TWO serisi kasa. Hafif iş için ideal, tekerlekli platformlarla birleştirilebilir.',r:'4.6',sp:[{l:'Format',v:'Toolbox'},{l:'Malzeme',v:'PP'},{l:'Boyut',v:'Kompakt'},{l:'Uyumluluk',v:'TWO Cart'}],aq:'Qbrick+TWO+Storage+Toolbox',sq:'TWO+Storage+Toolbox'},
+};
+
+function getPid(alt) {
+  const t = (alt||'').toLowerCase();
+  if (t.includes('one 450') || t.includes('one_450')) return 'one-450-profi';
+  if (t.includes('350') && t.includes('technik')) return 'one-350-technik';
+  if (t.includes('one 350') || t.includes('one_350')) return 'one-350-vario';
+  if (t.includes('one 200') || t.includes('one_200')) return 'one-200-vario';
+  if (t.includes('longer')) return 'one-longer';
+  if (t.includes('one cart') || t.includes('one_cart')) return 'one-cart';
+  if (t.includes('drawer 3')) return 'one-drawer-3';
+  if (t.includes('drawer 2')) return 'one-drawer-2';
+  if (t.includes('all-terrain') || t.includes('allterrain')) return 'one-allterrain';
+  if (t.includes('organizer xl')) return 'one-organizer-xl';
+  if (t.includes('organizer m')) return 'one-organizer-m';
+  if (t.includes('box plus')) return 'one-box-plus';
+  if (t.includes('two cart plus')) return 'two-cart-plus';
+  if (t.includes('two storage') || t.includes('two toolbox')) return 'two-toolbox';
+  if (t.includes('two cart')) return 'two-cart-vario';
+  if (t.includes('two transport') || t.includes('two_transport')) return 'two-transport';
+  if (t.includes('pro 700')) return 'pro-700-vario';
+  if (t.includes('pro 500')) return 'pro-500-vario';
+  if (t.includes('pro toolbox')) return 'pro-toolbox';
+  if (t.includes('pro cart') || t.includes('pro_cart')) return 'pro-cart-plus';
+  if (t.includes('prime toolbox')) return 'prime-toolbox';
+  if (t.includes('prime')) return 'prime-cart';
+  return null;
+}
+
+function openProduct(pid) {
+  const p = PRODUCTS[pid];
+  if (!p) return;
+  document.getElementById('mim').src = p.i;
+  document.getElementById('mim').alt = p.n;
+  document.getElementById('msr').textContent = p.s;
+  document.getElementById('mnm').textContent = p.n;
+  document.getElementById('mrt').textContent = p.r;
+  document.getElementById('mds').textContent = p.d;
+  document.getElementById('msp').innerHTML = p.sp.map(s => '<div class="modal-sp-i"><div class="modal-sp-l">'+s.l+'</div><div class="modal-sp-v">'+s.v+'</div></div>').join('');
+  document.getElementById('mls').href = SHOP_BASE + p.sq;
+  document.getElementById('mla').href = AMZ_BASE + p.aq;
+  document.getElementById('mlw').href = WA_BASE + '?text=' + encodeURIComponent(p.n + ' hakkında bilgi almak istiyorum.');
+  document.getElementById('mb').classList.add('show');
+  document.body.classList.add('no-scroll');
+}
+
+function closeProduct() {
+  document.getElementById('mb').classList.remove('show');
+  document.body.classList.remove('no-scroll');
+}
+
+function filterProducts(series) {
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p.dataset.s === series));
+  document.querySelectorAll('[data-pid][data-series]').forEach(c => {
+    c.style.display = (series === 'all' || c.dataset.series === series) ? '' : 'none';
+  });
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProduct(); });
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.product-card,.catalog-card,.cat-card,.pcard').forEach(card => {
+    const img = card.querySelector('img');
+    if (!img) return;
+    const nameEl = card.querySelector('.product-name,.catalog-name,.cat-name,.pcard-name');
+    const hint = (img.alt || '') + ' ' + (nameEl?.textContent || '') + ' ' + (img.src || '');
+    const pid = getPid(hint);
+    if (pid && PRODUCTS[pid]) {
+      card.dataset.pid = pid;
+      card.dataset.series = PRODUCTS[pid].ss;
+      card.addEventListener('click', e => {
+        if (!e.target.closest('a,button')) openProduct(pid);
+      });
+      card.querySelectorAll('a').forEach(a => {
+        const h = a.getAttribute('href') || '';
+        if (h === 'https://shop.santekyapi.com.tr' || h.startsWith('https://shop.santekyapi.com.tr/')) {
+          if (!h.includes('arama')) a.href = SHOP_BASE + PRODUCTS[pid].sq;
+        }
+        if (h.includes('amazon.com.tr/s?k=')) {
+          a.href = AMZ_BASE + PRODUCTS[pid].aq;
+        }
+      });
+    }
+  });
+});
+
+function selectQty(type, el) {
+  document.querySelectorAll('.qty-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('panel-single').classList.remove('show');
+  document.getElementById('panel-bulk').classList.remove('show');
+  if (type === 'single') {
+    document.getElementById('panel-single').classList.add('show');
+    document.body.classList.remove('form-open');
+  } else {
+    document.getElementById('panel-bulk').classList.add('show');
+    document.body.classList.add('form-open');
+    setTimeout(()=>document.querySelector('.qty-cards').scrollIntoView({behavior:'smooth',block:'start'}),50);
+  }
+  window._qtyType = type === 'single' ? '1-5' : type === 'mid' ? '6-20' : '21+';
+}
+
+async function submitBulk() {
+  const ad = document.getElementById('f-ad').value.trim();
+  const eposta = document.getElementById('f-eposta').value.trim();
+  if (!ad || !eposta) { alert('Ad ve e-posta zorunludur.'); return; }
+  const btn = document.querySelector('.form-submit');
+  btn.disabled = true; btn.textContent = 'Gönderiliyor...';
+  try {
+    const res = await fetch(API + '/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ad,
+        soyad: document.getElementById('f-soyad').value.trim(),
+        sirket: document.getElementById('f-sirket').value.trim(),
+        eposta,
+        telefon: document.getElementById('f-tel').value.trim(),
+        konu: document.getElementById('f-konu').value,
+        mesaj: document.getElementById('f-mesaj').value.trim(),
+        kaynak: 'lp-qbrick-modular',
+        miktar: window._qtyType || '6+',
+      }),
+    });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById('form-fields').style.display = 'none';
+      document.getElementById('form-success').classList.add('show');
+    } else {
+      alert(data.error || 'Bir hata oluştu.');
+      btn.disabled = false; btn.textContent = 'Toplu Alım Teklifi İste →';
+    }
+  } catch {
+    alert('Bağlantı hatası. Lütfen tekrar deneyin.');
+    btn.disabled = false; btn.textContent = 'Toplu Alım Teklifi İste →';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,3 +1,10 @@
+# Landing pages — clean URLs without .html
+/lp/qbrick-modular   /lp/qbrick-modular.html   200
+/lp/qbrick-cozum     /lp/qbrick-cozum.html     200
+/lp/qbrick-katalog   /lp/qbrick-katalog.html   200
+/lp/qbrick-roi       /lp/qbrick-roi.html       200
+
+# Brand pages (SPA routes)
 /marka/qbrick-system    /index.html   200
 /marka/wolfcraft        /index.html   200
 /marka/temple-tool      /index.html   200
@@ -7,4 +14,6 @@
 /hakkimizda             /index.html   200
 /bayilik                /index.html   200
 /iletisim               /index.html   200
+
+# Default SPA fallback
 /*                      /index.html   200

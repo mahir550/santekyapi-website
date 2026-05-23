@@ -1,16 +1,63 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr-TR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qbrick System — Profesyonel Modüler Alet Sistemi | Santek</title>
   <meta name="description" content="İsveç mühendisliği, IP66 koruma, 100 kg yükleme. Türkiye resmî distribütörü Santek. Mağaza, Amazon veya WhatsApp'tan satın alın." />
+  <link rel="canonical" href="https://www.santekyapi.com.tr/lp/qbrick-modular" />
   <link rel="icon" type="image/png" href="/santek-logo.png" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Santek Yapı" />
+  <meta name="theme-color" content="#0B2348" />
   <meta property="og:title" content="Qbrick System — Profesyonel Modüler Alet Sistemi | Santek" />
   <meta property="og:description" content="İsveç mühendisliği · IP66 · 5 yıl garanti. Türkiye resmî distribütöründen satın alın." />
   <meta property="og:image" content="https://www.qbricksystem.com/wp-content/uploads/2025/02/Hero-RED-desktop-8.jpg" />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.santekyapi.com.tr/lp/qbrick-modular" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:site_name" content="Santek" />
   <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PXS2Q35R');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- dataLayer + ad-context capture (GTM-ready) -->
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  (function(){
+    const p = new URLSearchParams(location.search);
+    const KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','msclkid','wbraid','gbraid'];
+    const fresh = {};
+    KEYS.forEach(k => { const v = p.get(k); if (v) fresh[k] = v; });
+    let stored = {};
+    try { stored = JSON.parse(sessionStorage.getItem('santek_ad_ctx') || '{}'); } catch(e){}
+    const ctx = Object.keys(fresh).length ? fresh : stored;
+    if (Object.keys(fresh).length) { try { sessionStorage.setItem('santek_ad_ctx', JSON.stringify(fresh)); } catch(e){} }
+    window.SANTEK_AD_CTX = ctx;
+    window.dataLayer.push({
+      event: 'lp_view',
+      lp_id: 'qbrick-modular',
+      page_path: location.pathname,
+      referrer: document.referrer || '(direct)',
+      ...ctx
+    });
+  })();
+  </script>
+
+  <!-- Organization schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Santek Yapı","url":"https://www.santekyapi.com.tr","logo":"https://www.santekyapi.com.tr/santek-logo.png","sameAs":["https://shop.santekyapi.com.tr","https://www.amazon.com.tr/s?k=Qbrick+System"],"contactPoint":{"@type":"ContactPoint","telephone":"+90-542-728-07-28","contactType":"sales","areaServed":"TR","availableLanguage":"Turkish"}}
+  </script>
+  <!-- WebPage schema -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Qbrick System — Profesyonel Modüler Alet Sistemi","url":"https://www.santekyapi.com.tr/lp/qbrick-modular","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"Santek","url":"https://www.santekyapi.com.tr"},"about":{"@type":"Brand","name":"Qbrick System"}}
+  </script>
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Anasayfa","item":"https://www.santekyapi.com.tr/"},{"@type":"ListItem","position":2,"name":"Qbrick System","item":"https://www.santekyapi.com.tr/lp/qbrick-modular"}]}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://www.qbricksystem.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
@@ -976,7 +1023,7 @@
 <script>
 const API = 'https://santekyapi-forms-api.mahir550.workers.dev';
 const WA_BASE = 'https://wa.me/905427280728';
-const SHOP_BASE = 'https://shop.santekyapi.com.tr/arama/?';
+const SHOP_BASE = 'https://shop.santekyapi.com.tr/arama/';
 const AMZ_BASE = 'https://www.amazon.com.tr/s?k=';
 
 const PRODUCTS = {
@@ -1063,6 +1110,23 @@ function filterProducts(series) {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProduct(); });
 
 document.addEventListener('DOMContentLoaded', () => {
+  // UTM propagation + outbound click tracking on all <a> tags
+  const adCtx = window.SANTEK_AD_CTX || {};
+  const adQS = new URLSearchParams(adCtx).toString();
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const isShop = href.startsWith('https://shop.santekyapi.com.tr');
+    const isAmz = href.includes('amazon.com.tr');
+    const isWA = href.includes('wa.me/');
+    if ((isShop || isAmz || isWA) && adQS && !href.includes('utm_source=') && !href.includes('gclid=') && !href.includes('fbclid=')) {
+      a.href = href + (href.includes('?') ? '&' : '?') + adQS;
+    }
+    if (isShop || isAmz || isWA) {
+      a.addEventListener('click', () => {
+        window.dataLayer.push({event:'outbound_click',outbound_channel:isShop?'shop':isAmz?'amazon':'whatsapp',outbound_url:a.href,lp_id:'qbrick-modular',...adCtx});
+      });
+    }
+  });
   document.querySelectorAll('.product-card,.catalog-card,.cat-card,.pcard').forEach(card => {
     const img = card.querySelector('img');
     if (!img) return;
@@ -1102,6 +1166,7 @@ function selectQty(type, el) {
     setTimeout(()=>document.querySelector('.qty-cards').scrollIntoView({behavior:'smooth',block:'start'}),50);
   }
   window._qtyType = type === 'single' ? '1-5' : type === 'mid' ? '6-20' : '21+';
+  window.dataLayer.push({event:'qty_selected',qty_tier:window._qtyType,lp_id:'qbrick-modular',...(window.SANTEK_AD_CTX||{})});
 }
 
 async function submitBulk() {
@@ -1124,10 +1189,12 @@ async function submitBulk() {
         mesaj: document.getElementById('f-mesaj').value.trim(),
         kaynak: 'lp-qbrick-modular',
         miktar: window._qtyType || '6+',
+        ...(window.SANTEK_AD_CTX || {}),
       }),
     });
     const data = await res.json();
     if (data.success) {
+      window.dataLayer.push({event:'lead_submit',lp_id:'qbrick-modular',qty_tier:window._qtyType||'6+',...(window.SANTEK_AD_CTX||{})});
       document.getElementById('form-fields').style.display = 'none';
       document.getElementById('form-success').classList.add('show');
     } else {

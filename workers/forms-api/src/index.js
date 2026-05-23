@@ -68,6 +68,9 @@ async function handleContact(body, env, request) {
     ad = '', soyad = '', sirket = '', eposta = '',
     telefon = '', konu = '', mesaj = '',
     kaynak = '', miktar = '',
+    utm_source = '', utm_medium = '', utm_campaign = '',
+    utm_term = '', utm_content = '',
+    gclid = '', fbclid = '',
   } = body;
 
   if (!ad.trim() || !eposta.trim()) {
@@ -84,11 +87,17 @@ async function handleContact(body, env, request) {
 
   await env.DB.prepare(
     `INSERT INTO contact_submissions
-       (ad, soyad, sirket, eposta, telefon, konu, mesaj, kaynak, miktar, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`
+       (ad, soyad, sirket, eposta, telefon, konu, mesaj, kaynak, miktar,
+        utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, fbclid,
+        created_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`
   ).bind(
     ad.trim(), soyad.trim(), sirket.trim(), eposta.trim(),
     telefon.trim(), konu, finalMesaj, kaynak, miktar,
+    String(utm_source).slice(0, 200), String(utm_medium).slice(0, 200),
+    String(utm_campaign).slice(0, 200), String(utm_term).slice(0, 200),
+    String(utm_content).slice(0, 200),
+    String(gclid).slice(0, 500), String(fbclid).slice(0, 500),
   ).run();
 
   return corsResponse(JSON.stringify({ success: true }), 200, request);
@@ -134,6 +143,7 @@ async function handleAdmin(request, url, env) {
     const offset = (page - 1) * limit;
     const search = url.searchParams.get('q') || '';
     const kaynak = url.searchParams.get('kaynak') || '';
+    const status = url.searchParams.get('status') || '';
 
     const conditions = [];
     const baseParams = [];
@@ -146,6 +156,10 @@ async function handleAdmin(request, url, env) {
     if (kaynak) {
       conditions.push('kaynak = ?');
       baseParams.push(kaynak);
+    }
+    if (status) {
+      conditions.push("COALESCE(NULLIF(status,''), 'new') = ?");
+      baseParams.push(status);
     }
 
     const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
@@ -195,6 +209,57 @@ async function handleAdmin(request, url, env) {
     await env.DB.prepare('UPDATE dealership_applications SET status = ? WHERE id = ?')
       .bind(status, parseInt(bayilikMatch[1])).run();
     return jsonResponse({ success: true });
+  }
+
+  // PATCH /api/admin/contact/:id — update status and/or notes
+  const contactMatch = pathname.match(/^\/api\/admin\/contact\/(\d+)$/);
+  if (contactMatch && method === 'PATCH') {
+    let body;
+    try { body = await request.json(); } catch { return jsonResponse({ error: 'Invalid body' }, 400); }
+    const { status, notes } = body;
+    const allowedStatuses = ['new', 'contacted', 'quoted', 'won', 'lost'];
+    const updates = [];
+    const params = [];
+    if (status !== undefined) {
+      if (!allowedStatuses.includes(status)) return jsonResponse({ error: 'Invalid status' }, 400);
+      updates.push('status = ?'); params.push(status);
+    }
+    if (notes !== undefined) {
+      updates.push('notes = ?'); params.push(String(notes).slice(0, 5000));
+    }
+    if (!updates.length) return jsonResponse({ error: 'No fields to update' }, 400);
+    updates.push("updated_at = datetime('now')");
+    params.push(parseInt(contactMatch[1]));
+    await env.DB.prepare(`UPDATE contact_submissions SET ${updates.join(', ')} WHERE id = ?`)
+      .bind(...params).run();
+    return jsonResponse({ success: true });
+  }
+
+  // GET /api/admin/stats — dashboard counts
+  if (pathname === '/api/admin/stats' && method === 'GET') {
+    const [today, week, month, total, bySource, byStatus, last7d, bayilikTotal] = await Promise.all([
+      env.DB.prepare("SELECT COUNT(*) as c FROM contact_submissions WHERE created_at >= datetime('now','-1 day')").first(),
+      env.DB.prepare("SELECT COUNT(*) as c FROM contact_submissions WHERE created_at >= datetime('now','-7 days')").first(),
+      env.DB.prepare("SELECT COUNT(*) as c FROM contact_submissions WHERE created_at >= datetime('now','-30 days')").first(),
+      env.DB.prepare("SELECT COUNT(*) as c FROM contact_submissions").first(),
+      env.DB.prepare(`SELECT COALESCE(NULLIF(kaynak,''), '(direct)') as kaynak, COUNT(*) as c
+                       FROM contact_submissions
+                       GROUP BY kaynak ORDER BY c DESC LIMIT 20`).all(),
+      env.DB.prepare(`SELECT COALESCE(NULLIF(status,''), 'new') as status, COUNT(*) as c
+                       FROM contact_submissions GROUP BY status`).all(),
+      env.DB.prepare(`SELECT date(created_at) as d, COUNT(*) as c
+                       FROM contact_submissions
+                       WHERE created_at >= datetime('now','-7 days')
+                       GROUP BY date(created_at) ORDER BY d`).all(),
+      env.DB.prepare("SELECT COUNT(*) as c FROM dealership_applications").first(),
+    ]);
+    return jsonResponse({
+      contact: { today: today.c, week: week.c, month: month.c, total: total.c },
+      bayilik: { total: bayilikTotal.c },
+      bySource: bySource.results,
+      byStatus: byStatus.results,
+      last7d: last7d.results,
+    });
   }
 
   return jsonResponse({ error: 'Not found' }, 404);

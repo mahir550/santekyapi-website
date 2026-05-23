@@ -90,6 +90,34 @@ html,body{height:100%;font-family:var(--font);background:var(--bg);color:var(--t
 .stat-val{font-size:24px;font-weight:700;color:var(--text);line-height:1}
 .stat-lbl{font-size:11px;color:var(--muted);margin-top:3px}
 
+/* Dashboard */
+.dash-wrap{flex:1;overflow:auto;padding:18px}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.dash-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.dash-val{font-size:32px;font-weight:800;letter-spacing:-.02em;color:var(--text);line-height:1}
+.dash-lbl{font-size:12px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+.dash-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin-bottom:14px}
+.dash-panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.dash-full{grid-column:1/-1}
+.dash-panel-title{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.dash-spark{width:100%;height:120px}
+.dash-spark path{fill:rgba(13,108,222,.08);stroke:#0d6cde;stroke-width:2}
+.dash-spark circle{fill:#0d6cde}
+.dash-status-list{display:flex;flex-direction:column;gap:8px}
+.dash-status-row{display:flex;justify-content:space-between;align-items:center;font-size:13px}
+.dash-status-row .lbl{color:var(--text)}
+.dash-status-row .val{font-weight:700;color:var(--text)}
+.dash-table{width:100%;border-collapse:collapse;font-size:13px}
+.dash-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);font-weight:600;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.dash-table th.num,.dash-table td.num{text-align:right}
+.dash-table td{padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text)}
+.dash-table tbody tr:hover{background:var(--soft)}
+.dash-bar{display:inline-block;height:6px;background:#0d6cde;border-radius:3px;vertical-align:middle;margin-right:8px}
+
+/* Detail textarea (for contact notes) */
+.d-textarea{width:100%;border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-family:inherit;font-size:13px;color:var(--text);background:var(--panel);outline:none;resize:vertical;min-height:80px}
+.d-textarea:focus{border-color:#0d6cde;box-shadow:0 0 0 3px rgba(13,108,222,.12)}
+
 /* Table wrapper */
 .table-wrap{flex:1;overflow:auto}
 .table-wrap::-webkit-scrollbar{width:5px;height:5px}
@@ -202,7 +230,11 @@ tbody td{padding:9px 14px;color:var(--text);vertical-align:middle}
     <!-- Sidebar -->
     <div class="sidebar">
       <span class="nav-group-lbl">Bölümler</span>
-      <button class="nav-btn active" id="nav-contact" onclick="switchSection('contact')">
+      <button class="nav-btn active" id="nav-dashboard" onclick="switchSection('dashboard')">
+        <span class="nav-ico">📊</span>
+        Dashboard
+      </button>
+      <button class="nav-btn" id="nav-contact" onclick="switchSection('contact')">
         <span class="nav-ico">✉️</span>
         İletişim Formları
         <span class="nav-badge" id="badge-contact">—</span>
@@ -220,13 +252,24 @@ tbody td{padding:9px 14px;color:var(--text);vertical-align:middle}
     <div class="main">
 
       <!-- Toolbar -->
-      <div class="toolbar">
+      <div class="toolbar" id="toolbar">
         <div class="toolbar-title" id="toolbarTitle">İletişim Formları</div>
         <div class="toolbar-spacer"></div>
         <div class="search-wrap">
           <span class="ico">🔍</span>
           <input class="search-box" id="searchInput" type="text" placeholder="İsim, e-posta, şirket..." oninput="onSearch()">
         </div>
+        <select class="filter-select" id="kaynakFilter" style="display:none" onchange="onFilter()">
+          <option value="">Tüm Kaynaklar</option>
+        </select>
+        <select class="filter-select" id="contactStatusFilter" style="display:none" onchange="onFilter()">
+          <option value="">Tüm Durumlar</option>
+          <option value="new">🔵 Yeni</option>
+          <option value="contacted">📞 Arandı</option>
+          <option value="quoted">💰 Teklif Verildi</option>
+          <option value="won">✅ Kazanıldı</option>
+          <option value="lost">❌ Kaybedildi</option>
+        </select>
         <select class="filter-select" id="statusFilter" style="display:none" onchange="onFilter()">
           <option value="">Tüm Durumlar</option>
           <option value="new">🔵 Yeni</option>
@@ -254,6 +297,33 @@ tbody td{padding:9px 14px;color:var(--text);vertical-align:middle}
         <div class="stat-card" id="stat-card-rejected" style="display:none">
           <div class="stat-val" id="stat-rejected" style="color:var(--red)">—</div>
           <div class="stat-lbl">Reddedilen</div>
+        </div>
+      </div>
+
+      <!-- Dashboard view -->
+      <div class="dash-wrap" id="dashWrap" style="display:none">
+        <div class="dash-grid">
+          <div class="dash-card"><div class="dash-val" id="dash-today">—</div><div class="dash-lbl">Bugün</div></div>
+          <div class="dash-card"><div class="dash-val" id="dash-week">—</div><div class="dash-lbl">Son 7 Gün</div></div>
+          <div class="dash-card"><div class="dash-val" id="dash-month">—</div><div class="dash-lbl">Son 30 Gün</div></div>
+          <div class="dash-card"><div class="dash-val" id="dash-total">—</div><div class="dash-lbl">Toplam Lead</div></div>
+        </div>
+        <div class="dash-row">
+          <div class="dash-panel">
+            <div class="dash-panel-title">Son 7 Gün Lead Akışı</div>
+            <svg class="dash-spark" id="dash-spark" viewBox="0 0 600 120" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="dash-panel">
+            <div class="dash-panel-title">Durum Dağılımı</div>
+            <div class="dash-status-list" id="dash-status-list"></div>
+          </div>
+        </div>
+        <div class="dash-panel dash-full">
+          <div class="dash-panel-title">Kaynak Dağılımı (Top 20)</div>
+          <table class="dash-table" id="dash-sources">
+            <thead><tr><th>Kaynak</th><th class="num">Lead</th><th class="num">%</th></tr></thead>
+            <tbody></tbody>
+          </table>
         </div>
       </div>
 
@@ -321,7 +391,7 @@ async function verifyToken() {
     sessionStorage.setItem('sat', TOKEN);
     document.getElementById('splash').style.display = 'none';
     document.getElementById('app').style.display = 'flex';
-    switchSection('contact');
+    switchSection('dashboard');
     loadBadges();
   } catch { showErr(); }
 }
@@ -362,15 +432,36 @@ function switchSection(s) {
   PAGE = 1;
   document.getElementById('searchInput').value = '';
   document.getElementById('statusFilter').value = '';
-  document.getElementById('nav-contact').classList.toggle('active', s === 'contact');
-  document.getElementById('nav-bayilik').classList.toggle('active', s === 'bayilik');
+  document.getElementById('contactStatusFilter').value = '';
+  document.getElementById('kaynakFilter').value = '';
+
+  ['dashboard','contact','bayilik'].forEach(k =>
+    document.getElementById('nav-'+k).classList.toggle('active', s === k)
+  );
+
+  const titles = { dashboard:'Dashboard', contact:'İletişim Formları', bayilik:'Bayilik Başvuruları' };
+  document.getElementById('toolbarTitle').textContent = titles[s];
+
+  // Toolbar visibility per section
+  const tb = document.getElementById('toolbar');
+  tb.style.display = s === 'dashboard' ? 'none' : '';
   document.getElementById('statusFilter').style.display = s === 'bayilik' ? '' : 'none';
-  document.getElementById('toolbarTitle').textContent = s === 'contact' ? 'İletişim Formları' : 'Bayilik Başvuruları';
+  document.getElementById('contactStatusFilter').style.display = s === 'contact' ? '' : 'none';
+  document.getElementById('kaynakFilter').style.display = s === 'contact' ? '' : 'none';
+
   // Bayilik stat cards
+  document.querySelector('.stats-row').style.display = s === 'dashboard' ? 'none' : '';
   ['stat-card-new','stat-card-approved','stat-card-rejected'].forEach(id =>
     document.getElementById(id).style.display = s === 'bayilik' ? '' : 'none'
   );
-  loadSection(s);
+
+  // Toggle dashboard / table views
+  document.getElementById('dashWrap').style.display = s === 'dashboard' ? '' : 'none';
+  document.getElementById('tableWrap').style.display = s === 'dashboard' ? 'none' : '';
+  document.getElementById('pagination').style.display = s === 'dashboard' ? 'none' : '';
+
+  if (s === 'dashboard') loadDashboard();
+  else loadSection(s);
 }
 
 function loadCurrent(refresh) {
@@ -389,9 +480,13 @@ async function loadSection(s) {
 
   const q = encodeURIComponent(document.getElementById('searchInput').value.trim());
   const st = document.getElementById('statusFilter').value;
+  const cst = document.getElementById('contactStatusFilter').value;
+  const kynk = encodeURIComponent(document.getElementById('kaynakFilter').value);
   let url = `/api/admin/${s}?page=${PAGE}&limit=50`;
   if (q) url += `&q=${q}`;
   if (s === 'bayilik' && st) url += `&status=${st}`;
+  if (s === 'contact' && cst) url += `&status=${cst}`;
+  if (s === 'contact' && kynk) url += `&kaynak=${kynk}`;
 
   try {
     const r = await api(url);
@@ -442,6 +537,80 @@ async function loadBayilikStats() {
   } catch {}
 }
 
+// ── Dashboard ────────────────────────────────────────────────────────────────
+async function loadDashboard() {
+  document.getElementById('lastTime').textContent = '';
+  try {
+    const r = await api('/api/admin/stats');
+    if (!r.ok) return;
+    const d = await r.json();
+
+    document.getElementById('dash-today').textContent  = d.contact.today.toLocaleString('tr-TR');
+    document.getElementById('dash-week').textContent   = d.contact.week.toLocaleString('tr-TR');
+    document.getElementById('dash-month').textContent  = d.contact.month.toLocaleString('tr-TR');
+    document.getElementById('dash-total').textContent  = d.contact.total.toLocaleString('tr-TR');
+
+    // Sparkline (last 7 days)
+    const series = [];
+    const today = new Date();
+    for (let i = 6; i >= 0; i--) {
+      const dt = new Date(today); dt.setDate(today.getDate() - i);
+      const key = dt.toISOString().slice(0, 10);
+      const hit = (d.last7d || []).find(x => x.d === key);
+      series.push({ d: key, c: hit ? hit.c : 0 });
+    }
+    drawSpark(series);
+
+    // Status breakdown
+    const statusList = document.getElementById('dash-status-list');
+    const statusLabels = {
+      new: '🔵 Yeni', contacted: '📞 Arandı', quoted: '💰 Teklif',
+      won: '✅ Kazanıldı', lost: '❌ Kaybedildi'
+    };
+    const statusOrder = ['new','contacted','quoted','won','lost'];
+    const statusMap = Object.fromEntries((d.byStatus || []).map(x => [x.status, x.c]));
+    statusList.innerHTML = statusOrder.map(k =>
+      `<div class="dash-status-row"><span class="lbl">${statusLabels[k]}</span><span class="val">${(statusMap[k] || 0).toLocaleString('tr-TR')}</span></div>`
+    ).join('');
+
+    // Source breakdown
+    const totalLeads = d.contact.total || 1;
+    const sourceRows = (d.bySource || []).map(s => {
+      const pct = (s.c / totalLeads * 100).toFixed(1);
+      const barW = Math.max(2, Math.min(80, s.c / totalLeads * 80));
+      return `<tr>
+        <td><span class="dash-bar" style="width:${barW}px"></span>${esc(s.kaynak)}</td>
+        <td class="num">${s.c.toLocaleString('tr-TR')}</td>
+        <td class="num">${pct}%</td>
+      </tr>`;
+    }).join('') || '<tr><td colspan="3" style="text-align:center;color:var(--muted);padding:24px">Henüz veri yok</td></tr>';
+    document.querySelector('#dash-sources tbody').innerHTML = sourceRows;
+
+    // Update kaynak filter options
+    const kf = document.getElementById('kaynakFilter');
+    const existing = new Set([...kf.options].map(o => o.value));
+    (d.bySource || []).forEach(s => {
+      if (!existing.has(s.kaynak)) {
+        const opt = document.createElement('option');
+        opt.value = s.kaynak; opt.textContent = s.kaynak;
+        kf.appendChild(opt);
+      }
+    });
+  } catch (e) { console.error(e); }
+}
+
+function drawSpark(series) {
+  const svg = document.getElementById('dash-spark');
+  const W = 600, H = 120, PAD = 8;
+  const max = Math.max(...series.map(s => s.c), 1);
+  const xs = series.map((_, i) => PAD + (W - 2 * PAD) * (i / (series.length - 1 || 1)));
+  const ys = series.map(s => H - PAD - (H - 2 * PAD) * (s.c / max));
+  const path = `M${xs[0]},${H - PAD} L${xs.map((x, i) => `${x},${ys[i]}`).join(' L')} L${xs[xs.length - 1]},${H - PAD} Z`;
+  const linePath = `M${xs.map((x, i) => `${x},${ys[i]}`).join(' L')}`;
+  const dots = xs.map((x, i) => `<circle cx="${x}" cy="${ys[i]}" r="3"/><title>${series[i].d}: ${series[i].c}</title>`).join('');
+  svg.innerHTML = `<path d="${path}"/><path d="${linePath}" fill="none" stroke="#0d6cde" stroke-width="2"/>${dots}`;
+}
+
 // ── Render ───────────────────────────────────────────────────────────────────
 function renderTable(s, rows) {
   const wrap = document.getElementById('tableWrap');
@@ -453,7 +622,7 @@ function renderTable(s, rows) {
   if (s === 'contact') {
     wrap.innerHTML = `<table>
       <thead><tr>
-        <th>#</th><th>Tarih</th><th>Ad Soyad</th><th>E-posta</th><th>Şirket</th><th>Konu</th><th>Mesaj</th>
+        <th>#</th><th>Tarih</th><th>Ad Soyad</th><th>E-posta</th><th>Şirket</th><th>Kaynak</th><th>Durum</th><th>Mesaj</th>
       </tr></thead>
       <tbody>${rows.map(r => `
         <tr onclick="openModal('contact',${r.id})">
@@ -462,7 +631,8 @@ function renderTable(s, rows) {
           <td class="td-name">${esc(r.ad)}${r.soyad ? ' ' + esc(r.soyad) : ''}</td>
           <td class="td-email">${esc(r.eposta)}</td>
           <td>${esc(r.sirket || '—')}</td>
-          <td>${esc(r.konu || '—')}</td>
+          <td>${esc(r.kaynak || '—')}</td>
+          <td>${contactBadge(r.status || 'new')}</td>
           <td class="td-trunc">${esc(r.mesaj)}</td>
         </tr>`).join('')}
       </tbody>
@@ -500,6 +670,18 @@ function badge(s) {
   return `<span class="badge ${cls}">${lbl}</span>`;
 }
 
+function contactBadge(s) {
+  const map = {
+    new:       ['badge-new',      '🔵 Yeni'],
+    contacted: ['badge-reviewing','📞 Arandı'],
+    quoted:    ['badge-reviewing','💰 Teklif'],
+    won:       ['badge-approved', '✅ Kazanıldı'],
+    lost:      ['badge-rejected', '❌ Kaybedildi']
+  };
+  const [cls, lbl] = map[s] || ['badge-new', s];
+  return `<span class="badge ${cls}">${lbl}</span>`;
+}
+
 // ── Modal ────────────────────────────────────────────────────────────────────
 function openModal(s, id) {
   const r = CACHE[s].find(x => x.id === id);
@@ -515,9 +697,24 @@ function openModal(s, id) {
     html += di('Ad',     r.ad);
     html += di('Soyad',  r.soyad  || '—');
     html += di('E-posta', `<a href="mailto:${esc(r.eposta)}">${esc(r.eposta)}</a>`);
+    html += di('Telefon', r.telefon ? `<a href="tel:${esc(r.telefon)}">${esc(r.telefon)}</a>` : '—');
     html += di('Şirket', r.sirket || '—');
-    html += di('Konu',   r.konu   || '—', false);
+    html += di('Konu',   r.konu   || '—');
+    html += di('Kaynak', r.kaynak || '(direct)');
+    html += di('Miktar', r.miktar || '—');
+    html += di('Durum',  contactBadge(r.status || 'new'));
+    if (r.utm_source || r.utm_campaign || r.utm_medium) {
+      html += di('UTM Source',   r.utm_source   || '—');
+      html += di('UTM Medium',   r.utm_medium   || '—');
+      html += di('UTM Campaign', r.utm_campaign || '—');
+      if (r.utm_term)    html += di('UTM Term',    r.utm_term);
+      if (r.utm_content) html += di('UTM Content', r.utm_content);
+    }
+    if (r.gclid) html += di('Google Click ID', `<code style="font-size:11px">${esc(r.gclid)}</code>`, false);
+    if (r.fbclid) html += di('Meta Click ID',  `<code style="font-size:11px">${esc(r.fbclid)}</code>`, false);
+    if (r.updated_at) html += di('Son Güncelleme', fmtDateFull(r.updated_at), false);
     html += `<div class="d-item full"><div class="d-lbl">Mesaj</div><div class="d-msg">${esc(r.mesaj)}</div></div>`;
+    html += `<div class="d-item full"><div class="d-lbl">İç Notlar</div><textarea class="d-textarea" id="contactNotesInput" placeholder="Bu lead hakkında not...">${esc(r.notes || '')}</textarea></div>`;
   } else {
     html += di('Ad',            r.ad);
     html += di('Soyad',         r.soyad  || '—');
@@ -533,8 +730,25 @@ function openModal(s, id) {
 
   document.getElementById('modalBody').innerHTML = html;
   const footer = document.getElementById('modalFooter');
-  footer.style.display = s === 'bayilik' ? '' : 'none';
-  if (s === 'bayilik') document.getElementById('statusSelect').value = r.status || 'new';
+  footer.style.display = '';
+
+  // Swap status options based on section
+  const sel = document.getElementById('statusSelect');
+  if (s === 'bayilik') {
+    sel.innerHTML = `
+      <option value="new">🔵 Yeni</option>
+      <option value="reviewing">🟡 İnceleniyor</option>
+      <option value="approved">🟢 Onaylandı</option>
+      <option value="rejected">🔴 Reddedildi</option>`;
+  } else {
+    sel.innerHTML = `
+      <option value="new">🔵 Yeni</option>
+      <option value="contacted">📞 Arandı</option>
+      <option value="quoted">💰 Teklif Verildi</option>
+      <option value="won">✅ Kazanıldı</option>
+      <option value="lost">❌ Kaybedildi</option>`;
+  }
+  sel.value = r.status || 'new';
 
   document.getElementById('modalBg').classList.add('open');
 }
@@ -553,23 +767,36 @@ function onBgClick(e) {
 }
 
 async function saveStatus() {
-  if (!CURRENT || CURRENT.section !== 'bayilik') return;
+  if (!CURRENT) return;
+  const section = CURRENT.section;
   const newStatus = document.getElementById('statusSelect').value;
-  const r = CACHE.bayilik.find(x => x.id === CURRENT.id);
+  const r = CACHE[section].find(x => x.id === CURRENT.id);
   if (!r) return;
-  if (r.status === newStatus) { closeModal(); return; }
+
+  const payload = { status: newStatus };
+  if (section === 'contact') {
+    const notesEl = document.getElementById('contactNotesInput');
+    if (notesEl) payload.notes = notesEl.value;
+  }
+
+  // Skip request if nothing changed
+  const oldNotes = r.notes || '';
+  const newNotes = (payload.notes != null) ? payload.notes : oldNotes;
+  if ((r.status || 'new') === newStatus && oldNotes === newNotes) { closeModal(); return; }
 
   try {
-    const res = await api(`/api/admin/bayilik/${CURRENT.id}`, {
+    const res = await api(`/api/admin/${section}/${CURRENT.id}`, {
       method: 'PATCH',
-      body: JSON.stringify({ status: newStatus })
+      body: JSON.stringify(payload)
     });
     if (res.ok) {
       r.status = newStatus;
-      renderTable('bayilik', CACHE.bayilik);
-      loadBayilikStats();
+      if (payload.notes != null) r.notes = payload.notes;
+      r.updated_at = new Date().toISOString();
+      renderTable(section, CACHE[section]);
+      if (section === 'bayilik') loadBayilikStats();
       loadBadges();
-      toast('✓ Durum güncellendi');
+      toast('✓ Kaydedildi');
       closeModal();
     } else {
       toast('Hata: Güncelleme başarısız');
@@ -618,8 +845,8 @@ function exportCSV() {
   if (!rows.length) return;
   let headers, cols;
   if (SECTION === 'contact') {
-    headers = ['ID','Tarih','Ad','Soyad','E-posta','Şirket','Konu','Mesaj'];
-    cols = r => [r.id, r.created_at, r.ad, r.soyad, r.eposta, r.sirket, r.konu, r.mesaj];
+    headers = ['ID','Tarih','Ad','Soyad','E-posta','Telefon','Şirket','Konu','Mesaj','Kaynak','Miktar','Durum','Notlar','UTM Source','UTM Medium','UTM Campaign','UTM Term','UTM Content','GCLID','FBCLID','Son Güncelleme'];
+    cols = r => [r.id, r.created_at, r.ad, r.soyad, r.eposta, r.telefon, r.sirket, r.konu, r.mesaj, r.kaynak, r.miktar, r.status, r.notes, r.utm_source, r.utm_medium, r.utm_campaign, r.utm_term, r.utm_content, r.gclid, r.fbclid, r.updated_at];
   } else {
     headers = ['ID','Tarih','Ad','Soyad','Şirket','E-posta','Telefon','Şehir','Faaliyet Alanı','Durum','Mesaj'];
     cols = r => [r.id, r.created_at, r.ad, r.soyad, r.sirket, r.eposta, r.telefon, r.sehir, r.faaliyet_alani, r.status, r.mesaj];

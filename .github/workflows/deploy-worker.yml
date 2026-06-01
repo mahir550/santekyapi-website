@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'workers/**'
+      - '.github/workflows/**'
 
 jobs:
   deploy:
@@ -18,3 +19,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: workers/forms-api
+          secrets: |
+            RESEND_API_KEY
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}

@@ -147,21 +147,6 @@ export default {
       return handleAdmin(request, url, env);
     }
 
-    // GEÇİCİ teşhis endpoint'i — mail gönderim hatasını döndürür
-    if (url.pathname === '/api/email-test' && request.method === 'GET') {
-      const to = url.searchParams.get('to') || LEAD_NOTIFY_TO;
-      try {
-        await sendLeadEmail(env, {
-          ad: 'Teşhis', soyad: 'Testi', eposta: 'test@example.com',
-          telefon: '05327280728', sirket: 'Test A.Ş.', konu: 'ONE 2.0',
-          miktar: '6-20', kaynak: 'email-test', mesaj: 'Cloudflare mail teşhisi',
-        }, to);
-        return jsonResponse({ ok: true, sentTo: to, method: env.RESEND_API_KEY ? 'resend' : (env.SEB ? 'email-routing' : 'none'), hasResend: !!env.RESEND_API_KEY, hasBinding: !!env.SEB });
-      } catch (e) {
-        return jsonResponse({ ok: false, sentTo: to, method: env.RESEND_API_KEY ? 'resend' : (env.SEB ? 'email-routing' : 'none'), hasResend: !!env.RESEND_API_KEY, hasBinding: !!env.SEB, error: String(e && e.message || e), stack: String(e && e.stack || '').slice(0, 600) });
-      }
-    }
-
     if (request.method !== 'POST') {
       return corsResponse(JSON.stringify({ error: 'Method not allowed' }), 405, request);
     }

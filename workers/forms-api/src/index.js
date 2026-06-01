@@ -8,7 +8,9 @@ const ALLOWED_ORIGINS = [
 ];
 
 // Lead bildirimi alıcısı (ekip)
-const LEAD_NOTIFY_TO = 'mahir@santekyapi.com.tr';
+const LEAD_NOTIFY_TO = 'dijitalsatis@santekyapi.com.tr';
+// Gizli kopya (BCC)
+const LEAD_NOTIFY_BCC = 'santek@mert.fyi';
 // Resend gönderici — doğrulanmış subdomain üzerinden (mail.santekyapi.com.tr)
 const RESEND_FROM = 'Santek Bildirim <bildirim@mail.santekyapi.com.tr>';
 // Email Routing fallback göndericisi (Resend yokken)
@@ -76,6 +78,7 @@ async function sendLeadEmail(env, lead, toOverride) {
       body: JSON.stringify({
         from: RESEND_FROM,
         to: [TO],
+        ...(LEAD_NOTIFY_BCC ? { bcc: [LEAD_NOTIFY_BCC] } : {}),
         ...(lead.eposta ? { reply_to: lead.eposta } : {}),
         subject,
         html,

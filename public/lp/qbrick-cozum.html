@@ -998,6 +998,22 @@ function selectQty(type, el) {
   window._qtyType = type === 'single' ? '1-5' : type === 'mid' ? '6-20' : '21+';
   window.dataLayer.push({event:'qty_selected',qty_tier:window._qtyType,lp_id:'qbrick-cozum',...(window.SANTEK_AD_CTX||{})});
 }
+function santekUd() {
+  const ud = {};
+  const email = (document.getElementById('f-eposta')?.value || '').trim().toLowerCase();
+  if (email && email.includes('@')) ud.email = email;
+  let raw = (document.getElementById('f-tel')?.value || '').replace(/[^\d]/g, '');
+  if (raw.startsWith('00')) raw = raw.slice(2);
+  if (raw.length === 11 && raw.startsWith('0')) raw = raw.slice(1);
+  if (raw.length === 10 && /^[2-5]/.test(raw)) raw = '90' + raw;
+  if (/^90\d{10}$/.test(raw)) ud.phone_number = '+' + raw;
+  const ad = (document.getElementById('f-ad')?.value || '').trim();
+  const soyad = (document.getElementById('f-soyad')?.value || '').trim();
+  if (ad) ud.first_name = ad;
+  if (soyad) ud.last_name = soyad;
+  return ud;
+}
+
 async function submitBulk() {
   const ad = document.getElementById('f-ad').value.trim();
   const eposta = document.getElementById('f-eposta').value.trim();
@@ -1019,7 +1035,7 @@ async function submitBulk() {
     });
     const data = await res.json();
     if (data.success) {
-      window.dataLayer.push({event:'lead_submit',lp_id:'qbrick-cozum',qty_tier:window._qtyType||'6+',...(window.SANTEK_AD_CTX||{})});
+      window.dataLayer.push({event:'lead_submit',lp_id:'qbrick-cozum',qty_tier:window._qtyType||'6+',user_data:santekUd(),...(window.SANTEK_AD_CTX||{})});
       document.getElementById('form-fields').style.display = 'none';
       document.getElementById('form-success').classList.add('show');
     } else { alert(data.error || 'Hata.'); btn.disabled = false; btn.textContent = 'Toplu Alım Teklifi İste →'; }

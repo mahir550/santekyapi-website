@@ -247,17 +247,80 @@ Sayfada ayrıca yakalanan ve DLV ile okunabilen alanlar:
 
 ---
 
-## 8. Enhanced Conversions (önerilir)
+## 8. Enhanced Conversions ✅ (KURULU — yapılması gerekenler aşağıda)
 
-Form gönderiminde kullanıcının **e-posta + telefon** bilgisi var. Enhanced Conversions ile atıf kalitesi ciddi artar.
+Form gönderiminde kullanıcının **e-posta + telefon + ad + soyad** bilgisi `lead_submit` event'inin `user_data` nesnesinde **normalize edilmiş halde** dataLayer'a basılıyor. Bu, hem **Google Ads Enhanced Conversions** hem **Meta Advanced Matching** için hazır.
 
-**Sorun:** `lead_submit` event'i şu an form alanlarını payload'a koymuyor (sadece `qty_tier` + ad-context).
+### 8.1 `lead_submit` payload'ında ne var?
 
-**İki seçenek:**
-1. **GTM'de manuel mapping** — form input'larından (`#f-eposta`, `#f-tel`) CSS-selector DLV'leriyle değerleri oku. (Form gönderilince DOM'da hâlâ duruyor.)
-2. **Geliştirici ricası** — `lead_submit` push'una `email` ve `phone` alanları eklenebilir. İstersen bunu LP koduna ekleyebiliriz (KVKK gereği hash'lenmeden gönderilmemeli; Google Ads Enhanced Conversions SHA-256 hash'i kendi yapar ama yine de dikkat).
+```javascript
+{
+  event: 'lead_submit',
+  lp_id: 'qbrick-modular',
+  qty_tier: '6-20',
+  user_data: {
+    email: 'ahmet@firma.com',        // trim + lowercase yapılmış
+    phone_number: '+905327280728',   // E.164 (TR), mobil + sabit hat destekli
+    first_name: 'Ahmet',
+    last_name: 'Yılmaz'
+  },
+  // + ad-context (utm_*, gclid, fbclid...)
+}
+```
 
-> **Karar GTM uzmanına bırakılıyor.** Seçenek 1 için form alanlarının ID'leri: `f-ad`, `f-soyad`, `f-eposta`, `f-tel`, `f-sirket`. Geliştirici tarafı gerekiyorsa bize haber verin.
+> **Normalizasyon sayfada yapılıyor:** email lowercase+trim; telefon E.164'e çevriliyor (`0532...` → `+90532...`, `0212...` → `+90212...`). Geçersiz/eksik alanlar `user_data`'ya hiç eklenmiyor.
+> **Hash'leme:** Veri **plain (hash'siz)** gönderiliyor. Bu bilinçli bir tercih — Google ve Meta kendi tarafında SHA-256 normalize+hash yapıyor; client-side yanlış normalize edilmiş hash sessizce eşleşmez. Plain göndermek Google'ın EC-via-GTM için **resmî önerisi**. Veri HTTPS üzerinden gidiyor, Google/Meta saklamadan önce hash'liyor.
+
+### 8.2 Data Layer Variable'lar (ekle)
+
+| GTM Değişken Adı | Data Layer Variable Name |
+|---|---|
+| `DLV - ud_email` | `user_data.email` |
+| `DLV - ud_phone` | `user_data.phone_number` |
+| `DLV - ud_fname` | `user_data.first_name` |
+| `DLV - ud_lname` | `user_data.last_name` |
+
+> Nokta notasyonu (`user_data.email`) Version 2 DLV'de doğrudan çalışır.
+
+### 8.3 Google Ads Enhanced Conversions — Kurulum
+
+**A. Google Ads arayüzünde aç:**
+- Tools → Conversions → ilgili **Lead form** conversion'ı seç → Settings → **Enhanced conversions** → "Turn on" → Yöntem: **Google Tag Manager**.
+
+**B. GTM'de "User-Provided Data" değişkeni oluştur:**
+- Variables → New → **User-Provided Data**
+- Type: **Manual configuration**
+- Email: `{{DLV - ud_email}}`
+- Phone Number: `{{DLV - ud_phone}}`
+- First Name: `{{DLV - ud_fname}}`
+- Last Name: `{{DLV - ud_lname}}`
+- Adı: `UPD - Lead`
+
+**C. Google Ads Conversion tag'ine bağla:**
+- Bölüm 5.1'deki `lead_submit` conversion tag'ini aç → **Include user-provided data from your website** → **Enhanced Conversions açık** → "User-Provided Data Variable" = `{{UPD - Lead}}`.
+- Trigger değişmiyor: `CE - lead_submit`.
+
+### 8.4 Meta Advanced Matching — Kurulum
+
+Meta `Lead` event'inde manuel advanced matching parametreleri geç (Meta plain veriyi kendi hash'ler):
+
+```html
+<script>
+  fbq('track', 'Lead', {
+    content_category: {{DLV - lp_id}},
+    content_name: {{DLV - qty_tier}}
+  }, {
+    eventID: 'lead_' + Date.now()
+  });
+</script>
+```
+
+Advanced Matching için Meta base pixel'i init ederken veya event'te `em`/`ph` geçilebilir. En temizi **otomatik Advanced Matching**'i Meta Events Manager → Settings → "Automatic Advanced Matching" açmak; pixel form alanlarını kendi yakalar. Manuel istenirse `{{DLV - ud_email}}` ve `{{DLV - ud_phone}}` kullan.
+
+### 8.5 KVKK Notu
+- Veri kullanıcının **kendi gönderdiği** bilgi, sadece **conversion eşleştirme** için kullanılıyor, Google/Meta tarafında hash'leniyor.
+- Gizlilik politikasında "reklam ölçümleme için verilerin işlenmesi" maddesi olmalı.
+- Çerez/onay banner'ı (CMP) henüz **yok** — Consent Mode ile birlikte kurulması önerilir (Bölüm 9).
 
 ---
 
@@ -292,6 +355,9 @@ GTM **Preview (Tag Assistant)** modunda:
 2. **Adet kartı seç** (6–20) → `qty_selected` tetiklenmeli, `qty_tier = 6-20`.
 3. **Formu doldur + gönder** → `lead_submit` tetiklenmeli.
    - GA4 `generate_lead`, Google Ads conversion, Meta `Lead` tag'leri **fired** olmalı.
+   - **Enhanced Conversions:** Tag Assistant → `lead_submit` event → Data Layer sekmesinde `user_data` nesnesi görünmeli: `email` (lowercase), `phone_number` (`+90...` E.164), `first_name`, `last_name`.
+   - `{{UPD - Lead}}` değişkeni Variables sekmesinde dolu olmalı.
+   - Google Ads → Conversion → Enhanced Conversions teşhis bölümü 24-48 saatte "Recording enhanced conversions" yeşil olmalı.
 4. **WhatsApp / Mağaza / Amazon butonlarına tıkla** → `outbound_click` tetiklenmeli, `outbound_channel` doğru olmalı.
    - Açılan URL'de `utm_source=meta&gclid=ABC` **iliştirilmiş** olmalı (atıf zinciri korunuyor).
 5. **GA4 DebugView** ve **Meta Pixel Helper** ile gerçek zamanlı doğrula.

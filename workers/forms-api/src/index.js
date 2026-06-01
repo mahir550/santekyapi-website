@@ -1,9 +1,76 @@
+import { EmailMessage } from 'cloudflare:email';
+
 const ALLOWED_ORIGINS = [
   'https://www.santekyapi.com.tr',
   'https://santekyapi.com.tr',
   'https://shop.santekyapi.com.tr',
   'https://santekyapi.pages.dev',
 ];
+
+// Lead bildirimi gönderilecek adres (Email Routing'de doğrulanmış DESTINATION olmalı)
+const LEAD_NOTIFY_TO = 'mahir@santekyapi.com.tr';
+const LEAD_NOTIFY_FROM = 'noreply@santekyapi.com.tr';
+
+// UTF-8 → base64 (Türkçe karakterler için)
+function b64utf8(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+
+// RFC 2047 subject encoding (Türkçe karakter güvenli)
+function encodeSubject(s) {
+  return '=?UTF-8?B?' + b64utf8(s) + '?=';
+}
+
+// Lead geldiğinde ekibe HTML bildirim maili (Cloudflare Email Routing send_email binding)
+async function sendLeadEmail(env, lead) {
+  if (!env.SEB) return; // binding yoksa sessizce atla
+  const adSoyad = [lead.ad, lead.soyad].filter(Boolean).join(' ');
+  const subject = `🔔 Yeni Lead: ${adSoyad || lead.eposta} (${lead.kaynak || 'web'})`;
+  const rows = [
+    ['Ad Soyad', adSoyad || '—'],
+    ['E-posta', lead.eposta || '—'],
+    ['Telefon', lead.telefon || '—'],
+    ['Şirket', lead.sirket || '—'],
+    ['İlgili Seri', lead.konu || '—'],
+    ['Miktar', lead.miktar || '—'],
+    ['Kaynak', lead.kaynak || '—'],
+    ['Kampanya', lead.utm_campaign || '—'],
+    ['UTM Source', lead.utm_source || '—'],
+    ['Mesaj', lead.mesaj || '—'],
+  ];
+  const rowsHtml = rows.map(([k, v]) =>
+    `<tr><td style="padding:6px 12px;font-weight:600;color:#4A5568;border-bottom:1px solid #eee;white-space:nowrap">${k}</td><td style="padding:6px 12px;color:#0A2540;border-bottom:1px solid #eee">${String(v).replace(/</g, '&lt;')}</td></tr>`
+  ).join('');
+  const html = `<!DOCTYPE html><html><body style="font-family:Arial,sans-serif;background:#f4f8fa;padding:24px;margin:0">
+    <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0">
+      <div style="background:#0B2348;padding:20px 24px;color:#fff">
+        <div style="font-size:18px;font-weight:700">🔔 Yeni Lead Bildirimi</div>
+        <div style="font-size:13px;color:#7FE3F0;margin-top:4px">Santek — Qbrick Landing Page</div>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:14px">${rowsHtml}</table>
+      <div style="padding:16px 24px;background:#FAFCFD">
+        <a href="https://www.santekyapi.com.tr/admin" style="display:inline-block;background:#00BCD4;color:#fff;text-decoration:none;font-weight:700;padding:11px 22px;border-radius:8px;font-size:14px">Admin Panelinde Aç →</a>
+      </div>
+    </div>
+  </body></html>`;
+
+  const raw =
+    `From: Santek Bildirim <${LEAD_NOTIFY_FROM}>\r\n` +
+    `To: ${LEAD_NOTIFY_TO}\r\n` +
+    (lead.eposta ? `Reply-To: ${lead.eposta}\r\n` : '') +
+    `Subject: ${encodeSubject(subject)}\r\n` +
+    `MIME-Version: 1.0\r\n` +
+    `Content-Type: text/html; charset=UTF-8\r\n` +
+    `Content-Transfer-Encoding: base64\r\n` +
+    `\r\n` +
+    b64utf8(html).replace(/(.{76})/g, '$1\r\n');
+
+  const message = new EmailMessage(LEAD_NOTIFY_FROM, LEAD_NOTIFY_TO, raw);
+  await env.SEB.send(message);
+}
 
 function getCorsHeaders(request) {
   const origin = request.headers.get('Origin') || '';
@@ -34,7 +101,7 @@ function isValidEmail(email) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
     if (request.method === 'OPTIONS') {
@@ -56,14 +123,14 @@ export default {
       return corsResponse(JSON.stringify({ error: 'Geçersiz istek.' }), 400, request);
     }
 
-    if (url.pathname === '/api/contact') return handleContact(body, env, request);
+    if (url.pathname === '/api/contact') return handleContact(body, env, request, ctx);
     if (url.pathname === '/api/bayilik') return handleBayilik(body, env, request);
 
     return corsResponse(JSON.stringify({ error: 'Not found' }), 404, request);
   },
 };
 
-async function handleContact(body, env, request) {
+async function handleContact(body, env, request, ctx) {
   const {
     ad = '', soyad = '', sirket = '', eposta = '',
     telefon = '', konu = '', mesaj = '',
@@ -99,6 +166,15 @@ async function handleContact(body, env, request) {
     String(utm_content).slice(0, 200),
     String(gclid).slice(0, 500), String(fbclid).slice(0, 500),
   ).run();
+
+  // Ekibe lead bildirimi gönder (arka planda — form yanıtını bloklamaz, hata yutulur)
+  const lead = {
+    ad: ad.trim(), soyad: soyad.trim(), sirket: sirket.trim(), eposta: eposta.trim(),
+    telefon: telefon.trim(), konu, mesaj: finalMesaj, kaynak, miktar,
+    utm_source, utm_campaign,
+  };
+  const mailJob = sendLeadEmail(env, lead).catch((e) => console.error('lead email error:', e.message));
+  if (ctx && ctx.waitUntil) ctx.waitUntil(mailJob);
 
   return corsResponse(JSON.stringify({ success: true }), 200, request);
 }

@@ -10,3 +10,9 @@ routes = [
 binding = "DB"
 database_name = "santekyapi-db"
 database_id = "717516d2-398f-4bf2-b125-e39136ced991"
+
+# Lead bildirimi e-postası (Cloudflare Email Routing send_email binding)
+# NOT: destination_address Email Routing'de DOĞRULANMIŞ bir destination olmalı.
+[[send_email]]
+name = "SEB"
+destination_address = "mahir@santekyapi.com.tr"

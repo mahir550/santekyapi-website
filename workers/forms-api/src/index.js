@@ -25,8 +25,9 @@ function encodeSubject(s) {
 }
 
 // Lead geldiğinde ekibe HTML bildirim maili (Cloudflare Email Routing send_email binding)
-async function sendLeadEmail(env, lead) {
+async function sendLeadEmail(env, lead, toOverride) {
   if (!env.SEB) return; // binding yoksa sessizce atla
+  const TO = toOverride || LEAD_NOTIFY_TO;
   const adSoyad = [lead.ad, lead.soyad].filter(Boolean).join(' ');
   const subject = `🔔 Yeni Lead: ${adSoyad || lead.eposta} (${lead.kaynak || 'web'})`;
   const rows = [
@@ -59,7 +60,7 @@ async function sendLeadEmail(env, lead) {
 
   const raw =
     `From: Santek Bildirim <${LEAD_NOTIFY_FROM}>\r\n` +
-    `To: ${LEAD_NOTIFY_TO}\r\n` +
+    `To: ${TO}\r\n` +
     (lead.eposta ? `Reply-To: ${lead.eposta}\r\n` : '') +
     `Subject: ${encodeSubject(subject)}\r\n` +
     `MIME-Version: 1.0\r\n` +
@@ -68,7 +69,7 @@ async function sendLeadEmail(env, lead) {
     `\r\n` +
     b64utf8(html).replace(/(.{76})/g, '$1\r\n');
 
-  const message = new EmailMessage(LEAD_NOTIFY_FROM, LEAD_NOTIFY_TO, raw);
+  const message = new EmailMessage(LEAD_NOTIFY_FROM, TO, raw);
   await env.SEB.send(message);
 }
 
@@ -110,6 +111,21 @@ export default {
 
     if (url.pathname.startsWith('/api/admin/')) {
       return handleAdmin(request, url, env);
+    }
+
+    // GEÇİCİ teşhis endpoint'i — mail gönderim hatasını döndürür
+    if (url.pathname === '/api/email-test' && request.method === 'GET') {
+      const to = url.searchParams.get('to') || LEAD_NOTIFY_TO;
+      try {
+        await sendLeadEmail(env, {
+          ad: 'Teşhis', soyad: 'Testi', eposta: 'test@example.com',
+          telefon: '05327280728', sirket: 'Test A.Ş.', konu: 'ONE 2.0',
+          miktar: '6-20', kaynak: 'email-test', mesaj: 'Cloudflare mail teşhisi',
+        }, to);
+        return jsonResponse({ ok: true, sentTo: to, hasBinding: !!env.SEB });
+      } catch (e) {
+        return jsonResponse({ ok: false, sentTo: to, hasBinding: !!env.SEB, error: String(e && e.message || e), stack: String(e && e.stack || '').slice(0, 600) });
+      }
     }
 
     if (request.method !== 'POST') {

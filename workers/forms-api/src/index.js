@@ -7,27 +7,26 @@ const ALLOWED_ORIGINS = [
   'https://santekyapi.pages.dev',
 ];
 
-// Lead bildirimi gönderilecek adres (Email Routing'de doğrulanmış DESTINATION olmalı)
+// Lead bildirimi alıcısı (ekip)
 const LEAD_NOTIFY_TO = 'mahir@santekyapi.com.tr';
+// Resend gönderici — doğrulanmış subdomain üzerinden (mail.santekyapi.com.tr)
+const RESEND_FROM = 'Santek Bildirim <bildirim@mail.santekyapi.com.tr>';
+// Email Routing fallback göndericisi (Resend yokken)
 const LEAD_NOTIFY_FROM = 'noreply@santekyapi.com.tr';
 
-// UTF-8 → base64 (Türkçe karakterler için)
+// UTF-8 → base64 (Türkçe karakterler için — Email Routing fallback'inde kullanılır)
 function b64utf8(str) {
   const bytes = new TextEncoder().encode(str);
   let bin = '';
   for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
   return btoa(bin);
 }
-
-// RFC 2047 subject encoding (Türkçe karakter güvenli)
 function encodeSubject(s) {
   return '=?UTF-8?B?' + b64utf8(s) + '?=';
 }
 
-// Lead geldiğinde ekibe HTML bildirim maili (Cloudflare Email Routing send_email binding)
-async function sendLeadEmail(env, lead, toOverride) {
-  if (!env.SEB) return; // binding yoksa sessizce atla
-  const TO = toOverride || LEAD_NOTIFY_TO;
+// Lead bildirim mailinin konusu + HTML gövdesini üretir
+function buildLeadEmail(lead) {
   const adSoyad = [lead.ad, lead.soyad].filter(Boolean).join(' ');
   const subject = `🔔 Yeni Lead: ${adSoyad || lead.eposta} (${lead.kaynak || 'web'})`;
   const rows = [
@@ -57,20 +56,55 @@ async function sendLeadEmail(env, lead, toOverride) {
       </div>
     </div>
   </body></html>`;
+  return { subject, html };
+}
 
-  const raw =
-    `From: Santek Bildirim <${LEAD_NOTIFY_FROM}>\r\n` +
-    `To: ${TO}\r\n` +
-    (lead.eposta ? `Reply-To: ${lead.eposta}\r\n` : '') +
-    `Subject: ${encodeSubject(subject)}\r\n` +
-    `MIME-Version: 1.0\r\n` +
-    `Content-Type: text/html; charset=UTF-8\r\n` +
-    `Content-Transfer-Encoding: base64\r\n` +
-    `\r\n` +
-    b64utf8(html).replace(/(.{76})/g, '$1\r\n');
+// Lead bildirimini gönderir.
+// 1. Tercih: Resend (RESEND_API_KEY secret'i varsa) — herhangi bir adrese, doğrulama gerekmez
+// 2. Fallback: Cloudflare Email Routing binding (env.SEB) — alıcı doğrulanmış olmalı
+async function sendLeadEmail(env, lead, toOverride) {
+  const TO = toOverride || LEAD_NOTIFY_TO;
+  const { subject, html } = buildLeadEmail(lead);
 
-  const message = new EmailMessage(LEAD_NOTIFY_FROM, TO, raw);
-  await env.SEB.send(message);
+  if (env.RESEND_API_KEY) {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: RESEND_FROM,
+        to: [TO],
+        ...(lead.eposta ? { reply_to: lead.eposta } : {}),
+        subject,
+        html,
+      }),
+    });
+    if (!res.ok) {
+      const t = await res.text();
+      throw new Error(`Resend ${res.status}: ${t.slice(0, 400)}`);
+    }
+    return;
+  }
+
+  if (env.SEB) {
+    const raw =
+      `From: Santek Bildirim <${LEAD_NOTIFY_FROM}>\r\n` +
+      `To: ${TO}\r\n` +
+      (lead.eposta ? `Reply-To: ${lead.eposta}\r\n` : '') +
+      `Subject: ${encodeSubject(subject)}\r\n` +
+      `MIME-Version: 1.0\r\n` +
+      `Content-Type: text/html; charset=UTF-8\r\n` +
+      `Content-Transfer-Encoding: base64\r\n` +
+      `\r\n` +
+      b64utf8(html).replace(/(.{76})/g, '$1\r\n');
+    const message = new EmailMessage(LEAD_NOTIFY_FROM, TO, raw);
+    await env.SEB.send(message);
+    return;
+  }
+
+  throw new Error('Mail gönderim yöntemi yok (RESEND_API_KEY veya SEB binding gerekli)');
 }
 
 function getCorsHeaders(request) {
@@ -122,9 +156,9 @@ export default {
           telefon: '05327280728', sirket: 'Test A.Ş.', konu: 'ONE 2.0',
           miktar: '6-20', kaynak: 'email-test', mesaj: 'Cloudflare mail teşhisi',
         }, to);
-        return jsonResponse({ ok: true, sentTo: to, hasBinding: !!env.SEB });
+        return jsonResponse({ ok: true, sentTo: to, method: env.RESEND_API_KEY ? 'resend' : (env.SEB ? 'email-routing' : 'none'), hasResend: !!env.RESEND_API_KEY, hasBinding: !!env.SEB });
       } catch (e) {
-        return jsonResponse({ ok: false, sentTo: to, hasBinding: !!env.SEB, error: String(e && e.message || e), stack: String(e && e.stack || '').slice(0, 600) });
+        return jsonResponse({ ok: false, sentTo: to, method: env.RESEND_API_KEY ? 'resend' : (env.SEB ? 'email-routing' : 'none'), hasResend: !!env.RESEND_API_KEY, hasBinding: !!env.SEB, error: String(e && e.message || e), stack: String(e && e.stack || '').slice(0, 600) });
       }
     }
 

@@ -27,3 +27,4 @@ htaccess
 
 # Node (wrangler)
 node_modules/
+.wrangler/

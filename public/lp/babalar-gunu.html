@@ -259,6 +259,27 @@
     .sticky-cta .sc-shop{background:var(--cyan);color:var(--white)}
     .sticky-cta svg{width:15px;height:15px}
 
+    /* SUBSECTION TITLE */
+    .subsec-title{font-family:'DM Serif Display',serif;font-weight:400;font-size:22px;color:var(--text);letter-spacing:-.01em;margin:36px 0 18px}
+
+    /* GIFT STRIP / GIFT BOXES */
+    .gift-strip{margin:6px 0 14px;border-top:1px dashed rgba(245,158,11,.45);padding-top:12px}
+    .gift-strip-label{font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:9px;display:flex;align-items:center;gap:6px}
+    .gift-strip-label svg{width:14px;height:14px;flex-shrink:0}
+    .gift-boxes{display:grid;grid-template-columns:repeat(auto-fill,minmax(94px,1fr));gap:8px}
+    .gbox-link{text-decoration:none;display:block}
+    .gift-box{position:relative;border:1px solid rgba(245,158,11,.35);background:#FFFBEB;border-radius:10px;padding:7px 6px;text-align:center;height:100%;display:flex;flex-direction:column}
+    .gbox-link:hover .gift-box{border-color:var(--gold);box-shadow:var(--shadow-sm);transform:translateY(-1px)}
+    .gbadge{position:absolute;top:0;left:0;background:var(--gold);color:#3a2a00;font-size:8px;font-weight:800;letter-spacing:.4px;padding:2px 7px;border-radius:9px 0 8px 0}
+    .gift-box img{height:48px;width:100%;object-fit:contain;margin:8px 0 5px}
+    .gbox-noimg{height:48px;display:flex;align-items:center;justify-content:center;margin:8px 0 5px;color:var(--gold)}
+    .gbox-noimg svg{width:26px;height:26px}
+    .gift-box .gname{font-size:10px;font-weight:600;color:var(--text);line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:25px}
+    .gift-box .gprice{font-size:10.5px;color:var(--muted);text-decoration:line-through;margin-top:4px}
+    .gift-box .gfree{font-size:9.5px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.3px;margin-top:1px}
+    .promo-badge{display:inline-flex;align-items:center;gap:6px;background:#FEF3C7;color:var(--gold-dk);border:1px solid rgba(245,158,11,.4);font-size:11px;font-weight:800;padding:5px 11px;border-radius:8px;margin-bottom:10px;width:fit-content;text-transform:uppercase;letter-spacing:.3px}
+    .promo-badge svg{width:13px;height:13px}
+
     /* RESPONSIVE */
     @media(max-width:1100px){
       .set-grid{grid-template-columns:repeat(3,1fr)}
@@ -580,6 +601,31 @@
       </div>
 
     </div>
+
+    <h3 class="subsec-title">Diğer Qbrick Setleri</h3>
+    <div class="set-grid">
+      <div class="set-card">
+        <div class="set-img"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/003/screenshot-2024-06-06-at-19-49-15-1000x1000.png" alt="Qbrick System TWO Set Plus Vario" loading="lazy" decoding="async" /></div>
+        <div class="set-tag">Qbrick · TWO</div>
+        <div class="set-name">Qbrick System TWO Set Plus Vario</div>
+        <div class="set-price">9.606,56 ₺</div>
+        <a href="https://shop.santekyapi.com.tr/urun/qbrick-system-two-set-plus-vario" target="_blank" class="set-link" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Mağazada İncele</a>
+      </div>
+      <div class="set-card">
+        <div class="set-img"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/002/qs-pro-cart-low-res-1000x1000.jpg" alt="Qbrick System PRO Cart 2.0" loading="lazy" decoding="async" /></div>
+        <div class="set-tag">Qbrick · PRO 2.0</div>
+        <div class="set-name">Qbrick System PRO Cart 2.0</div>
+        <div class="set-price">5.593,15 ₺</div>
+        <a href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-cart-2-0" target="_blank" class="set-link" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Mağazada İncele</a>
+      </div>
+      <div class="set-card">
+        <div class="set-img"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/646/qbrick-regular-power-toolcase-protective-foam-kopya.jpg" alt="Qbrick Regular Power Toolcase Basic" loading="lazy" decoding="async" /></div>
+        <div class="set-tag">Qbrick · Regular</div>
+        <div class="set-name">Qbrick Regular Power Toolcase Basic</div>
+        <div class="set-price">1.146,76 ₺</div>
+        <a href="https://shop.santekyapi.com.tr/urun/qbrick-regular-power-toolcase-basic" target="_blank" class="set-link" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Mağazada İncele</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -868,6 +914,107 @@ document.querySelectorAll('.b-media').forEach(media => {
   if (prev) prev.addEventListener('click', () => show(i-1));
   thumbs.forEach((t,k) => t.addEventListener('click', () => show(k)));
 });
+
+// ===== Hediye kutuları (Excel eşlemesi → shop ürünleri) =====
+(function(){
+  const B = 'https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/';
+  const S = 'https://shop.santekyapi.com.tr';
+  // her ürün slug'ı → hediye listesi. p/img/u null ise görselsiz "HEDİYE" kutusu.
+  const GIFTS = {
+    'qbrick-system-prime-set-1-red-ultra-hd':[
+      {n:'Robustech EP02-82 Planya',p:'1.638,00 ₺',img:B+'116/ep02-82-1000x1000_min.jpg',u:S+'/urun/ep02-82-planya'},
+      {n:'Robustech JS-FB13B Dekupaj Testere',p:null,img:null,u:null}
+    ],
+    'qbrick-system-prime-set-2':[
+      {n:'Çocuklar İçin Kulaklık',p:'2.087,83 ₺',img:B+'696/6_min.jpg',u:S+'/urun/cocuklar-icin-kulaklik-yesil'},
+      {n:'PRO L Tek El İşkencesi 700mm',p:'3.842,63 ₺',img:B+'682/3034000-pro-pho-pri-cpa-sqa-01-2020-01-kopya.jpg',u:S+'/urun/pro-l-tek-el-iskencesi-700-mm'}
+    ],
+    'qbrick-system-one-drawer-2-toolbox':[
+      {n:'ONE Adapter Multi Work Platform',p:'4.573,79 ₺',img:B+'174/qbrick-system-one-adapter-multi-assembly-board-low-res-1000x1000.jpg',u:S+'/urun/qbrick-system-one-adapter-multi-work-platform'},
+      {n:'Regular Compact Organizer S',p:null,img:null,u:null},
+      {n:'Custom Connectors Set 1',p:null,img:null,u:null},
+      {n:'Custom S Hook',p:null,img:null,u:null}
+    ],
+    'qbrick-system-pro-drawer-workshop-set-3-2-0-ruhd':[
+      {n:'Qbrick Pegboard Kit (Kırmızı Aksesuarlı)',p:'1.414,30 ₺',img:B+'168/qbrick-pegboard-kit-with-red-additions-1000x1000_min.jpg',u:S+'/urun/qbrick-pegboard-kit-with-red-additions'}
+    ],
+    'qbrick-system-two-set-plus-vario':[
+      {n:'Regular Compact Organizer Set 1',p:null,img:null,u:null}
+    ],
+    'qbrick-system-pro-cart-2-0':[
+      {n:'Qbrick PRO Organizer Multi',p:null,img:null,u:null}
+    ],
+    'qbrick-regular-power-toolcase-basic':[
+      {n:'TECNUM ID-500C Darbeli Matkap',p:'1.299,00 ₺',img:B+'092/id-500c-1000x1000_min.jpg',u:S+'/urun/id-500c-darbeli-matkap'}
+    ],
+    'd-240-c-dozuki-cekme-testere-240mm':[
+      {n:'Riken Swift Lite Çok Amaçlı Çakı',p:'1.449,00 ₺',img:B+'018/screenshot-2024-08-30-at-14-06-38-1000x1000_min.png',u:S+'/urun/riken-swift-lite-cok-amacli-caki'}
+    ],
+    'd-240-r-dozuki-cekme-testere-240mm':[
+      {n:'Riken Swift Lite Çok Amaçlı Çakı',p:'1.449,00 ₺',img:B+'018/screenshot-2024-08-30-at-14-06-38-1000x1000_min.png',u:S+'/urun/riken-swift-lite-cok-amacli-caki'}
+    ],
+    'd-180-dozuki-cekme-testere-180mm':[
+      {n:'Riken Mate Çok Amaçlı Çakı',p:'1.519,00 ₺',img:B+'017/screenshot-2024-08-30-at-14-13-41-1000x1000_min.png',u:S+'/urun/riken-mate-cok-amacli-caki'}
+    ],
+    'd-150-dozuki-cekme-testere-150mm':[
+      {n:'Riken Mate Çok Amaçlı Çakı',p:'1.519,00 ₺',img:B+'017/screenshot-2024-08-30-at-14-13-41-1000x1000_min.png',u:S+'/urun/riken-mate-cok-amacli-caki'}
+    ],
+    'r-240-cift-agizli-cekme-testere-240mm':[
+      {n:'Riken Mate Çok Amaçlı Çakı',p:'1.519,00 ₺',img:B+'017/screenshot-2024-08-30-at-14-13-41-1000x1000_min.png',u:S+'/urun/riken-mate-cok-amacli-caki'}
+    ],
+    'cocuklar-icin-kulaklik-yesil':[
+      {n:'El Zımparası',p:'288,20 ₺',img:B+'692/zimpara.jpg',u:S+'/urun/el-zimparasi'}
+    ],
+    'matkap-standi':[
+      {n:'TECNUM ID-500C Darbeli Matkap',p:'1.299,00 ₺',img:B+'092/id-500c-1000x1000_min.jpg',u:S+'/urun/id-500c-darbeli-matkap'}
+    ],
+    'pro-l-tek-el-iskencesi-915-mm':[
+      {n:'Tek El İşkencesi Adaptörü',p:'1.280,88 ₺',img:B+'683/3038000-pro-pho-pri-cpa-sqa-01-2013-05-kopya.jpg',u:S+'/urun/tek-el-iskencesi-adaptoru'}
+    ],
+    'daire-testereler-icin-fks-145-kilavuz-rayi':[
+      {n:'Robustech CS 13-60 Dairesel Testere',p:null,img:null,u:null}
+    ]
+  };
+  const PROMOS = {
+    'set-4-x-toprak-zemin-kaplama-30mm-siyah':'3 Alana 1 Bedava',
+    'toprak-zemin-kaplama-sinirlama-45mm-x2':'4 Alana 1 Bedava',
+    'saplama-kazik-250-mm-10-adet':'2 Alana 1 Bedava'
+  };
+  const GIFT_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2zM12 21V7"/></svg>';
+  function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function giftBox(g){
+    const media = g.img ? '<img src="'+g.img+'" alt="'+esc(g.n)+'" loading="lazy" decoding="async">' : '<div class="gbox-noimg">'+GIFT_SVG+'</div>';
+    const price = g.p ? '<div class="gprice">'+g.p+'</div><div class="gfree">Ücretsiz</div>' : '<div class="gfree">Hediye</div>';
+    const inner = '<div class="gift-box"><span class="gbadge">HEDİYE</span>'+media+'<div class="gname">'+esc(g.n)+'</div>'+price+'</div>';
+    return g.u ? '<a class="gbox-link" href="'+g.u+'" target="_blank" rel="noopener">'+inner+'</a>' : '<div class="gbox-link">'+inner+'</div>';
+  }
+  // eski tek satırlık hediye satırlarını kaldır
+  document.querySelectorAll('.gift-row').forEach(e => e.remove());
+  // hediye şeritlerini enjekte et
+  Object.keys(GIFTS).forEach(slug => {
+    const link = document.querySelector('a.btn-buy-shop[href*="/urun/'+slug+'"], a.set-link[href*="/urun/'+slug+'"]');
+    if (!link) return;
+    const card = link.closest('.bundle-card, .set-card');
+    if (!card || card.querySelector('.gift-strip')) return;
+    const strip = document.createElement('div');
+    strip.className = 'gift-strip';
+    strip.innerHTML = '<div class="gift-strip-label">'+GIFT_SVG+' Bu ürünle hediye</div><div class="gift-boxes">'+GIFTS[slug].map(giftBox).join('')+'</div>';
+    const anchor = card.querySelector('.bundle-price') || card.querySelector('.set-link');
+    if (anchor) anchor.parentNode.insertBefore(strip, anchor); else card.appendChild(strip);
+  });
+  // Ekogrid "X alana 1 bedava" rozetleri
+  Object.keys(PROMOS).forEach(slug => {
+    const link = document.querySelector('a.set-link[href*="/urun/'+slug+'"]');
+    if (!link) return;
+    const card = link.closest('.set-card');
+    if (!card || card.querySelector('.promo-badge')) return;
+    const badge = document.createElement('div');
+    badge.className = 'promo-badge';
+    badge.innerHTML = GIFT_SVG + ' ' + PROMOS[slug];
+    const img = card.querySelector('.set-img');
+    if (img) img.insertAdjacentElement('afterend', badge); else card.insertBefore(badge, card.firstChild);
+  });
+})();
 
 // UTM propagation + outbound click tracking
 document.addEventListener('DOMContentLoaded', () => {

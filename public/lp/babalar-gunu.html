@@ -923,7 +923,7 @@ document.querySelectorAll('.b-media').forEach(media => {
   const GIFTS = {
     'qbrick-system-prime-set-1-red-ultra-hd':[
       {n:'Robustech EP02-82 Planya',p:'1.638,00 ₺',img:B+'116/ep02-82-1000x1000_min.jpg',u:S+'/urun/ep02-82-planya'},
-      {n:'Robustech JS-FB13B Boya Tabancası',p:null,img:B+'132/screenshot-2024-07-05-at-17-11-09-1000x1000.png',u:S+'/urun/js-fb13b-elektrikli-boya-tabancasi'}
+      {n:'Robustech JS-FB13B Boya Tabancası',p:'3.090,00 ₺',img:B+'132/screenshot-2024-07-05-at-17-11-09-1000x1000.png',u:S+'/urun/js-fb13b-elektrikli-boya-tabancasi'}
     ],
     'qbrick-system-prime-set-2':[
       {n:'Çocuklar İçin Kulaklık',p:'2.087,83 ₺',img:B+'696/6_min.jpg',u:S+'/urun/cocuklar-icin-kulaklik-yesil'},
@@ -1007,7 +1007,7 @@ document.querySelectorAll('.b-media').forEach(media => {
   function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
   function giftBox(g){
     const media = g.img ? '<img src="'+g.img+'" alt="'+esc(g.n)+'" loading="lazy" decoding="async">' : '<div class="gbox-noimg">'+GIFT_SVG+'</div>';
-    const price = g.p ? '<div class="gprice">'+g.p+'</div><div class="gfree">Ücretsiz</div>' : '<div class="gfree">Hediye</div>';
+    const price = g.p ? '<div class="gprice">'+g.p+'</div><div class="gfree">Hediye</div>' : '<div class="gfree">Hediye</div>';
     const inner = '<div class="gift-box"><span class="gbadge">HEDİYE</span>'+media+'<div class="gname">'+esc(g.n)+'</div>'+price+'</div>';
     return g.u ? '<a class="gbox-link" href="'+g.u+'" target="_blank" rel="noopener">'+inner+'</a>' : '<div class="gbox-link">'+inner+'</div>';
   }

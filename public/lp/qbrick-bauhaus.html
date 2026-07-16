@@ -168,16 +168,26 @@
     .btn-disabled{background:var(--light);color:var(--muted);pointer-events:none}
     @media(max-width:800px){ .store-grid{grid-template-columns:1fr} }
 
-    /* PRODUCT STRIP */
-    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .prod{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--white);box-shadow:var(--shadow-sm);transition:transform .15s,box-shadow .15s}
-    .prod:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-    .prod-im{aspect-ratio:1/1;background:var(--light);display:flex;align-items:center;justify-content:center;padding:16px}
-    .prod-im img{max-width:100%;max-height:100%;object-fit:contain}
-    .prod-bd{padding:14px 16px 18px}
-    .prod-nm{font-size:14px;font-weight:700;margin-bottom:4px}
-    .prod-ds{font-size:12px;color:var(--mid)}
-    @media(max-width:800px){ .products-grid{grid-template-columns:repeat(2,1fr)} }
+    /* PRODUCT ASSORTMENT (real Bauhaus shelf list, grouped by series) */
+    .series-block{margin-bottom:36px}
+    .series-block:last-child{margin-bottom:0}
+    .series-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--cyan-soft)}
+    .series-head h3{font-size:19px;font-weight:800;color:var(--navy)}
+    .series-head .series-count{font-size:12px;font-weight:700;color:var(--cyan-deep);background:var(--cyan-soft);padding:4px 11px;border-radius:99px}
+    .series-list{display:grid;gap:10px}
+    .prod-row{display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid var(--border);border-radius:12px;background:var(--white);transition:box-shadow .15s,border-color .15s}
+    .prod-row:hover{box-shadow:var(--shadow-sm);border-color:rgba(0,188,212,.3)}
+    .prod-icon{width:38px;height:38px;border-radius:9px;background:var(--cyan-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .prod-icon svg{width:19px;height:19px;color:var(--cyan-deep)}
+    .prod-main{flex:1;min-width:0}
+    .prod-nm{font-size:14.5px;font-weight:700;color:var(--text)}
+    .prod-hl{font-size:12.5px;color:var(--mid);margin-top:2px}
+    .prod-specs{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+    .spec-chip{font-size:11px;font-weight:600;color:var(--mid);background:var(--light);padding:5px 10px;border-radius:7px;white-space:nowrap}
+    @media(max-width:700px){
+      .prod-row{flex-wrap:wrap}
+      .prod-specs{width:100%;justify-content:flex-start;margin-left:54px}
+    }
 
     /* VALUE GRID (verified claims only) */
     .value-sec{background:var(--navy);color:var(--white)}
@@ -211,7 +221,6 @@
       .sticky-cta{display:flex}
       body{padding-bottom:72px}
       .sec{padding:48px 18px}
-      .products-grid{grid-template-columns:1fr 1fr}
       .value-grid{grid-template-columns:1fr 1fr}
     }
   </style>
@@ -336,26 +345,101 @@
 <!-- PRODUCTS -->
 <section class="sec" id="products">
   <div class="sec-head">
-    <span class="sec-tag">Ürün Serisi</span>
-    <h2 class="sec-title">Bauhaus'ta bulabileceğiniz Qbrick serileri</h2>
-    <p class="sec-sub">Aynı ürünler online mağazamızda ve Amazon'da da mevcuttur.</p>
+    <span class="sec-tag">Ürün Assortmanı</span>
+    <h2 class="sec-title">Bauhaus Kozyatağı'nda raflarda yer alan 15 model</h2>
+    <p class="sec-sub">PRIME, ONE ve PRO serilerinden seçilmiş assortman. Aynı ürünler online mağazamızda ve Amazon'da da mevcuttur.</p>
   </div>
-  <div class="products-grid">
-    <div class="prod">
-      <div class="prod-im"><img src="https://www.qbricksystem.com/wp-content/uploads/2025/02/Qbrick_System_ONE_Cart_2.0_RED_Ultra_HD-cover.png" alt="Qbrick System ONE" loading="lazy" /></div>
-      <div class="prod-bd"><div class="prod-nm">ONE</div><div class="prod-ds">Profesyonel modüler kasa sistemi</div></div>
+
+  <div class="series-block">
+    <div class="series-head"><h3>PRIME Serisi</h3><span class="series-count">2 model</span></div>
+    <div class="series-list">
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">Qbrick System PRIME SET 1 RED Ultra HD</div><div class="prod-hl">3 katlı mobil set: Toolbox 150 PROFI + Toolbox 250 VARIO + Cart</div></div>
+        <div class="prod-specs"><span class="spec-chip">590×425×773 mm</span><span class="spec-chip">13,7 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M4 17V6a1 1 0 011-1h11l4 5v7"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">Qbrick System PRIME Cart RED UHD</div><div class="prod-hl">IP66 sertifikalı, 100 kg taşıma kapasiteli ana gövde</div></div>
+        <div class="prod-specs"><span class="spec-chip">590×425×660 mm</span><span class="spec-chip">7,4 kg</span></div>
+      </div>
     </div>
-    <div class="prod">
-      <div class="prod-im"><img src="https://www.qbricksystem.com/wp-content/uploads/2025/01/Qbrick_System_TWO_Cart_Vario-cover-300x300.png" alt="Qbrick System TWO" loading="lazy" /></div>
-      <div class="prod-bd"><div class="prod-nm">TWO</div><div class="prod-ds">Kompakt, DIY ve profesyonel kullanım</div></div>
+  </div>
+
+  <div class="series-block">
+    <div class="series-head"><h3>ONE Serisi</h3><span class="series-count">5 model</span></div>
+    <div class="series-list">
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M4 17V6a1 1 0 011-1h11l4 5v7"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS ONE Cart 2.0 Red Ultra HD Custom</div><div class="prod-hl">10 adet M8 dişli insert, çift derin taşıma tepsili</div></div>
+        <div class="prod-specs"><span class="spec-chip">641×485×660 mm</span><span class="spec-chip">10,2 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">Qbrick System ONE 450 2.0 Expert Red</div><div class="prod-hl">52 litre iç hacim, IP66 su/toz geçirmez</div></div>
+        <div class="prod-specs"><span class="spec-chip">585×385×422 mm</span><span class="spec-chip">7,1 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">Qbrick System ONE 350 2.0 Profi Red</div><div class="prod-hl">38 litre, 120 kg'a kadar basılabilir gövde (basamak olarak da kullanılır)</div></div>
+        <div class="prod-specs"><span class="spec-chip">585×385×322 mm</span><span class="spec-chip">5,7 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS ONE Organizer XL 2.0</div><div class="prod-hl">30 cm üzeri uzun haznelere sahip en büyük organizer</div></div>
+        <div class="prod-specs"><span class="spec-chip">582×387×131 mm</span><span class="spec-chip">4,1 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">Qbrick System ONE Organizer M Plus 2.0</div><div class="prod-hl">Patentli Easy Access sistemi ile altını açmadan kolay erişim</div></div>
+        <div class="prod-specs"><span class="spec-chip">264×364×106 mm</span><span class="spec-chip">1,4 kg</span></div>
+      </div>
     </div>
-    <div class="prod">
-      <div class="prod-im"><img src="https://www.qbricksystem.com/wp-content/uploads/2025/02/Qbrick_System_PRO_Organizer_300-cover.png" alt="Qbrick System PRO" loading="lazy" /></div>
-      <div class="prod-bd"><div class="prod-nm">PRO 2.0</div><div class="prod-ds">Ultra kompakt organizer serisi</div></div>
-    </div>
-    <div class="prod">
-      <div class="prod-im"><img src="https://www.qbricksystem.com/wp-content/uploads/2025/01/Qbrick_System_PRIME_Toolbox_150_Profi_RED_Ultra_HD_lid_handle.png" alt="Qbrick System PRIME" loading="lazy" /></div>
-      <div class="prod-bd"><div class="prod-nm">PRIME</div><div class="prod-ds">Su ve toza karşı korumalı gövde</div></div>
+  </div>
+
+  <div class="series-block">
+    <div class="series-head"><h3>PRO Serisi</h3><span class="series-count">8 model</span></div>
+    <div class="series-list">
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 13h8"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS Pro Drawer 2 Toolbox 2.0 Expert RED</div><div class="prod-hl">2 çekmeceli, 10 kutu/bölmeli, teleskopik metal raylı</div></div>
+        <div class="prod-specs"><span class="spec-chip">450×310×244 mm</span><span class="spec-chip">5,73 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h8M8 17h8"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS Pro Drawer 3 Toolbox 2.0 Expert RED</div><div class="prod-hl">3 çekmeceli, 21 kutu + 9 bölücülü maksimum düzen</div></div>
+        <div class="prod-specs"><span class="spec-chip">450×310×244 mm</span><span class="spec-chip">6,48 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS PRO Technician Case 2.0 Red</div><div class="prod-hl">Elektrikli el aletleri için orta boy, su/toz geçirmez</div></div>
+        <div class="prod-specs"><span class="spec-chip">450×332×171 mm</span><span class="spec-chip">2,52 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS PRO Organizer 300 Red UHD</div><div class="prod-hl">PRO serisinin en derin organizeri, 8 çıkarılabilir hazne</div></div>
+        <div class="prod-specs"><span class="spec-chip">450×358×110 mm</span><span class="spec-chip">2,69 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS PRO Organizer 200 Red UHD</div><div class="prod-hl">IP54 sertifikalı, 8 hazneli kompakt organizer</div></div>
+        <div class="prod-specs"><span class="spec-chip">450×358×79 mm</span><span class="spec-chip">1,89 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M4 17V6a1 1 0 011-1h11l4 5v7"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">Qbrick System PRO Cart 2.0 Plus Red UHD</div><div class="prod-hl">9 inç kauçuk tekerlekli, 70 kg taşıma kapasiteli mobil gövde</div></div>
+        <div class="prod-specs"><span class="spec-chip">490×415×660 mm</span><span class="spec-chip">6,7 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h8"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS PRO Drawer Workshop Set 3 2.0 RUHD</div><div class="prod-hl">7 çekmeceli komple mobil atölye seti, taşıma platformu dahil</div></div>
+        <div class="prod-specs"><span class="spec-chip">525×345×885 mm</span><span class="spec-chip">20,74 kg</span></div>
+      </div>
+      <div class="prod-row">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M4 17V6a1 1 0 011-1h11l4 5v7"/><path d="M4 12h9"/></svg></div>
+        <div class="prod-main"><div class="prod-nm">QS PRO Cart 2.0 Plus Drawer 3 RUHD Cust.</div><div class="prod-hl">Tekerlekli gövde + 3 entegre çekmece hibrit tasarım</div></div>
+        <div class="prod-specs"><span class="spec-chip">520×440×660 mm</span><span class="spec-chip">11 kg</span></div>
+      </div>
     </div>
   </div>
 </section>

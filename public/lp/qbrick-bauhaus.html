@@ -141,10 +141,13 @@
     .sec-sub{color:var(--mid);font-size:15px}
 
     /* PARTNERSHIP BADGE */
-    .partner-strip{display:flex;align-items:center;justify-content:center;gap:16px;padding:22px 24px;flex-wrap:wrap;border-bottom:1px solid var(--border)}
-    .partner-label{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+    .partner-strip{display:flex;align-items:center;justify-content:center;gap:18px;padding:26px 24px;flex-wrap:wrap;background:var(--navy)}
+    .partner-label{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.5)}
     .partner-strip img{height:52px;width:auto;display:block}
-    @media(max-width:600px){ .partner-strip{padding:16px 18px} .partner-strip img{height:36px} }
+    @media(max-width:600px){
+      .partner-strip{flex-direction:column;padding:16px 18px;gap:10px}
+      .partner-strip img{height:auto;max-width:100%;width:340px}
+    }
 
     /* STORE FINDER */
     .stores{background:var(--off-white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}

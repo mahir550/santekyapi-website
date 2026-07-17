@@ -249,8 +249,8 @@
 <nav class="nav">
   <a href="/"><img src="/santek-logo-trim.png" alt="Santek" width="120" height="28" /></a>
   <div class="nav-right">
-    <a href="#stores" class="btn-map-sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-7 8-13a8 8 0 10-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg> Mağaza Bul</a>
-    <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-shop-sm" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Online Mağaza</a>
+    <a href="#stores" class="btn-map-sm" data-track="store_finder" data-location="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-7 8-13a8 8 0 10-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg> Mağaza Bul</a>
+    <a href="https://shop.santekyapi.com.tr" target="_blank" class="btn-shop-sm" rel="noopener" data-track="shop" data-location="nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Online Mağaza</a>
   </div>
 </nav>
 
@@ -262,11 +262,11 @@
       <h1>Qbrick System artık<br/><em>Bauhaus'ta</em></h1>
       <p class="hero-sub">İhtiyacınıza göre şekillenen çok amaçlı modüler saklama ve organizasyon sistemi Qbrick System, şimdi Bauhaus Kozyatağı raflarında. Çok yakında tüm Bauhauslarda.</p>
       <div class="hero-cta-group">
-        <a href="#stores" class="cta-primary cta-map">
+        <a href="#stores" class="cta-primary cta-map" data-track="store_finder" data-location="hero">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-7 8-13a8 8 0 10-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
           En Yakın Mağazayı Bul
         </a>
-        <a href="https://shop.santekyapi.com.tr" target="_blank" class="cta-primary cta-shop" rel="noopener">
+        <a href="https://shop.santekyapi.com.tr" target="_blank" class="cta-primary cta-shop" rel="noopener" data-track="shop" data-location="hero">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
           Online Satın Al
         </a>
@@ -322,10 +322,10 @@
             0216 578 70 70
           </div>
           <div class="store-actions">
-            <a class="btn-dir" href="https://www.google.com/maps/dir/?api=1&destination=Bauhaus+Kozyata%C4%9F%C4%B1%2C+%C4%B0%C3%A7erenk%C3%B6y+Mahallesi%2C+Kay%C4%B1%C5%9Fda%C4%9F%C4%B1+Caddesi+No%3A4%2C+34752+Ata%C5%9Fehir+%C4%B0stanbul" target="_blank" rel="noopener">
+            <a class="btn-dir" href="https://www.google.com/maps/dir/?api=1&destination=Bauhaus+Kozyata%C4%9F%C4%B1%2C+%C4%B0%C3%A7erenk%C3%B6y+Mahallesi%2C+Kay%C4%B1%C5%9Fda%C4%9F%C4%B1+Caddesi+No%3A4%2C+34752+Ata%C5%9Fehir+%C4%B0stanbul" target="_blank" rel="noopener" data-track="store_direction" data-store="Bauhaus Kozyatağı">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg> Yol Tarifi Al
             </a>
-            <a class="btn-tel" href="tel:+902165787070"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Ara</a>
+            <a class="btn-tel" href="tel:+902165787070" data-track="store_call" data-store="Bauhaus Kozyatağı" data-phone="+902165787070"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Ara</a>
           </div>
         </div>
       </div>
@@ -370,13 +370,13 @@
   <div class="series-block">
     <div class="series-head"><h3>PRIME Serisi</h3><span class="series-count">2 model</span></div>
     <div class="series-list">
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-prime-set-1-red-ultra-hd" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-prime-set-1-red-ultra-hd" target="_blank" rel="noopener" data-track="product" data-series="PRIME">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/010/qbrick-system-prime-red-uhd-set-low-res-1000x1000.jpg?revision=1782901569" alt="PRIME SET 1 RED Ultra HD" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRIME SET 1 RED Ultra HD</div><div class="prod-hl">3 katlı mobil set: Toolbox 150 PROFI + Toolbox 250 VARIO + Cart</div></div>
         <div class="prod-specs"><span class="spec-chip">590×425×773 mm</span><span class="spec-chip">13,7 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-prime-cart-red-uhd" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-prime-cart-red-uhd" target="_blank" rel="noopener" data-track="product" data-series="PRIME">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/077/qbrick-system-prime-cart-red-ultra-hd-custom.png?revision=1782901418" alt="PRIME Cart RED UHD" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRIME Cart RED UHD</div><div class="prod-hl">IP66 sertifikalı, 100 kg taşıma kapasiteli ana gövde</div></div>
         <div class="prod-specs"><span class="spec-chip">590×425×660 mm</span><span class="spec-chip">7,4 kg</span></div>
@@ -388,31 +388,31 @@
   <div class="series-block">
     <div class="series-head"><h3>ONE Serisi</h3><span class="series-count">5 model</span></div>
     <div class="series-list">
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-cart-2-0-red-ultra-hd-custom-kopya" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-cart-2-0-red-ultra-hd-custom-kopya" target="_blank" rel="noopener" data-track="product" data-series="ONE">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/262/qbrick-system-one-cart-2-0-red-ultra-hd-custom-02-low-res-1000x1000.jpg?revision=1782895166" alt="ONE Cart 2.0 Red Ultra HD Custom" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">ONE Cart 2.0 Red Ultra HD Custom</div><div class="prod-hl">10 adet M8 dişli insert, çift derin taşıma tepsili</div></div>
         <div class="prod-specs"><span class="spec-chip">641×485×660 mm</span><span class="spec-chip">10,2 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-450-2-0-expert-red" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-450-2-0-expert-red" target="_blank" rel="noopener" data-track="product" data-series="ONE">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/020/qbrick-system-one-450-2-0-expert-red-ultra-hd-custom-low-res-1000x1000.jpg?revision=1782895261" alt="ONE 450 2.0 Expert Red" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">ONE 450 2.0 Expert Red</div><div class="prod-hl">52 litre iç hacim, IP66 su/toz geçirmez</div></div>
         <div class="prod-specs"><span class="spec-chip">585×385×422 mm</span><span class="spec-chip">7,1 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-350-2-0-profi-red" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-350-2-0-profi-red" target="_blank" rel="noopener" data-track="product" data-series="ONE">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/035/qbrick-system-one-350-profi-2-0-red-ultra-hd-custom-1000x1000.jpg?revision=1782895355" alt="ONE 350 2.0 Profi Red" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">ONE 350 2.0 Profi Red</div><div class="prod-hl">38 litre, 120 kg'a kadar basılabilir gövde (basamak olarak da kullanılır)</div></div>
         <div class="prod-specs"><span class="spec-chip">585×385×322 mm</span><span class="spec-chip">5,7 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-organizer-xl-2-0" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-organizer-xl-2-0" target="_blank" rel="noopener" data-track="product" data-series="ONE">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/186/qbrick-system-one-organizer-xl-2-0-lo-res-1000x1000.jpg?revision=1782894043" alt="ONE Organizer XL 2.0" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">ONE Organizer XL 2.0</div><div class="prod-hl">30 cm üzeri uzun haznelere sahip en büyük organizer</div></div>
         <div class="prod-specs"><span class="spec-chip">582×387×131 mm</span><span class="spec-chip">4,1 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-organizer-m-plus-2-0" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-one-organizer-m-plus-2-0" target="_blank" rel="noopener" data-track="product" data-series="ONE">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/188/qbrick-system-one-organizer-m-plus-2-0-1-1000x1000.jpg?revision=1782894785" alt="ONE Organizer M Plus 2.0" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">ONE Organizer M Plus 2.0</div><div class="prod-hl">Patentli Easy Access sistemi ile altını açmadan kolay erişim</div></div>
         <div class="prod-specs"><span class="spec-chip">264×364×106 mm</span><span class="spec-chip">1,4 kg</span></div>
@@ -424,49 +424,49 @@
   <div class="series-block">
     <div class="series-head"><h3>PRO Serisi</h3><span class="series-count">8 model</span></div>
     <div class="series-list">
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-drawer-2-toolbox-2-0-expert-red" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-drawer-2-toolbox-2-0-expert-red" target="_blank" rel="noopener" data-track="product" data-series="PRO">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/054/qbrick-system-pro-drawer-2-toolbox-2-0-expert-red-ultra-hd-custom-1000x1000.png?revision=1782897501" alt="PRO Drawer 2 Toolbox 2.0 Expert RED" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRO Drawer 2 Toolbox 2.0 Expert RED</div><div class="prod-hl">2 çekmeceli, 10 kutu/bölmeli, teleskopik metal raylı</div></div>
         <div class="prod-specs"><span class="spec-chip">450×310×244 mm</span><span class="spec-chip">5,73 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-drawer-3-toolbox-2-0-expert-red" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-drawer-3-toolbox-2-0-expert-red" target="_blank" rel="noopener" data-track="product" data-series="PRO">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/053/qbrick-system-pro-drawer-3-toolbox-2-0-expert-red-ultra-hd-custom-1000x1000.jpg?revision=1782897479" alt="PRO Drawer 3 Toolbox 2.0 Expert RED" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRO Drawer 3 Toolbox 2.0 Expert RED</div><div class="prod-hl">3 çekmeceli, 21 kutu + 9 bölücülü maksimum düzen</div></div>
         <div class="prod-specs"><span class="spec-chip">450×310×244 mm</span><span class="spec-chip">6,48 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-technician-case-2-0-red" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-technician-case-2-0-red" target="_blank" rel="noopener" data-track="product" data-series="PRO">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/057/qbrick-system-pro-technician-case-2-0-red-ultra-hd-custom-1000x1000.jpg?revision=1782897422" alt="PRO Technician Case 2.0 Red" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRO Technician Case 2.0 Red</div><div class="prod-hl">Elektrikli el aletleri için orta boy, su/toz geçirmez</div></div>
         <div class="prod-specs"><span class="spec-chip">450×332×171 mm</span><span class="spec-chip">2,52 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-organizer-300-red-uhd" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-organizer-300-red-uhd" target="_blank" rel="noopener" data-track="product" data-series="PRO">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/196/img-1769.png?revision=1782897564" alt="PRO Organizer 300 Red UHD" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRO Organizer 300 Red UHD</div><div class="prod-hl">PRO serisinin en derin organizeri, 8 çıkarılabilir hazne</div></div>
         <div class="prod-specs"><span class="spec-chip">450×358×110 mm</span><span class="spec-chip">2,69 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qs-pro-organizer-200-red-uhd" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qs-pro-organizer-200-red-uhd" target="_blank" rel="noopener" data-track="product" data-series="PRO">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/226/img-1773.jpg?revision=1782897585" alt="PRO Organizer 200 Red UHD" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRO Organizer 200 Red UHD</div><div class="prod-hl">IP54 sertifikalı, 8 hazneli kompakt organizer</div></div>
         <div class="prod-specs"><span class="spec-chip">450×358×79 mm</span><span class="spec-chip">1,89 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-cart-2-0-plus-red-uhd" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-cart-2-0-plus-red-uhd" target="_blank" rel="noopener" data-track="product" data-series="PRO">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/058/qbrick-system-pro-cart-2-0-plus-red-ultra-hd-custom-1000x1000.jpg?revision=1782897256" alt="PRO Cart 2.0 Plus Red UHD" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRO Cart 2.0 Plus Red UHD</div><div class="prod-hl">9 inç kauçuk tekerlekli, 70 kg taşıma kapasiteli mobil gövde</div></div>
         <div class="prod-specs"><span class="spec-chip">490×415×660 mm</span><span class="spec-chip">6,7 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-drawer-workshop-set-3-2-0-ruhd" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-drawer-workshop-set-3-2-0-ruhd" target="_blank" rel="noopener" data-track="product" data-series="PRO">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/008/qbrick-system-pro-drawer-workshop-set-3-2-0-red-ultra-hd-low-res-1000x1000.jpg?revision=1782897541" alt="PRO Drawer Workshop Set 3 2.0 RUHD" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRO Drawer Workshop Set 3 2.0 RUHD</div><div class="prod-hl">7 çekmeceli komple mobil atölye seti, taşıma platformu dahil</div></div>
         <div class="prod-specs"><span class="spec-chip">525×345×885 mm</span><span class="spec-chip">20,74 kg</span></div>
         <svg class="prod-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
       </a>
-      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-cart-2-0-plus-drawer-3-red-ultra-hd" target="_blank" rel="noopener">
+      <a class="prod-row" href="https://shop.santekyapi.com.tr/urun/qbrick-system-pro-cart-2-0-plus-drawer-3-red-ultra-hd" target="_blank" rel="noopener" data-track="product" data-series="PRO">
         <div class="prod-thumb"><img src="https://shop.santekyapi.com.tr/idea/ps/90/myassets/products/197/qs-pro-cart-2-0-plus-drawer-3-red-ultra-hd-1.png?revision=1782897335" alt="PRO Cart 2.0 Plus Drawer 3 RUHD" loading="lazy"></div>
         <div class="prod-main"><div class="prod-nm">PRO Cart 2.0 Plus Drawer 3 RUHD</div><div class="prod-hl">Tekerlekli gövde + 3 entegre çekmece hibrit tasarım</div></div>
         <div class="prod-specs"><span class="spec-chip">520×440×660 mm</span><span class="spec-chip">11 kg</span></div>
@@ -512,7 +512,7 @@
 <div class="final-cta">
   <h2>Bauhaus'a gidemiyor musunuz?</h2>
   <p>Aynı Qbrick System ürünlerini online mağazamızdan da sipariş edebilirsiniz.</p>
-  <a href="https://shop.santekyapi.com.tr" target="_blank" class="cta-primary" rel="noopener">
+  <a href="https://shop.santekyapi.com.tr" target="_blank" class="cta-primary" rel="noopener" data-track="shop" data-location="final_cta">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
     Online Mağazaya Git
   </a>
@@ -522,18 +522,18 @@
 <footer class="footer">
   <a href="/"><img src="/santek-logo-white.png" alt="Santek" loading="lazy" decoding="async" /></a>
   <div class="footer-links">
-    <a href="#stores">Mağaza Bul</a>
-    <a href="https://shop.santekyapi.com.tr" target="_blank" rel="noopener">Online Mağaza</a>
-    <a href="https://www.amazon.com.tr/s?k=Qbrick+System" target="_blank" rel="noopener">Amazon</a>
-    <a href="https://www.qbricksystem.com" target="_blank" rel="noopener">Qbrick Global</a>
+    <a href="#stores" data-track="store_finder" data-location="footer">Mağaza Bul</a>
+    <a href="https://shop.santekyapi.com.tr" target="_blank" rel="noopener" data-track="shop" data-location="footer">Online Mağaza</a>
+    <a href="https://www.amazon.com.tr/s?k=Qbrick+System" target="_blank" rel="noopener" data-track="amazon" data-location="footer">Amazon</a>
+    <a href="https://www.qbricksystem.com" target="_blank" rel="noopener" data-track="outbound" data-location="footer_qbrick_global">Qbrick Global</a>
   </div>
   <span class="footer-copy">© 2026 Santek — Qbrick System TR Resmi Distribütörü</span>
 </footer>
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
-  <a href="#stores" class="sc-dir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-7 8-13a8 8 0 10-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg> Mağaza Bul</a>
-  <a href="https://shop.santekyapi.com.tr" target="_blank" class="sc-shop" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Online Al</a>
+  <a href="#stores" class="sc-dir" data-track="store_finder" data-location="sticky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-7 8-13a8 8 0 10-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="2.5"/></svg> Mağaza Bul</a>
+  <a href="https://shop.santekyapi.com.tr" target="_blank" class="sc-shop" rel="noopener" data-track="shop" data-location="sticky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 6h15l-2 9H8L6 6z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg> Online Al</a>
 </div>
 
 <script>
@@ -544,8 +544,20 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
   });
 });
-document.querySelectorAll('.btn-dir, .btn-tel, .cta-map, .sc-dir').forEach(a=>{
-  a.addEventListener('click', ()=>{ window.dataLayer && window.dataLayer.push({event:'store_direction_click', lp_id:'qbrick-bauhaus'}); });
+document.querySelectorAll('[data-track]').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    if(!window.dataLayer) return;
+    const payload = { event:'cta_click', lp_id:'qbrick-bauhaus', cta_type:a.dataset.track };
+    if(a.dataset.location) payload.cta_location = a.dataset.location;
+    if(a.dataset.store) payload.store_name = a.dataset.store;
+    if(a.dataset.phone) payload.phone = a.dataset.phone;
+    if(a.dataset.series) payload.product_series = a.dataset.series;
+    if(a.dataset.track === 'product'){
+      const nameEl = a.querySelector('.prod-nm');
+      if(nameEl) payload.product_name = nameEl.textContent.trim();
+    }
+    window.dataLayer.push(payload);
+  });
 });
 </script>
 

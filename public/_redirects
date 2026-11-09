@@ -14,5 +14,5 @@
 # Landing pages — Cloudflare Pages auto-strips .html so /lp/qbrick-modular works for /lp/qbrick-modular.html
 # No explicit rules needed — files in public/lp/ are served at their paths.
 
-# Default SPA fallback (must be last)
-/*                      /             200
+# No catch-all rule: a "/* / 200" rewrite overrides static files (logos, LPs).
+# Without a 404.html, Cloudflare Pages already serves index.html for unknown paths (SPA mode).

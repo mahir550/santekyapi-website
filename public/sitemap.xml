@@ -31,6 +31,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.santekyapi.com.tr/marka/rida</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.santekyapi.com.tr/marka/grabo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.santekyapi.com.tr/hizmetler</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

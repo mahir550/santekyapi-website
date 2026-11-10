@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.png" type="image/png">
+<meta name="description" content="Santek bayilerine özel güncel ürün katalogları ve B2B sistemi girişi.">
+<meta property="og:title" content="Santek bayi katalogları">
+<meta property="og:description" content="Santek bayilerine özel güncel ürün katalogları ve B2B sistemi girişi.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Santek bayi katalogları</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap">
+<style id="css">
+:root{
+  --bg:#E6E9E8; --surface:#FFFFFF; --ink:#15181B; --muted:#56606A; --line:#C7CDCB;
+  --tape:#F2C230; --tape-ink:#1F1A08; --wa:#1DA851; --wa-ink:#FFFFFF; --focus:#1F5FE0; --danger:#B42318;
+  --btn-ink-bg:#15181B; --btn-ink-fg:#FFFFFF;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121517; --surface:#1B1F22; --ink:#ECEFEE; --muted:#9BA4AB; --line:#30373B;
+    --tape:#E8B91F; --tape-ink:#1F1A08; --wa:#22B95B; --wa-ink:#FFFFFF; --focus:#7FA8FF; --danger:#FF8A7A;
+    --btn-ink-bg:#ECEFEE; --btn-ink-fg:#15181B;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121517; --surface:#1B1F22; --ink:#ECEFEE; --muted:#9BA4AB; --line:#30373B;
+  --tape:#E8B91F; --tape-ink:#1F1A08; --wa:#22B95B; --wa-ink:#FFFFFF; --focus:#7FA8FF; --danger:#FF8A7A;
+  --btn-ink-bg:#ECEFEE; --btn-ink-fg:#15181B;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.5;padding-bottom:88px}
+@media (min-width:900px){body{padding-bottom:0}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0 10px}
+.mark{font-stretch:125%;font-weight:850;font-size:26px;letter-spacing:.02em;text-decoration:none}
+.mark img{height:48px;width:auto;max-width:220px;object-fit:contain}
+.top-sub{font-size:13px;color:var(--muted);font-stretch:90%}
+.edit-toggle{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;cursor:pointer}
+
+/* hero */
+.logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:6px 0 14px}
+@media (min-width:900px){.logos{display:flex;flex-wrap:wrap;gap:10px}.ltile{flex:0 0 auto;width:132px;height:72px;padding:10px 12px;font-size:17px}}
+.ltile{min-width:0;height:64px;display:flex;align-items:center;justify-content:center;padding:8px 10px;background:#FFFFFF;color:#15181B;border:1px solid var(--line);border-radius:10px;cursor:pointer;font:inherit;font-stretch:75%;font-weight:760;font-size:15px;line-height:1.1;text-align:center}
+.ltile img{max-width:100%;max-height:100%;object-fit:contain}
+.ltile:hover{border-color:var(--ink)}
+.hero{padding:22px 0 8px;border-top:1px solid var(--line)}
+.hero h1{margin:0;font-stretch:85%;font-weight:720;font-size:clamp(24px,4vw,30px);line-height:1.15}
+.hero p.lead{margin:6px 0 0;max-width:60ch;font-size:16px;color:var(--muted)}
+.event{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 18px;font-weight:600;font-size:15px}
+.event span{display:inline-flex;align-items:center;gap:8px}
+.event .stand{background:var(--ink);color:var(--bg);padding:3px 10px;border-radius:4px}
+
+/* tape measure */
+.tape{position:relative;height:46px;background:var(--tape);color:var(--tape-ink);overflow:hidden;border-top:1px solid rgba(0,0,0,.25);border-bottom:1px solid rgba(0,0,0,.25);
+  background-image:
+    repeating-linear-gradient(90deg,var(--tape-ink) 0 1.5px,transparent 1.5px 60px),
+    repeating-linear-gradient(90deg,var(--tape-ink) 0 1px,transparent 1px 30px),
+    repeating-linear-gradient(90deg,var(--tape-ink) 0 1px,transparent 1px 6px);
+  background-size:100% 24px,100% 15px,100% 9px;background-repeat:repeat-x;background-position:0 0,0 0,0 0;
+  transform-origin:left center}
+.tape i{position:absolute;top:22px;font-style:normal;font-size:13px;font-weight:700;font-stretch:75%;transform:translateX(4px)}
+@media (prefers-reduced-motion:no-preference){.tape.anim{animation:pull .9s cubic-bezier(.2,.8,.2,1) both}}
+@keyframes pull{from{transform:scaleX(.02)}to{transform:scaleX(1)}}
+
+/* layout */
+.grid{display:grid;grid-template-columns:1fr;gap:0 48px;padding:18px 0 56px}
+@media (min-width:900px){.grid{grid-template-columns:minmax(0,1fr) 340px}}
+h2.sec{font-stretch:75%;font-weight:760;font-size:26px;line-height:1.1;margin:0 0 6px}
+.sec-note{margin:0 0 18px;color:var(--muted);font-size:15px}
+
+/* brand rows */
+.brands{border-top:2px solid var(--ink)}
+.brand{display:grid;grid-template-columns:1fr;gap:14px;padding:22px 0;border-bottom:1px solid var(--line)}
+@media (min-width:640px){.brand{grid-template-columns:minmax(0,1fr) 280px;align-items:center}}
+.brand h3{margin:0;font-stretch:72%;font-weight:780;font-size:clamp(30px,5vw,40px);line-height:1}
+.brand .logo{height:56px;width:auto;max-width:200px;object-fit:contain;background:#FFFFFF;border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.brand .meta{margin:6px 0 0;font-size:14px;color:var(--muted);font-weight:600}
+.brand .desc{margin:6px 0 0;max-width:52ch}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.actions .btn-cat{flex:1 1 auto;min-height:56px;font-size:17px}
+.weblink{width:100%;font-size:14px;color:var(--muted)}
+.weblink a{color:var(--muted);font-weight:600}
+.nocat{flex:1;display:flex;align-items:center;justify-content:center;min-height:56px;border:1.5px dashed var(--line);border-radius:8px;font-size:15px;color:var(--muted);font-weight:600}
+.btn{font:inherit;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 18px;border-radius:8px;font-weight:650;font-size:16px;text-decoration:none;cursor:pointer;border:1.5px solid transparent;line-height:1.15}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-ink{background:var(--btn-ink-bg);color:var(--btn-ink-fg)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-quiet{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.b2b{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.btn-b2b{background:#00567E;color:#FFFFFF;min-height:54px;padding:12px 22px;font-size:17px}
+.b2b .note{font-size:14px;color:var(--muted);font-weight:600}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.45;cursor:default}
+.fsize{font-size:13px;color:var(--muted);width:100%}
+@media (min-width:640px){.fsize{text-align:right}}
+.soon{font-size:14px;color:var(--muted);font-weight:600}
+.empty{padding:28px 0;color:var(--muted)}
+
+/* contact */
+.contact{margin-top:44px}
+@media (min-width:900px){.contact{margin-top:0;position:sticky;top:calc(20px + env(safe-area-inset-top,0px));align-self:start}}
+.card{background:var(--surface);border-radius:12px;padding:22px;border:1px solid var(--line)}
+.card .btn{width:100%}
+.clist{list-style:none;margin:18px 0 0;padding:0}
+.clist li{padding:12px 0;border-top:1px solid var(--line)}
+.clist .k{display:block;font-size:13px;color:var(--muted);font-weight:600}
+.clist a{font-weight:600;text-decoration:none;word-break:break-word}
+.clist a:hover{text-decoration:underline}
+.company{font-weight:700;margin:0}
+.foot{padding:26px 0 40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+
+/* mobile bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:10px;padding:10px 14px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}
+.bar .btn{flex:1}
+.bar .btn-quiet{flex:0 0 auto}
+@media (min-width:900px){.bar{display:none}}
+
+/* edit mode */
+.ebar{position:sticky;top:0;z-index:30;background:var(--ink);color:var(--bg);margin:0 -20px;padding:12px 20px;padding-top:calc(12px + env(safe-area-inset-top,0px));display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.ebar strong{flex:1;min-width:160px;font-weight:650}
+.ebar .btn{min-height:40px;padding:8px 14px;font-size:15px}
+.ebar .btn-pub{background:var(--tape);color:var(--tape-ink)}
+.ebar .btn-cancel{background:transparent;color:var(--bg);border-color:var(--bg)}
+.esec{margin:30px 0}
+.esec > h2{font-stretch:75%;font-weight:760;font-size:24px;margin:0 0 12px}
+.ecard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px}
+.ecard h3{margin:0 0 12px;font-stretch:75%;font-size:22px}
+.fgrid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:700px){.fgrid{grid-template-columns:1fr 1fr}.fgrid .full{grid-column:1/-1}}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;color:var(--muted)}
+label.f input,label.f textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;width:100%}
+label.f textarea{min-height:76px;resize:vertical}
+.filebox{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px;border:1px dashed var(--line);border-radius:8px}
+.filebox .fname{flex:1;min-width:160px;font-size:15px;font-weight:600;word-break:break-all}
+.filebox .btn{min-height:38px;padding:7px 12px;font-size:14px}
+.erow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.erow .btn{min-height:38px;padding:7px 12px;font-size:14px}
+.btn-danger{background:transparent;color:var(--danger);border-color:var(--danger)}
+.btn-danger.armed{background:var(--danger);color:#fff}
+.hint{font-size:13px;color:var(--muted);margin:6px 0 0}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(100px + env(safe-area-inset-bottom,0px));z-index:50;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:15px;max-width:min(92vw,520px);box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.toast[hidden]{display:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+/* catalog viewer */
+.pv{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;background:#1a1d1f;color:#fff;font-family:inherit}
+.pv[hidden]{display:none}
+.pv-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;padding-top:calc(8px + env(safe-area-inset-top,0px));background:#0f1112;border-bottom:1px solid #2c3236;flex:none}
+.pv-title{flex:1;min-width:0;font-weight:700;font-size:16px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv-count{font-size:13px;color:#aab2b8;white-space:nowrap}
+.pv-btn{font:inherit;min-width:44px;min-height:44px;padding:0 14px;border-radius:8px;border:1px solid #3a4146;background:#22272a;color:#fff;cursor:pointer;font-weight:650;font-size:16px;display:inline-flex;align-items:center;justify-content:center}
+.pv-btn[disabled]{opacity:.35;cursor:default}
+.pv-btn:focus-visible{outline:3px solid #7FA8FF;outline-offset:2px}
+.pv-close{background:#fff;color:#111;border-color:#fff}
+.pv-body{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;padding:12px 0 calc(28px + env(safe-area-inset-bottom,0px));touch-action:pan-x pan-y pinch-zoom;overscroll-behavior:contain}
+.pv-pages{width:max-content;min-width:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
+.pv-page{background:#fff;box-shadow:0 2px 14px rgba(0,0,0,.55);position:relative;flex:none}
+.pv-page canvas{display:block;width:100%;height:100%}
+.pv-msg{padding:48px 20px;text-align:center;color:#c9d0d5;font-size:16px;width:100vw;max-width:100%}
+@media (max-width:520px){.pv-count{display:none}.pv-btn{padding:0 11px}}
+
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="application/json" id="state">{"hero": {"logo": "dbd735fb5be2a72fd8ec351d48be8a6c", "title": "Bayi kataloglarımız", "lead": "Bayilerimize özel güncel kataloglar. Sipariş, stok ve cari hesap işlemleriniz için B2B sistemimize giriş yapabilirsiniz.", "event": "18–21 Kasım 2026, İstanbul Fuar Merkezi", "stand": ""}, "contact": {"company": "Santek Endüstri ve Yapı Malzemeleri Ltd. Şti.", "address": "Armağanevler Mah. Diriliş Cad. No:24, 34760 Ümraniye, İstanbul", "mapsUrl": "https://maps.google.com/?q=Santek+Endüstri+ve+Yapı+Malzemeleri+Ümraniye", "phone": "0216 499 05 10", "whatsapp": "0542 728 07 28", "whatsappText": "Merhaba, bayi kataloglarınız ve B2B sistemi hakkında bilgi almak istiyorum.", "email": "info@santekyapi.com.tr", "web": "https://www.santekyapi.com.tr"}, "brands": [{"id": "qbrick", "name": "Qbrick System", "origin": "Polonya", "rel": "Türkiye distribütörü", "desc": "Birbirine kilitlenen modüler takım çantaları, organizerler ve taşıma sistemleri.", "web": "https://qbricksystem.com.tr", "logo": "472601e3adf1d8f63337b32cb1dcc790", "catalog": {"asset": "493d8ca0334623284bec79c445399ab9", "url": "", "name": "Qbrick_System_Katalog_2025.pdf", "size": 8636494}}, {"id": "wolfcraft", "name": "Wolfcraft", "origin": "Almanya", "rel": "Türkiye distribütörü", "desc": "Çalışma tezgâhları, işkenceler, matkap sehpaları, ölçme ve kesme aparatları.", "web": "https://wolfcraftturkiye.com", "logo": "f5e166e7cd10f4683eebe2b9cf81c71f", "catalog": {"asset": "b731cad3dca3cb7ab5a754fb85e8ba27", "url": "", "name": "Wolfcraft_Katalog_2026.pdf", "size": 8179865}}, {"id": "rida", "name": "RIDA", "origin": "Çin", "rel": "Türkiye distribütörü", "desc": "Akülü el aletleri.", "web": "", "logo": "895141f1982e8b5f8f36d55e05108674", "catalog": {"asset": null, "url": "", "name": "", "size": 0}}, {"id": "temple", "name": "Temple Tool", "origin": "Japonya", "rel": "Türkiye distribütörü", "desc": "Japon el testereleri: dozuki, ryoba ve kesim testereleri.", "web": "", "logo": "0a4bfe072f31a0af3afa9f4191e8098b", "catalog": {"asset": "b31b996b2e965b1caf2542fcbbcb95db", "url": "", "name": "Temple_Tool_Katalog_2026.pdf", "size": 6915694}}, {"id": "robustech", "name": "RBT Robustech", "origin": "", "rel": "Santek markası", "desc": "20V PowerShare ortak batarya platformunda akülü aletler ve elektrikli el aletleri.", "web": "https://rbttools.com", "logo": "0f3d0777211cfb6a7e6e08f2a94acffd", "catalog": {"asset": null, "url": "", "name": "", "size": 0}}, {"id": "riken", "name": "Riken", "origin": "", "rel": "Santek markası", "desc": "El aletleri ve hırdavat ürünleri.", "web": "", "logo": "1bd4203cb70be2d1b81dece810f6dbe9", "catalog": {"asset": null, "url": "", "name": "", "size": 0}}, {"id": "entex", "name": "Entex", "origin": "", "rel": "", "desc": "", "web": "", "logo": "1bd4819c12d64074f1df54873bc02abe", "catalog": {"asset": null, "url": "", "name": "", "size": 0}}, {"id": "grabo", "name": "Grabo", "origin": "", "rel": "Türkiye distribütörü", "desc": "Taşınabilir akülü vakumlu taşıma cihazları: fayans, cam, levha ve plakaları tek elle kaldırıp taşımayı sağlar.", "web": "", "logo": "fdb416732b120e9f60bcaaf81ac9a63a", "catalog": {"asset": null, "url": "", "name": "", "size": 0}}, {"id": "ekogrid", "name": "EkoGrid", "origin": "", "rel": "Türkiye distribütörü", "desc": "Geri dönüştürülmüş malzemeden zemin ızgaraları, sınırlama profilleri ve Atena tık-geçmeli yer kaplama.", "web": "", "logo": "07803bc9af36b744fa5d3f72753f01c0", "catalog": {"asset": "223293f8b382508a12e846e176d62375", "url": "", "name": "EkoGrid_Urun_Katalogu_2026.pdf", "size": 1596613}}], "b2b": {"label": "B2B sistemine giriş", "url": "https://www.e-santek.com", "note": "Sipariş, stok, fiyat ve cari hesap"}}</script>
+<script id="app">
+(function(){
+"use strict";
+var STATE = JSON.parse(document.getElementById("state").textContent);
+var root = document.getElementById("root");
+var editing = false, draft = null;
+var NS = {artifact:null, assets:null, downloads:null};
+var canEdit = false;
+var origAssets = collectAssets(STATE);
+var sessionUploads = new Set();
+var pendingDeletes = new Set();
+var MAX = 20 * 1024 * 1024;
+
+function esc(s){return String(s == null ? "" : s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});}
+var BLOBMAP = {"dbd735fb5be2a72fd8ec351d48be8a6c": "/katalog/santek-logo.png", "472601e3adf1d8f63337b32cb1dcc790": "/katalog/logo-qbrick.png", "493d8ca0334623284bec79c445399ab9": "/katalog/qbrick-katalog-2025.pdf", "f5e166e7cd10f4683eebe2b9cf81c71f": "/katalog/logo-wolfcraft.png", "b731cad3dca3cb7ab5a754fb85e8ba27": "/katalog/wolfcraft-katalog-2026.pdf", "895141f1982e8b5f8f36d55e05108674": "/katalog/logo-rida.png", "0a4bfe072f31a0af3afa9f4191e8098b": "/katalog/logo-temple.png", "b31b996b2e965b1caf2542fcbbcb95db": "/katalog/temple-tool-katalog-2026.pdf", "0f3d0777211cfb6a7e6e08f2a94acffd": "/katalog/logo-robustech.png", "1bd4203cb70be2d1b81dece810f6dbe9": "/katalog/logo-riken.png", "1bd4819c12d64074f1df54873bc02abe": "/katalog/logo-entex.png", "fdb416732b120e9f60bcaaf81ac9a63a": "/katalog/logo-grabo.png", "07803bc9af36b744fa5d3f72753f01c0": "/katalog/logo-ekogrid.png", "223293f8b382508a12e846e176d62375": "/katalog/ekogrid-katalog-2026.pdf"}; window.STATIC_SITE = true;
+function blob(id){return BLOBMAP[id] || ("/_blob/" + id);}
+function mb(b){return (b/1048576).toFixed(1).replace(".", ",") + " MB";}
+function host(u){try{return new URL(u).hostname.replace(/^www\./,"");}catch(e){return u;}}
+function safeUrl(u){u = String(u||"").trim(); if(!u) return ""; if(!/^https?:\/\//i.test(u)) u = "https://" + u; return /^https?:\/\//i.test(u) ? u : "";}
+function digits(s){return String(s||"").replace(/\D/g,"");}
+function tr(s){var d = digits(s); if(d.indexOf("90")===0 && d.length===12) return d; if(d.charAt(0)==="0") return "90"+d.slice(1); if(d.length===10) return "90"+d; return d;}
+function wa(c){var d = tr(c.whatsapp); return d ? "https://wa.me/" + d + (c.whatsappText ? "?text=" + encodeURIComponent(c.whatsappText) : "") : "";}
+function tel(p){var d = tr(p); return d ? "tel:+" + d : "";}
+function collectAssets(s){var set = new Set(); if(s.hero.logo) set.add(s.hero.logo); s.brands.forEach(function(b){ if(b.logo) set.add(b.logo); if(b.catalog && b.catalog.asset) set.add(b.catalog.asset); }); return set;}
+function clone(o){return JSON.parse(JSON.stringify(o));}
+function uid(){return "b" + Math.random().toString(36).slice(2,9);}
+
+var ICON = {
+  wa:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.93 9.93 0 1 0 12.04 2zm0 18.1a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.07.89.9-2.99-.2-.31a8.18 8.18 0 1 1 6.85 3.74zm4.5-6.13c-.25-.12-1.46-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.47a.9.9 0 0 0-.66.31c-.23.25-.86.85-.86 2.07s.88 2.4 1 2.57c.13.16 1.73 2.64 4.2 3.7.58.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.66-1.17.21-.58.21-1.07.15-1.17-.06-.1-.23-.17-.48-.29z"/></svg>',
+  phone:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
+  doc:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>',
+  login:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>',
+  dl:'<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>'
+};
+
+/* ---------- public view ---------- */
+function catalogHref(b){ if(b.catalog && b.catalog.asset) return blob(b.catalog.asset); return safeUrl(b.catalog && b.catalog.url); }
+
+function brandRow(b){
+  var href = catalogHref(b), web = safeUrl(b.web);
+  var meta = [b.origin, b.rel].filter(Boolean).join(", ");
+  var id = b.logo ? '<img class="logo" src="' + blob(b.logo) + '" alt="' + esc(b.name) + '"><span class="sr">' + esc(b.name) + '</span>' : '<h3>' + esc(b.name) + '</h3>';
+  var acts = "";
+  if(href){
+    if(b.catalog.asset) acts += '<button class="btn btn-ink btn-cat" type="button" data-view="' + esc(b.id) + '">' + ICON.doc + 'Kataloğu görüntüle</button>';
+    else acts += '<a class="btn btn-ink btn-cat" href="' + esc(href) + '" target="_blank" rel="noopener">' + ICON.doc + 'Kataloğu görüntüle</a>';
+    if(b.catalog.asset && (NS.downloads || window.STATIC_SITE)) acts += '<button class="btn btn-quiet" type="button" data-dl="' + esc(b.id) + '" aria-label="' + esc(b.name) + ' kataloğunu indir">' + ICON.dl + '</button>';
+    if(b.catalog.asset && b.catalog.size) acts += '<span class="fsize">PDF, ' + mb(b.catalog.size) + '</span>';
+  } else {
+    acts += '<span class="nocat">Katalog yakında eklenecek</span>';
+  }
+  if(web) acts += '<span class="weblink">Web sitesi: <a href="' + esc(web) + '" target="_blank" rel="noopener">' + esc(host(web)) + '</a></span>';
+  return '<article class="brand" id="m-' + esc(b.id) + '"><div>' + id + (meta ? '<p class="meta">' + esc(meta) + '</p>' : '') + (b.desc ? '<p class="desc">' + esc(b.desc) + '</p>' : '') + '</div><div class="actions">' + acts + '</div></article>';
+}
+
+function contactCard(c){
+  var w = wa(c), t = tel(c.phone), web = safeUrl(c.web), maps = safeUrl(c.mapsUrl);
+  var h = '<div class="card">';
+  h += '<h2 class="sec">Bize ulaşın</h2><p class="sec-note">Bayi işlemleriniz için WhatsApp hattımızdan yanıt veriyoruz.</p>';
+  if(w) h += '<a class="btn btn-wa" href="' + esc(w) + '" target="_blank" rel="noopener">' + ICON.wa + 'WhatsApp’tan yazın</a>';
+  h += '<ul class="clist">';
+  if(c.whatsapp) h += '<li><span class="k">WhatsApp danışma ve destek</span><a href="' + esc(w) + '" target="_blank" rel="noopener">' + esc(c.whatsapp) + '</a></li>';
+  if(t) h += '<li><span class="k">Telefon</span><a href="' + esc(t) + '">' + esc(c.phone) + '</a></li>';
+  if(c.email) h += '<li><span class="k">E-posta</span><a href="mailto:' + esc(c.email) + '">' + esc(c.email) + '</a></li>';
+  if(web) h += '<li><span class="k">Web</span><a href="' + esc(web) + '" target="_blank" rel="noopener">' + esc(host(web)) + '</a></li>';
+  if(c.address) h += '<li><span class="k">Adres</span>' + (maps ? '<a href="' + esc(maps) + '" target="_blank" rel="noopener">' + esc(c.address) + '</a>' : esc(c.address)) + '</li>';
+  h += '</ul>';
+  if(c.company) h += '<p class="company" style="margin-top:14px;font-size:14px;color:var(--muted)">' + esc(c.company) + '</p>';
+  return h + '</div>';
+}
+
+var tapeDone = false;
+function tapeHtml(){
+  var n = 40, s = "", cls = tapeDone ? "tape" : "tape anim"; tapeDone = true;
+  for(var i=1;i<=n;i++) s += '<i style="left:' + (i*60) + 'px">' + i + '</i>';
+  return '<div class="' + cls + '" aria-hidden="true">' + s + '</div>';
+}
+
+function viewHtml(s){
+  var c = s.contact, h = s.hero;
+  var mark = h.logo ? '<img src="' + blob(h.logo) + '" alt="Santek">' : 'SANTEK';
+  var out = '<div class="wrap"><header class="top"><div><a class="mark" href="' + esc(safeUrl(c.web) || "#") + '" target="_blank" rel="noopener">' + mark + '</a></div>';
+  if(canEdit) out += '<button class="edit-toggle" type="button" data-act="edit">Sayfayı düzenle</button>';
+  out += '</header>';
+  if(s.brands.length) out += '<nav class="logos" aria-label="Markalarımız">' + s.brands.map(function(b){ return '<button class="ltile" type="button" data-jump="' + esc(b.id) + '" aria-label="' + esc(b.name) + ' kataloğuna git">' + (b.logo ? '<img src="' + blob(b.logo) + '" alt="">' : esc(b.name)) + '</button>'; }).join("") + '</nav>';
+  out += '<section class="hero"><h1>' + esc(h.title) + '</h1>';
+  if(h.lead) out += '<p class="lead">' + esc(h.lead) + '</p>';
+  if(h.event || h.stand) out += '<div class="event">' + (h.event ? '<span>' + esc(h.event) + '</span>' : '') + (h.stand ? '<span class="stand">' + esc(h.stand) + '</span>' : '') + '</div>';
+  var bu = s.b2b ? safeUrl(s.b2b.url) : "";
+  if(bu) out += '<div class="b2b"><a class="btn btn-b2b" href="' + esc(bu) + '" target="_blank" rel="noopener">' + ICON.login + esc(s.b2b.label || "B2B sistemine giriş") + '</a>' + (s.b2b.note ? '<span class="note">' + esc(s.b2b.note) + '</span>' : '') + '</div>';
+  out += '</section>';
+  out += '<div class="grid"><main><div class="brands">';
+  out += s.brands.length ? s.brands.map(brandRow).join("") : '<p class="empty">Henüz marka eklenmedi.</p>';
+  out += '</div></main><aside class="contact">' + contactCard(c) + '</aside></div>';
+  out += '<footer class="foot">' + esc(c.company) + '</footer></div>';
+  var w = wa(c), t = tel(c.phone);
+  if(w || t) out += '<nav class="bar" aria-label="Hızlı iletişim">' + (w ? '<a class="btn btn-wa" href="' + esc(w) + '" target="_blank" rel="noopener">' + ICON.wa + 'WhatsApp’tan yazın</a>' : '') + (t ? '<a class="btn btn-quiet" href="' + esc(t) + '" aria-label="Telefonla arayın">' + ICON.phone + '</a>' : '') + '</nav>';
+  return out;
+}
+
+/* ---------- edit view ---------- */
+function field(label, path, val, opts){
+  opts = opts || {};
+  var tag = opts.area ? '<textarea data-path="' + path + '"' + (opts.ph ? ' placeholder="' + esc(opts.ph) + '"' : '') + '>' + esc(val) + '</textarea>'
+    : '<input type="' + (opts.type || "text") + '" data-path="' + path + '" value="' + esc(val) + '"' + (opts.ph ? ' placeholder="' + esc(opts.ph) + '"' : '') + '>';
+  return '<label class="f' + (opts.full ? ' full' : '') + '">' + esc(label) + tag + '</label>';
+}
+
+function fileBox(kind, idx, cur){
+  var has = !!cur, name, act;
+  if(kind === "catalog"){
+    name = has ? esc(cur.name || "Katalog.pdf") + (cur.size ? " (" + mb(cur.size) + ")" : "") : "Yüklü katalog yok";
+  } else {
+    name = has ? "Logo yüklü" : "Logo yok, marka adı yazıyla gösteriliyor";
+  }
+  act = '<button class="btn btn-quiet" type="button" data-up="' + kind + '" data-i="' + idx + '">' + (has ? "Değiştir" : (kind === "catalog" ? "PDF yükle" : "Logo yükle")) + '</button>';
+  if(has) act += '<button class="btn btn-danger" type="button" data-rm="' + kind + '" data-i="' + idx + '">Kaldır</button>';
+  if(kind === "catalog" && has) act = '<button class="btn btn-quiet" type="button" data-view-i="' + idx + '">Görüntüle</button>' + act;
+  return '<div class="filebox"><span class="fname">' + name + '</span>' + act + '</div>';
+}
+
+function editHtml(d){
+  var h = d.hero, c = d.contact;
+  var out = '<div class="wrap"><div class="ebar" role="region" aria-label="Düzenleme"><strong>Düzenleme modu. Değişiklikler yayınlayana kadar ziyaretçilere görünmez.</strong>';
+  out += '<button class="btn btn-cancel" type="button" data-act="cancel">Vazgeç</button><button class="btn btn-pub" type="button" data-act="publish">Değişiklikleri yayınla</button></div>';
+
+  out += '<section class="esec"><h2>Markalar ve kataloglar</h2>';
+  d.brands.forEach(function(b, i){
+    out += '<div class="ecard"><h3>' + esc(b.name || "Yeni marka") + '</h3><div class="fgrid">';
+    out += field("Marka adı", "brands." + i + ".name", b.name);
+    out += field("Menşe ülke", "brands." + i + ".origin", b.origin, {ph:"Örn. Almanya"});
+    out += field("Santek ile ilişkisi", "brands." + i + ".rel", b.rel, {ph:"Örn. Türkiye distribütörü"});
+    out += field("Marka web sitesi", "brands." + i + ".web", b.web, {type:"url", ph:"https://"});
+    out += field("Kısa açıklama", "brands." + i + ".desc", b.desc, {area:true, full:true});
+    out += '<div class="full"><label class="f" style="margin-bottom:6px">Katalog (PDF, en fazla 20 MB)</label>' + fileBox("catalog", i, b.catalog.asset ? b.catalog : null) + '</div>';
+    if(!b.catalog.asset) out += field("Ya da katalog bağlantısı", "brands." + i + ".catalog.url", b.catalog.url, {type:"url", ph:"https://… (Google Drive, Dropbox vb.)", full:true});
+    out += '<div class="full"><label class="f" style="margin-bottom:6px">Marka logosu (en üstteki logo şeridinde ve marka satırında görünür; PNG ya da SVG)</label>' + fileBox("logo", i, b.logo) + '</div>';
+    out += '</div><div class="erow">';
+    out += '<button class="btn btn-quiet" type="button" data-move="-1" data-i="' + i + '"' + (i === 0 ? " disabled" : "") + '>Yukarı taşı</button>';
+    out += '<button class="btn btn-quiet" type="button" data-move="1" data-i="' + i + '"' + (i === d.brands.length - 1 ? " disabled" : "") + '>Aşağı taşı</button>';
+    out += '<button class="btn btn-danger" type="button" data-del="' + i + '">Markayı sil</button>';
+    out += '</div></div>';
+  });
+  out += '<button class="btn btn-line" type="button" data-act="add">Marka ekle</button></section>';
+
+  out += '<section class="esec"><h2>Üst bölüm</h2><div class="ecard"><div class="fgrid">';
+  out += field("Başlık", "hero.title", h.title, {full:true});
+  out += field("Açıklama", "hero.lead", h.lead, {area:true, full:true});
+  out += field("Fuar bilgisi", "hero.event", h.event);
+  out += field("Stand bilgisi", "hero.stand", h.stand, {ph:"Örn. Salon 9, Stand B12"});
+  if(d.b2b){
+    out += field("B2B düğme yazısı", "b2b.label", d.b2b.label);
+    out += field("B2B adresi", "b2b.url", d.b2b.url, {type:"url"});
+    out += field("B2B düğmesinin yanındaki açıklama", "b2b.note", d.b2b.note, {full:true});
+  }
+  out += '<div class="full"><label class="f" style="margin-bottom:6px">Santek logosu (en üstte görünür; boşsa SANTEK yazısı çıkar)</label>' + fileBox("sitelogo", -1, h.logo) + '</div>';
+  out += '</div></div></section>';
+
+  out += '<section class="esec"><h2>İletişim bilgileri</h2><div class="ecard"><div class="fgrid">';
+  out += field("Firma unvanı", "contact.company", c.company, {full:true});
+  out += field("Adres", "contact.address", c.address, {area:true, full:true});
+  out += field("Harita bağlantısı", "contact.mapsUrl", c.mapsUrl, {type:"url", full:true});
+  out += field("Telefon", "contact.phone", c.phone, {type:"tel"});
+  out += field("WhatsApp numarası", "contact.whatsapp", c.whatsapp, {type:"tel"});
+  out += field("WhatsApp hazır mesajı", "contact.whatsappText", c.whatsappText, {area:true, full:true});
+  out += field("E-posta", "contact.email", c.email, {type:"email"});
+  out += field("Web sitesi", "contact.web", c.web, {type:"url"});
+  out += '</div></div></section>';
+  out += '<input type="file" id="picker" hidden></div>';
+  return out;
+}
+
+/* ---------- render & events ---------- */
+function render(){
+  root.innerHTML = editing ? editHtml(draft) : viewHtml(STATE);
+  document.title = "Santek bayi katalogları";
+}
+
+function setPath(obj, path, val){
+  var p = path.split("."), o = obj;
+  for(var i=0;i<p.length-1;i++) o = o[p[i]];
+  o[p[p.length-1]] = val;
+}
+
+var toastEl = document.createElement("div");
+toastEl.className = "toast"; toastEl.hidden = true; toastEl.setAttribute("role","status"); toastEl.setAttribute("aria-live","polite");
+document.body.appendChild(toastEl);
+var toastT;
+function toast(msg, ms){ toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastT); if(ms !== 0) toastT = setTimeout(function(){ toastEl.hidden = true; }, ms || 4000); }
+
+root.addEventListener("input", function(e){
+  var p = e.target.getAttribute && e.target.getAttribute("data-path");
+  if(p && draft) setPath(draft, p, e.target.value);
+});
+
+function dropAsset(id){
+  if(!id) return;
+  if(origAssets.has(id)) pendingDeletes.add(id);
+  else if(NS.assets){ sessionUploads.delete(id); NS.assets.delete(id).catch(function(){}); }
+}
+
+var pickTarget = null;
+root.addEventListener("click", function(e){
+  var t = e.target.closest("button, a"); if(!t) return;
+  var act = t.getAttribute("data-act");
+  if(act === "edit"){ draft = clone(STATE); editing = true; render(); window.scrollTo(0,0); return; }
+  if(act === "cancel"){ sessionUploads.forEach(function(id){ if(NS.assets) NS.assets.delete(id).catch(function(){}); }); sessionUploads.clear(); pendingDeletes.clear(); editing = false; draft = null; render(); return; }
+  if(act === "publish"){ publish(t); return; }
+  if(act === "add"){ draft.brands.push({id:uid(), name:"", origin:"", rel:"", desc:"", web:"", logo:null, catalog:{asset:null,url:"",name:"",size:0}}); render(); var cards = root.querySelectorAll(".ecard"); var last = cards[draft.brands.length-1]; if(last){ last.scrollIntoView({block:"center"}); var inp = last.querySelector("input"); if(inp) inp.focus(); } return; }
+
+  if(t.hasAttribute("data-move")){
+    var i = +t.getAttribute("data-i"), dir = +t.getAttribute("data-move"), j = i + dir;
+    if(j < 0 || j >= draft.brands.length) return;
+    var tmp = draft.brands[i]; draft.brands[i] = draft.brands[j]; draft.brands[j] = tmp; render();
+    var btn = root.querySelectorAll('.ecard')[j]; if(btn) btn.scrollIntoView({block:"center"});
+    return;
+  }
+  if(t.hasAttribute("data-del")){
+    if(!t.classList.contains("armed")){ t.classList.add("armed"); t.textContent = "Silmeyi onayla"; setTimeout(function(){ if(t.isConnected){ t.classList.remove("armed"); t.textContent = "Markayı sil"; } }, 4000); return; }
+    var k = +t.getAttribute("data-del"), b = draft.brands[k];
+    dropAsset(b.logo); dropAsset(b.catalog.asset);
+    draft.brands.splice(k,1); render(); toast("Marka listeden çıkarıldı. Yayınlayınca sayfadan kalkacak."); return;
+  }
+  if(t.hasAttribute("data-rm")){
+    var kind = t.getAttribute("data-rm"), n = +t.getAttribute("data-i");
+    if(kind === "catalog"){ dropAsset(draft.brands[n].catalog.asset); draft.brands[n].catalog = {asset:null,url:"",name:"",size:0}; }
+    else if(kind === "logo"){ dropAsset(draft.brands[n].logo); draft.brands[n].logo = null; }
+    else if(kind === "sitelogo"){ dropAsset(draft.hero.logo); draft.hero.logo = null; }
+    render(); return;
+  }
+  if(t.hasAttribute("data-up")){
+    if(!NS.assets){ toast("Dosya yükleme bu görünümde kullanılamıyor."); return; }
+    pickTarget = {kind:t.getAttribute("data-up"), i:+t.getAttribute("data-i")};
+    var pk = document.getElementById("picker");
+    pk.value = ""; pk.accept = pickTarget.kind === "catalog" ? "application/pdf,.pdf" : "image/png,image/jpeg,image/webp,image/svg+xml";
+    pk.click(); return;
+  }
+  if(t.hasAttribute("data-jump")){ var el = document.getElementById("m-" + t.getAttribute("data-jump")); if(el){ el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block:"start"}); var a = el.querySelector("a,button"); if(a) a.focus({preventScroll:true}); } return; }
+  if(t.hasAttribute("data-view")){ var vb = currentBrands().filter(function(x){ return x.id === t.getAttribute("data-view"); })[0]; openViewer(vb); return; }
+  if(t.hasAttribute("data-view-i")){ openViewer(draft && draft.brands[+t.getAttribute("data-view-i")]); return; }
+  if(t.hasAttribute("data-dl")){ download(t.getAttribute("data-dl"), t); return; }
+});
+
+root.addEventListener("change", function(e){
+  if(e.target.id !== "picker" || !pickTarget) return;
+  var f = e.target.files && e.target.files[0]; if(!f) return;
+  upload(f, pickTarget); pickTarget = null;
+});
+
+function upload(f, tgt){
+  var isPdf = tgt.kind === "catalog";
+  var type = isPdf ? "application/pdf" : (f.type || (/\.svg$/i.test(f.name) ? "image/svg+xml" : /\.png$/i.test(f.name) ? "image/png" : "image/jpeg"));
+  if(isPdf && !/pdf$/i.test(f.type) && !/\.pdf$/i.test(f.name)){ toast("Katalog olarak yalnızca PDF yükleyebilirsiniz."); return; }
+  var limit = type === "image/svg+xml" ? 2*1024*1024 : MAX;
+  if(f.size > limit){ toast("Dosya " + mb(f.size) + ". Sınır " + (limit === MAX ? "20 MB" : "2 MB") + ". PDF’i sıkıştırıp tekrar deneyin ya da katalog bağlantısı ekleyin.", 7000); return; }
+  toast("Yükleniyor: " + f.name, 0);
+  NS.assets.upload(f, {type:type}).then(function(r){
+    sessionUploads.add(r.id);
+    if(tgt.kind === "catalog"){ var b = draft.brands[tgt.i]; dropAsset(b.catalog.asset); b.catalog = {asset:r.id, url:"", name:f.name, size:r.sizeBytes || f.size}; }
+    else if(tgt.kind === "logo"){ var b2 = draft.brands[tgt.i]; dropAsset(b2.logo); b2.logo = r.id; }
+    else { dropAsset(draft.hero.logo); draft.hero.logo = r.id; }
+    render(); toast("Yüklendi. Ziyaretçilerin görmesi için değişiklikleri yayınlayın.");
+  }).catch(function(err){
+    var code = err && err.code;
+    var msg = code === "too_large" ? "Dosya çok büyük. 20 MB altına indirip tekrar deneyin." :
+      code === "unsupported_type" ? "Bu dosya türü desteklenmiyor." :
+      code === "quota_exceeded" ? "Depolama alanı doldu. Kullanılmayan katalogları kaldırın." :
+      (code === "not_granted" ? "Bu görünümde dosya yükleme yetkiniz yok." : "Yükleme tamamlanamadı (" + (code || "bilinmeyen hata") + "). Tekrar deneyin.");
+    toast(msg, 7000);
+  });
+}
+
+
+/* ---------- katalog goruntuleyici (pdf.js) ---------- */
+var PDFJS_SRC = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+var PDFJS_WORKER = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+var ZOOMS = [1, 1.5, 2, 3];
+var pdfLibP = null, pdfDocs = {}, pv = null;
+
+function loadPdfJs(){
+  if(window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+  if(pdfLibP) return pdfLibP;
+  pdfLibP = new Promise(function(res, rej){
+    var s = document.createElement("script"); s.src = PDFJS_SRC;
+    s.onload = function(){ if(window.pdfjsLib){ window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDFJS_WORKER; res(window.pdfjsLib); } else { pdfLibP = null; rej(new Error("pdfjs")); } };
+    s.onerror = function(){ pdfLibP = null; rej(new Error("pdfjs load")); };
+    document.head.appendChild(s);
+  });
+  return pdfLibP;
+}
+function getPdfDoc(id){
+  if(pdfDocs[id]) return pdfDocs[id];
+  var p = Promise.all([loadPdfJs(), fetch(blob(id)).then(function(r){ if(!r.ok) throw new Error("http " + r.status); return r.arrayBuffer(); })])
+    .then(function(r){ return r[0].getDocument({data:new Uint8Array(r[1])}).promise; });
+  pdfDocs[id] = p; p.catch(function(){ delete pdfDocs[id]; });
+  return p;
+}
+function currentBrands(){ return (editing && draft ? draft : STATE).brands; }
+
+function ensureViewer(){
+  if(pv) return pv;
+  var el = document.createElement("div");
+  el.className = "pv"; el.hidden = true; el.setAttribute("role", "dialog"); el.setAttribute("aria-modal", "true"); el.setAttribute("aria-label", "Katalog görüntüleyici");
+  el.innerHTML = '<div class="pv-bar"><div class="pv-title"></div><div class="pv-count" aria-live="polite"></div>' +
+    '<button type="button" class="pv-btn pv-zo" aria-label="Uzaklaştır">−</button>' +
+    '<button type="button" class="pv-btn pv-zi" aria-label="Yakınlaştır">+</button>' +
+    '<button type="button" class="pv-btn pv-dl" aria-label="Kataloğu indir">İndir</button>' +
+    '<button type="button" class="pv-btn pv-close">Kapat</button></div>' +
+    '<div class="pv-body" tabindex="0"><div class="pv-pages"></div></div>';
+  document.body.appendChild(el);
+  pv = {el:el, title:el.querySelector(".pv-title"), count:el.querySelector(".pv-count"), body:el.querySelector(".pv-body"), wrap:el.querySelector(".pv-pages"),
+        zo:el.querySelector(".pv-zo"), zi:el.querySelector(".pv-zi"), dl:el.querySelector(".pv-dl"), close:el.querySelector(".pv-close"),
+        pages:[], queue:[], active:0, zoom:0, token:0, raf:0, open:false, brand:null, last:null, rt:0};
+  pv.close.addEventListener("click", closeViewer);
+  pv.zo.addEventListener("click", function(){ setZoom(pv.zoom - 1); });
+  pv.zi.addEventListener("click", function(){ setZoom(pv.zoom + 1); });
+  pv.dl.addEventListener("click", function(){ if(pv.brand) download(pv.brand.id, pv.dl); });
+  pv.body.addEventListener("scroll", function(){ if(!pv.raf) pv.raf = requestAnimationFrame(update); }, {passive:true});
+  document.addEventListener("keydown", function(e){ if(pv.open && e.key === "Escape"){ e.preventDefault(); closeViewer(); } });
+  window.addEventListener("resize", function(){ if(!pv.open) return; clearTimeout(pv.rt); pv.rt = setTimeout(layout, 150); });
+  return pv;
+}
+
+function openViewer(b){
+  var cat = b && b.catalog; if(!cat || !cat.asset) return;
+  ensureViewer();
+  var token = ++pv.token;
+  pv.brand = b; pv.title.textContent = b.name; pv.count.textContent = "";
+  pv.pages = []; pv.queue = []; pv.zoom = 0; syncZoomBtns();
+  pv.dl.hidden = !(NS.downloads || window.STATIC_SITE);
+  pv.wrap.innerHTML = '<div class="pv-msg">Katalog yükleniyor…</div>';
+  pv.last = document.activeElement; pv.el.hidden = false; pv.open = true; document.body.style.overflow = "hidden";
+  pv.body.scrollTop = 0; pv.body.scrollLeft = 0; pv.close.focus();
+  getPdfDoc(cat.asset).then(function(doc){
+    if(token !== pv.token) return;
+    var all = []; for(var i = 1; i <= doc.numPages; i++) all.push(doc.getPage(i));
+    return Promise.all(all).then(function(pgs){
+      if(token !== pv.token) return;
+      pv.wrap.innerHTML = "";
+      pv.pages = pgs.map(function(pg, i){
+        var vp = pg.getViewport({scale:1}), d = document.createElement("div");
+        d.className = "pv-page"; d.setAttribute("role", "img"); d.setAttribute("aria-label", "Sayfa " + (i + 1));
+        pv.wrap.appendChild(d);
+        return {el:d, page:pg, vw:vp.width, vh:vp.height, w:0, h:0, tok:0, done:false, busy:false, queued:false, near:false, canvas:null, dist:0};
+      });
+      layout();
+    });
+  }).catch(function(){
+    if(token !== pv.token) return;
+    pv.wrap.innerHTML = '<div class="pv-msg">Katalog açılamadı. Bağlantınızı kontrol edip tekrar deneyin.</div>';
+  });
+}
+
+function closeViewer(){
+  if(!pv || !pv.open) return;
+  pv.open = false; pv.token++; pv.el.hidden = true; document.body.style.overflow = "";
+  pv.pages.forEach(clearPage); pv.pages = []; pv.queue = []; pv.wrap.innerHTML = "";
+  if(pv.last && pv.last.focus) pv.last.focus();
+}
+
+function syncZoomBtns(){ pv.zo.disabled = pv.zoom <= 0; pv.zi.disabled = pv.zoom >= ZOOMS.length - 1; }
+function setZoom(z){
+  z = Math.max(0, Math.min(ZOOMS.length - 1, z)); if(z === pv.zoom || !pv.pages.length) return;
+  var b = pv.body, rel = b.scrollHeight ? (b.scrollTop + b.clientHeight / 2) / b.scrollHeight : 0;
+  pv.zoom = z; syncZoomBtns(); layout();
+  b.scrollTop = rel * b.scrollHeight - b.clientHeight / 2;
+  b.scrollLeft = (b.scrollWidth - b.clientWidth) / 2;
+  update();
+}
+function layout(){
+  if(!pv.pages.length) return;
+  var fit = Math.max(240, Math.min(pv.body.clientWidth - 24, 1100)), w = fit * ZOOMS[pv.zoom];
+  pv.pages.forEach(function(p){ p.w = w; p.h = w * p.vh / p.vw; p.el.style.width = w + "px"; p.el.style.height = p.h + "px"; clearPage(p); });
+  update();
+}
+function clearPage(p){
+  p.tok++; p.busy = false; p.done = false; p.queued = false;
+  if(p.canvas){ p.canvas.remove(); p.canvas = null; }
+}
+function update(){
+  pv.raf = 0; if(!pv.open || !pv.pages.length) return;
+  var b = pv.body, h = b.clientHeight, bt = b.getBoundingClientRect().top, cur = 0;
+  pv.pages.forEach(function(p, i){
+    var r = p.el.getBoundingClientRect(), top = r.top - bt, bot = top + r.height;
+    if(!cur && bot > h / 3) cur = i + 1;
+    p.near = top < h * 2.2 && bot > -h * 1.2;
+    var far = top > h * 4 || bot < -h * 3;
+    p.dist = top > h ? top - h : (bot < 0 ? -bot : 0);
+    if(p.near && !p.done && !p.busy && !p.queued){ p.queued = true; pv.queue.push(p); }
+    else if(far && (p.canvas || p.busy)) clearPage(p);
+  });
+  pv.count.textContent = "Sayfa " + (cur || 1) + " / " + pv.pages.length;
+  pv.queue.sort(function(a, c){ return a.dist - c.dist; });
+  pump();
+}
+function pump(){
+  while(pv.active < 2 && pv.queue.length){
+    var p = pv.queue.shift(); p.queued = false;
+    if(p.near && !p.done && !p.busy){ pv.active++; renderPage(p).then(function(){ pv.active--; pump(); }); }
+  }
+}
+function renderPage(p){
+  p.busy = true; var tok = p.tok, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var scale = p.w * dpr / p.vw, px = p.vw * scale * p.vh * scale;
+  if(px > 9e6) scale *= Math.sqrt(9e6 / px);
+  var vp = p.page.getViewport({scale:scale}), c = document.createElement("canvas");
+  c.width = Math.floor(vp.width); c.height = Math.floor(vp.height);
+  return p.page.render({canvasContext:c.getContext("2d"), viewport:vp}).promise.then(function(){
+    if(p.tok === tok && pv.open){ p.el.appendChild(c); p.canvas = c; p.done = true; }
+    if(p.tok === tok) p.busy = false;
+  }).catch(function(){ if(p.tok === tok) p.busy = false; });
+}
+
+function download(id, btn){
+  var b = currentBrands().filter(function(x){return x.id === id;})[0]; if(!b) return;
+  if(!NS.downloads){ var la = document.createElement("a"); la.href = blob(b.catalog.asset); la.download = (b.catalog.name || (b.name + " katalog.pdf")); document.body.appendChild(la); la.click(); la.remove(); return; }
+  btn.disabled = true;
+  fetch(blob(b.catalog.asset)).then(function(r){ if(!r.ok) throw new Error("fetch"); return r.blob(); })
+    .then(function(data){ return NS.downloads.save({filename:(b.catalog.name || (b.name + " katalog.pdf")), data:data}); })
+    .catch(function(){ toast("İndirme başlatılamadı. Lütfen tekrar deneyin."); })
+    .then(function(){ btn.disabled = false; });
+}
+
+/* ---------- publish ---------- */
+var HEAD = '<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<title>Santek bayi katalogları</title>\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap">\n';
+
+function clean(d){
+  d.brands = d.brands.filter(function(b){ return (b.name || "").trim(); }).map(function(b){
+    b.name = b.name.trim(); b.web = b.web ? safeUrl(b.web) : ""; if(b.catalog.url) b.catalog.url = safeUrl(b.catalog.url); return b;
+  });
+  return d;
+}
+
+function buildDoc(state){
+  var css = document.getElementById("css").textContent;
+  var app = document.getElementById("app").textContent;
+  var json = JSON.stringify(state).replace(/</g, "\\u003c");
+  return "<!doctype html>\n<html lang=\"tr\">\n<head>\n" + HEAD + "<style id=\"css\">" + css + "</style>\n</head>\n<body>\n<div id=\"root\"></div>\n<script type=\"application/json\" id=\"state\">" + json + "<\/script>\n<script id=\"app\">" + app + "<\/script>\n</body>\n</html>\n";
+}
+
+function publish(btn){
+  if(!NS.artifact){ toast("Bu görünümde yayınlama kullanılamıyor."); return; }
+  var unnamed = draft.brands.some(function(b){ return !(b.name||"").trim() && (b.catalog.asset || b.logo); });
+  if(unnamed){ toast("Dosya yüklediğiniz bir markanın adı boş. Adını yazın ya da markayı silin.", 6000); return; }
+  btn.disabled = true; btn.textContent = "Yayınlanıyor…";
+  var next = clean(clone(draft));
+  var toDelete = Array.from(pendingDeletes);
+  NS.artifact.publish(buildDoc(next)).then(function(){
+    toast("Yayınlandı.");
+    toDelete.forEach(function(id){ NS.assets && NS.assets.delete(id).catch(function(){}); });
+  }).catch(function(err){
+    var code = err && err.code;
+    btn.disabled = false; btn.textContent = "Değişiklikleri yayınla";
+    if(code === "conflict") toast("Sayfa başka bir yerden güncellenmiş. En son sürüm yükleniyor; değişikliklerinizi yeniden yapmanız gerekebilir.", 8000);
+    else if(code === "not_writer" || code === "not_granted" || code === "consent_required" || code === "capability_disabled") toast("Bu görünümde sayfayı düzenleme yetkiniz yok.", 6000);
+    else if(code === "too_large") toast("Sayfa verisi çok büyük. Açıklamaları kısaltın.", 6000);
+    else if(code === "rate_limited") toast("Çok sık yayınlandı. Bir dakika sonra tekrar deneyin.", 6000);
+    else toast("Yayınlanamadı (" + (code || "bilinmeyen hata") + "). Tekrar deneyin.", 6000);
+  });
+}
+
+/* ---------- boot ---------- */
+render();
+if(window.claude && typeof window.claude.use === "function"){
+  Promise.all([
+    window.claude.use("artifact").catch(function(){return null;}),
+    window.claude.use("assets").catch(function(){return null;}),
+    window.claude.use("downloads").catch(function(){return null;}),
+    window.claude.use("user").catch(function(){return null;})
+  ]).then(function(r){
+    NS.artifact = r[0]; NS.assets = r[1]; NS.downloads = r[2];
+    var u = r[3];
+    var p = (u && NS.assets && NS.artifact) ? u.canEdit().catch(function(){return false;}) : Promise.resolve(false);
+    return p;
+  }).then(function(ok){
+    canEdit = !!ok;
+    if(!editing && (canEdit || NS.downloads)) render();
+  });
+}
+})();
+</script>
+</body>
+</html>

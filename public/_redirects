@@ -1,7 +1,3 @@
-# Fuar QR kartlari - katalog sayfalarina yonlendirme (SPA kurallarindan once kalmali)
-/catalogs     https://claude.ai/artifact/ETcCbnGUCxJphxYr9aSLob  302
-/b2bcatalogs  https://claude.ai/artifact/E5FGK588zkNx49pS3ouNPD  302
-
 # Brand pages (SPA routes)
 /marka/qbrick-system    /             200
 /marka/wolfcraft        /             200

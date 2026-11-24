@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr"><head>
+<!-- Çerez onayı: Consent Mode v2 varsayılanı (GTM'den ÖNCE yüklenmeli) -->
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+(function(){var c=null;try{c=JSON.parse(localStorage.getItem('stk_consent'));if(c&&(c.v!==1||Date.now()-c.t>31536000000))c=null;}catch(e){}
+var a=c&&c.a?'granted':'denied',m=c&&c.m?'granted':'denied';
+gtag('consent','default',{analytics_storage:a,ad_storage:m,ad_user_data:m,ad_personalization:m,functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+gtag('set','ads_data_redaction',true);})();
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -395,6 +403,78 @@ footer .footer-grid > .footer-col:nth-child(4){display:none !important}
 .bsc-site-btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-size:14px;font-weight:600;padding:12px 24px;border-radius:9px;text-decoration:none;white-space:nowrap;transition:all .2s}
 .bsc-site-btn:hover{opacity:.9;transform:translateY(-1px)}
 @media(max-width:640px){.bph-site-btn{margin-left:0;margin-top:10px}.brand-site-cta{flex-direction:column;align-items:flex-start;padding:24px}}
+/* ── KVKK / ÇEREZ / WHATSAPP ── */
+.legal{background:var(--off-white);padding:64px 24px 96px}
+.legal-inner{max-width:760px;margin:0 auto}
+.legal-head{padding-bottom:28px;border-bottom:1px solid var(--border-dark);margin-bottom:8px}
+.legal-head h1{font-family:var(--font-display);font-weight:400;font-size:clamp(32px,4.4vw,48px);line-height:1.1;color:var(--navy);margin-bottom:14px}
+.legal-lead{font-size:17px;line-height:1.6;color:var(--text-mid);max-width:62ch}
+.legal-toc{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.legal-toc a,.legal-toc button{font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--border-dark);border-radius:8px;padding:9px 14px;text-decoration:none;cursor:pointer}
+.legal-toc a:hover,.legal-toc button:hover{border-color:var(--navy)}
+.legal-date{font-size:13px;color:var(--text-muted);margin-top:18px}
+.legal-doc{padding-top:40px;scroll-margin-top:96px}
+.legal-doc+.legal-doc{margin-top:40px;border-top:1px solid var(--border-dark)}
+.legal-doc>h2{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,3vw,34px);color:var(--navy);margin-bottom:10px}
+.legal-doc h3{font-size:17px;font-weight:700;color:var(--navy);margin:32px 0 10px}
+.legal-doc p,.legal-doc li,.legal-doc dd{font-size:15.5px;line-height:1.7;color:#2d3748}
+.legal-doc p{margin-bottom:12px;max-width:68ch}
+.legal-doc ul{margin:0 0 12px 20px}
+.legal-doc li{margin-bottom:6px;padding-left:4px}
+.legal-doc ol{margin:0 0 12px 22px;list-style:lower-alpha}
+.legal-doc a{color:var(--accent)}
+.legal-doc strong{color:var(--navy)}
+.legal-id{background:#fff;border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:16px 20px;margin:6px 0 4px}
+.legal-id p{margin:0;font-size:15px}
+.legal-dl{display:grid;grid-template-columns:200px 1fr;gap:0;border-top:1px solid var(--border);margin:8px 0 12px}
+.legal-dl dt,.legal-dl dd{padding:14px 0;border-bottom:1px solid var(--border)}
+.legal-dl dt{font-size:15px;font-weight:700;color:var(--navy);padding-right:20px}
+.legal-table-wrap{overflow-x:auto;margin:8px 0 14px;border:1px solid var(--border);border-radius:8px;background:#fff}
+.legal-table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+.legal-table th,.legal-table td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;color:#2d3748}
+.legal-table th{background:var(--off-white);font-weight:700;color:var(--navy);font-size:13px}
+.legal-table tr:last-child td{border-bottom:none}
+.legal-table code{font-size:12.5px;background:var(--off-white);padding:1px 5px;border-radius:4px}
+@media(max-width:640px){.legal{padding:40px 18px 80px}.legal-dl{grid-template-columns:1fr}.legal-dl dt{border-bottom:none;padding-bottom:2px}.legal-dl dd{padding-top:0}}
+.form-kvkk{font-size:12.5px;line-height:1.55;color:var(--text-mid);margin-top:12px;text-align:center}
+.form-kvkk a{color:var(--navy);font-weight:600}
+.footer-legal{display:flex;flex-wrap:wrap;gap:6px 18px}
+.footer-legal a,.footer-legal button{font-family:var(--font-body);font-size:12px;color:rgba(255,255,255,.55);text-decoration:none;background:none;border:none;padding:0;cursor:pointer}
+.footer-legal a:hover,.footer-legal button:hover{color:#fff}
+/* Çerez bildirimi */
+#stk-cookie{position:fixed;left:24px;bottom:24px;z-index:900;width:min(420px,calc(100vw - 48px));background:var(--navy);color:#fff;border-radius:14px;box-shadow:0 14px 44px rgba(13,31,60,.35);padding:20px 20px 18px;font-family:var(--font-body)}
+#stk-cookie[hidden]{display:none}
+#stk-cookie h2{font-size:16px;font-weight:700;margin-bottom:6px;color:#fff}
+#stk-cookie p{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.78)}
+#stk-cookie p a{color:#fff;font-weight:600}
+.stk-ck-opts{margin-top:14px;border-top:1px solid rgba(255,255,255,.14)}
+.stk-ck-opts[hidden]{display:none}
+.stk-ck-opt{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14);cursor:pointer}
+.stk-ck-opt input{margin-top:3px;width:17px;height:17px;accent-color:var(--orange);flex-shrink:0}
+.stk-ck-opt b{display:block;font-size:13.5px;color:#fff}
+.stk-ck-opt span{font-size:12.5px;color:rgba(255,255,255,.62);line-height:1.45}
+.stk-ck-btns{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.stk-ck-btns button{flex:1 1 0;min-width:110px;font-family:var(--font-body);font-size:14px;font-weight:600;padding:11px 12px;border-radius:8px;cursor:pointer;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff}
+.stk-ck-btns[hidden],.stk-ck-link[hidden]{display:none}
+.stk-ck-btns button.stk-ck-solid{background:#fff;color:var(--navy);border-color:#fff}
+.stk-ck-btns button:hover{border-color:#fff}
+.stk-ck-link{display:inline-block;margin-top:12px;font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.7);background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.stk-ck-link:hover{color:#fff}
+#stk-cookie button:focus-visible,#stk-wa:focus-visible,.legal-toc a:focus-visible,.legal-toc button:focus-visible,.footer-legal a:focus-visible,.footer-legal button:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+/* WhatsApp butonu */
+#stk-wa{position:fixed;right:24px;bottom:24px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:800;display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-body)}
+#stk-wa .stk-wa-ico{width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(13,31,60,.28);transition:transform .15s}
+#stk-wa:hover .stk-wa-ico{transform:scale(1.06)}
+#stk-wa .stk-wa-txt{background:#fff;color:var(--navy);font-size:14px;font-weight:600;padding:9px 14px;border-radius:22px;box-shadow:0 4px 16px rgba(13,31,60,.16);opacity:0;transform:translateX(8px);transition:opacity .2s,transform .2s;pointer-events:none;white-space:nowrap}
+#stk-wa:hover .stk-wa-txt,#stk-wa:focus-visible .stk-wa-txt{opacity:1;transform:none}
+@media(max-width:640px){
+  #stk-cookie{left:12px;right:12px;bottom:12px;width:auto}
+  #stk-wa{right:16px;bottom:calc(16px + env(safe-area-inset-bottom))}
+  #stk-wa .stk-wa-ico{width:54px;height:54px}
+  #stk-wa .stk-wa-txt{display:none}
+  body.stk-ck-open #stk-wa{display:none}
+}
+@media(prefers-reduced-motion:reduce){#stk-wa .stk-wa-ico,#stk-wa .stk-wa-txt{transition:none}}
 </style>
 
 <!-- Schema.org -->
@@ -871,6 +951,7 @@ footer .footer-grid > .footer-col:nth-child(4){display:none !important}
           </div>
           <div class="form-group"><label>Mesaj</label><textarea id="cf-mesaj" placeholder="İşletmenizden ve aradığınız çözümden bahsedin..."></textarea></div>
           <button class="submit-btn" onclick="handleSubmit(this)">Mesaj Gönder</button>
+          <p class="form-kvkk">Gönderdiğiniz bilgiler, talebinizi yanıtlamak amacıyla <a href="/kvkk" onclick="event.preventDefault();showLegal('aydinlatma')">KVKK Aydınlatma Metni</a> kapsamında işlenir.</p>
           <p id="form-success" style="display:none;margin-top:10px;font-size:13px;color:#1a7a4a;text-align:center">✓ Teşekkürler! En kısa sürede size ulaşacağız.</p>
         </div>
         <div class="reveal rd1">
@@ -1193,6 +1274,129 @@ footer .footer-grid > .footer-col:nth-child(4){display:none !important}
   <div class="brand-page-body"><div class="container"><div class="brand-intro-grid"><div class="brand-intro-text"><h2>Taşıması Zor Her Şeyi Kolayca Kaldırın</h2><p>GRABO, akülü elektrikli vakum pompası sayesinde yalnızca pürüzsüz yüzeyleri değil; beton, kaba metal, doğal taş ve dokulu yüzeyleri de güvenle tutar. Geleneksel vantuzların aksine, vakum kaçaklarını sürekli telafi eder ve dijital göstergesiyle vakum seviyesini anlık olarak gösterir.</p><p>Seramik ve zemin ustalarından cam, kapı ve pencere montajcılarına, nakliyecilerden depo çalışanlarına kadar ağır ve hantal malzemelerle çalışan herkesin iş yükünü azaltır, sakatlanma riskini düşürür.</p></div><div class="brand-features"><div class="brand-feat"><div class="brand-feat-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div><div><h4>Akülü Elektrikli Pompa</h4><p>20V (AB'de 18V) Li-ion batarya ile kablosuz, sürekli vakum.</p></div></div><div class="brand-feat"><div class="brand-feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg></div><div><h4>Her Yüzeyde Tutuş</h4><p>Gözenekli, pürüzlü ve dokulu yüzeylerde bile güçlü tutuş.</p></div></div><div class="brand-feat"><div class="brand-feat-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><div><h4>Dijital Vakum Göstergesi</h4><p>Vakum seviyesini anlık izleyin, güvenle kaldırın.</p></div></div></div></div><h3 class="brand-products-title">Kullanım Alanları</h3><div class="brand-products-grid"><div class="prod-card"><div class="prod-img"><img src="https://storage.grabo.com/static/uploads/2021/01/n8dz5RnDAn8.jpg" alt="GRABO ile seramik döşeme" style="object-position:center" loading="lazy"></div><div class="prod-body"><div class="prod-name">Seramik &amp; Zemin</div><p class="prod-desc">Büyük ebatlı seramik, mermer ve parke plakalarını taşıma ve yerleştirme.</p></div></div><div class="prod-card"><div class="prod-img"><img src="https://storage.grabo.com/grabo-partnership/grabo-brushless.webp" alt="GRABO Pro Brushless" style="object-position:center" loading="lazy"></div><div class="prod-body"><div class="prod-name">GRABO Pro Brushless</div><p class="prod-desc">Fırçasız motor ve yüksek debili pompa; en zorlu yüzeyler için yeni nesil model.</p></div></div><div class="prod-card"><div class="prod-img"><img src="https://storage.grabo.com/static/uploads/2021/01/i5pUgJ78_9M-.jpg" alt="GRABO ile cam taşıma" style="object-position:left center" loading="lazy"></div><div class="prod-body"><div class="prod-name">Cam, Kapı &amp; Pencere</div><p class="prod-desc">Cam paneller, kapı ve pencerelerin sökülmesi, taşınması ve montajı.</p></div></div></div><div class="brand-site-cta"><div class="bsc-text"><h3>GRABO ürünlerinin tamamı</h3><p>Tüm ürün gamı, teknik detaylar ve güncel modeller için marka sitesini ziyaret edin: <strong>grabo.com</strong></p></div><a href="https://grabo.com" target="_blank" rel="noopener" class="bsc-site-btn">grabo.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="15" height="15"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></div></div></div>
 </div>
 
+<!-- KVKK / ÇEREZ POLİTİKASI -->
+<div class="page" id="page-kvkk">
+  <section class="legal">
+    <div class="legal-inner">
+      <header class="legal-head">
+        <h1>Kişisel verileriniz</h1>
+        <p class="legal-lead">Bu sitede, iletişim formlarında ve WhatsApp hattımızda hangi kişisel verileri hangi amaçla işlediğimizi, kimlerle paylaştığımızı ve haklarınızı nasıl kullanabileceğinizi bu sayfada açıklıyoruz.</p>
+        <div class="legal-toc" role="navigation" aria-label="Sayfa içeriği">
+          <a href="/kvkk" onclick="event.preventDefault();showLegal('aydinlatma')">KVKK Aydınlatma Metni</a>
+          <a href="/cerez-politikasi" onclick="event.preventDefault();showLegal('cerez')">Çerez Politikası</a>
+          <button type="button" onclick="stkConsent.open(true)">Çerez tercihlerimi değiştir</button>
+        </div>
+        <p class="legal-date">Son güncelleme: 24 Kasım 2026</p>
+      </header>
+
+      <article class="legal-doc" id="aydinlatma">
+        <h2>KVKK Aydınlatma Metni</h2>
+        <p>Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu’nun (“KVKK”) 10. maddesi ve Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ uyarınca hazırlanmıştır.</p>
+
+        <h3>1. Veri sorumlusu</h3>
+        <div class="legal-id">
+          <p><strong>Santek Endüstri ve Yapı Malzemeleri Ltd. Şti.</strong><br>
+          Armağanevler Mah. Diriliş Cad. No: 24, 34760 Ümraniye / İstanbul<br>
+          Alemdağ Vergi Dairesi · 7440262628<br>
+          Telefon: 0216 499 05 10 · E-posta: info@santekyapi.com.tr</p>
+        </div>
+
+        <h3>2. İşlediğimiz kişisel veriler</h3>
+        <dl class="legal-dl">
+          <dt>İletişim formu</dt>
+          <dd>Ad, soyad, şirket adı, e-posta adresi, seçtiğiniz konu, mesajınızın içeriği ve gönderim zamanı.</dd>
+          <dt>Bayilik ve B2B başvuruları</dt>
+          <dd>Yukarıdakilere ek olarak telefon numarası, şehir ve faaliyet alanı.</dd>
+          <dt>WhatsApp hattı</dt>
+          <dd>Telefon numaranız, WhatsApp profil adınız, yazışma içeriği ve gönderdiğiniz fotoğraf veya belgeler.</dd>
+          <dt>Siteyi ziyaret ettiğinizde</dt>
+          <dd>Güvenlik amacıyla IP adresi, tarayıcı ve cihaz bilgisi, erişim zamanı. Onay vermeniz hâlinde analitik ve pazarlama çerezleriyle site kullanımınız ve sitemize hangi reklam veya bağlantıdan geldiğiniz.</dd>
+        </dl>
+        <p>Bu veriler; site formları, WhatsApp hattımız, e-posta ve çerezler aracılığıyla elektronik ortamda, otomatik veya kısmen otomatik yollarla toplanır. Formlara özel nitelikli kişisel veri (sağlık, din, biyometrik veri vb.) yazmamanızı rica ederiz.</p>
+
+        <h3>3. İşleme amaçları</h3>
+        <ul>
+          <li>Soru ve taleplerinizi yanıtlamak, teklif ve katalog göndermek</li>
+          <li>Bayilik ve iş ortaklığı başvurularını değerlendirmek</li>
+          <li>Satış sonrası destek, garanti ve teknik servis süreçlerini yürütmek</li>
+          <li>Sitenin güvenliğini sağlamak ve kötüye kullanımı önlemek</li>
+          <li>Yasal yükümlülüklerimizi yerine getirmek, yetkili kurumların taleplerini karşılamak</li>
+          <li>Onay vermeniz hâlinde site kullanımını ölçmek ve reklamlarımızın etkinliğini değerlendirmek</li>
+        </ul>
+
+        <h3>4. Hukuki sebepler</h3>
+        <p>Kişisel verileriniz KVKK’nın 5. maddesindeki şu hukuki sebeplere dayanarak işlenir:</p>
+        <ul>
+          <li>Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması (md. 5/2-c): teklif, sipariş, bayilik ve satış sonrası süreçler</li>
+          <li>Veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi (md. 5/2-ç)</li>
+          <li>Bir hakkın tesisi, kullanılması veya korunması (md. 5/2-e)</li>
+          <li>Temel hak ve özgürlüklerinize zarar vermemek kaydıyla meşru menfaatimiz (md. 5/2-f): taleplerinize yanıt vermek, site güvenliği</li>
+          <li>Açık rızanız (md. 5/1): analitik ve pazarlama çerezleri. Rızanızı istediğiniz zaman geri alabilirsiniz.</li>
+        </ul>
+
+        <h3>5. Kimlere aktarıyoruz</h3>
+        <p>Verileriniz, yalnızca yukarıdaki amaçlar için gerekli olduğu ölçüde şu alıcılarla paylaşılır:</p>
+        <ul>
+          <li>Kanunen yetkili kamu kurum ve kuruluşları, talep etmeleri hâlinde</li>
+          <li>Hukuki ve mali danışmanlarımız, gerektiği ölçüde</li>
+          <li>Hizmet aldığımız teknoloji sağlayıcıları: Cloudflare (site barındırma, form altyapısı ve güvenlik), Resend (form bildirim e-postaları), Google (Tag Manager, Analytics ve Ads — analitik ve pazarlama ölçümleri yalnızca onayınızla), Meta Platforms (WhatsApp Business hattı; onayınızla reklam ölçümü)</li>
+        </ul>
+        <p>Bu hizmet sağlayıcıların sunucuları yurt dışında bulunabilir. Yurt dışına aktarım, KVKK’nın 9. maddesinde öngörülen şartlara uygun olarak yapılır.</p>
+
+        <h3>6. Saklama süreleri</h3>
+        <ul>
+          <li>İletişim formu kayıtları ve WhatsApp yazışmaları: talebiniz sonuçlandıktan sonra 2 yıl</li>
+          <li>Bayilik başvuruları: başvuru sonuçlandıktan sonra 2 yıl; iş ilişkisi kurulursa ticari ve vergi mevzuatındaki süreler</li>
+          <li>Güvenlik ve erişim kayıtları: en fazla 2 yıl</li>
+          <li>Çerezler: Çerez Politikası’nda belirtilen süreler</li>
+        </ul>
+        <p>Süre dolduğunda veriler silinir, yok edilir veya anonim hâle getirilir.</p>
+
+        <h3>7. Haklarınız</h3>
+        <p>KVKK’nın 11. maddesi uyarınca bize başvurarak:</p>
+        <ol>
+          <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme,</li>
+          <li>İşlenmişse buna ilişkin bilgi talep etme,</li>
+          <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+          <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme,</li>
+          <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li>
+          <li>KVKK’nın 7. maddesindeki şartlar çerçevesinde silinmesini veya yok edilmesini isteme,</li>
+          <li>Düzeltme, silme ve yok etme işlemlerinin verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li>
+          <li>Münhasıran otomatik sistemlerle analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme,</li>
+          <li>Kanuna aykırı işlenmesi sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
+        </ol>
+        <p>haklarına sahipsiniz.</p>
+
+        <h3>8. Nasıl başvurabilirsiniz</h3>
+        <p>Taleplerinizi Türkçe olarak; ıslak imzalı dilekçeyle yukarıdaki adresimize elden veya noter aracılığıyla, güvenli elektronik imza ya da mobil imzayla imzalayarak veya daha önce bize bildirdiğiniz ve sistemimizde kayıtlı e-posta adresinizden <strong>info@santekyapi.com.tr</strong> adresine iletebilirsiniz.</p>
+        <p>Başvurunuzda ad, soyad, imza, T.C. kimlik numarası (yabancılar için uyruk ile pasaport veya kimlik numarası), tebligata esas adres, varsa e-posta ve telefon bilgisi ile talebinizin konusu yer almalıdır. Başvurunuz en geç 30 gün içinde ücretsiz olarak sonuçlandırılır; işlem ayrıca bir maliyet gerektirirse Kişisel Verileri Koruma Kurulu’nun belirlediği tarifedeki ücret alınabilir.</p>
+      </article>
+
+      <article class="legal-doc" id="cerez">
+        <h2>Çerez Politikası</h2>
+        <p>Çerezler, ziyaret ettiğiniz sitenin tarayıcınıza kaydettiği küçük metin dosyalarıdır. Sitemizde, sitenin çalışması için zorunlu olanlar dışındaki çerezler yalnızca onay vermeniz hâlinde kullanılır. Onay vermemeniz sitenin kullanımını etkilemez.</p>
+
+        <h3>Kullandığımız çerezler</h3>
+        <div class="legal-table-wrap">
+          <table class="legal-table">
+            <thead><tr><th>Tür</th><th>Sağlayıcı</th><th>Amaç</th><th>Süre</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Zorunlu</strong><br>her zaman açık</td><td>Santek</td><td>Çerez tercihinizin hatırlanması (<code>stk_consent</code>, tarayıcı deposu)</td><td>12 ay</td></tr>
+              <tr><td><strong>Zorunlu</strong></td><td>Cloudflare</td><td>Siteyi kötü amaçlı trafiğe karşı korumak (<code>__cf_bm</code> vb.)</td><td>30 dakika</td></tr>
+              <tr><td><strong>Analitik</strong><br>onayınızla</td><td>Google Analytics</td><td>Ziyaret sayısı, gezilen sayfalar ve trafik kaynağını ölçmek (<code>_ga</code>, <code>_ga_*</code>)</td><td>2 yıla kadar</td></tr>
+              <tr><td><strong>Pazarlama</strong><br>onayınızla</td><td>Google Ads</td><td>Reklamlarımızın sonuçlarını ölçmek (<code>_gcl_au</code>)</td><td>90 gün</td></tr>
+              <tr><td><strong>Pazarlama</strong><br>onayınızla</td><td>Meta</td><td>Facebook ve Instagram reklamlarının sonuçlarını ölçmek (<code>_fbp</code>)</td><td>90 gün</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Tercihlerinizi nasıl değiştirirsiniz</h3>
+        <p>Verdiğiniz onayı istediğiniz zaman bu sayfadaki veya site altbilgisindeki “Çerez tercihleri” bağlantısıyla değiştirebilir ya da geri alabilirsiniz. Tercihiniz 12 ay saklanır, sonra yeniden sorulur. Tarayıcınızın ayarlarından da çerezleri silebilir veya engelleyebilirsiniz.</p>
+      </article>
+    </div>
+  </section>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1231,10 +1435,37 @@ footer .footer-grid > .footer-col:nth-child(4){display:none !important}
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 Santek Endüstri ve Yapı Malzemeleri Ltd. Şti. Tüm hakları saklıdır.</span>
+      <span class="footer-legal"><a href="/kvkk" onclick="event.preventDefault();showLegal('aydinlatma')">KVKK Aydınlatma Metni</a><a href="/cerez-politikasi" onclick="event.preventDefault();showLegal('cerez')">Çerez Politikası</a><button type="button" onclick="stkConsent.open(true)">Çerez tercihleri</button></span>
       <span class="footer-copy">Qbrick System · Wolfcraft · Temple Tool · Riken · Robustech · RIDA · GRABO</span>
     </div>
   </div>
 </footer>
+
+<!-- ÇEREZ BİLDİRİMİ -->
+<div id="stk-cookie" role="dialog" aria-labelledby="stk-ck-title" aria-describedby="stk-ck-desc" hidden>
+  <h2 id="stk-ck-title">Çerez tercihleriniz</h2>
+  <p id="stk-ck-desc">Siteyi ölçmek ve reklamlarımızın sonuçlarını görmek için çerez kullanmak istiyoruz. Zorunlu çerezler dışındakiler yalnızca onayınızla çalışır. <a href="/cerez-politikasi" onclick="event.preventDefault();showLegal('cerez')">Çerez Politikası</a></p>
+  <div class="stk-ck-opts" id="stk-ck-opts" hidden>
+    <label class="stk-ck-opt"><input type="checkbox" checked disabled><span><b>Zorunlu</b>Sitenin çalışması ve güvenliği için. Kapatılamaz.</span></label>
+    <label class="stk-ck-opt"><input type="checkbox" id="stk-ck-a"><span><b>Analitik</b>Hangi sayfaların ziyaret edildiğini ölçmek için (Google Analytics).</span></label>
+    <label class="stk-ck-opt"><input type="checkbox" id="stk-ck-m"><span><b>Pazarlama</b>Google ve Meta reklamlarının sonuçlarını ölçmek için.</span></label>
+  </div>
+  <div class="stk-ck-btns" id="stk-ck-main">
+    <button type="button" class="stk-ck-solid" onclick="stkConsent.set(false,false)">Reddet</button>
+    <button type="button" class="stk-ck-solid" onclick="stkConsent.set(true,true)">Kabul et</button>
+  </div>
+  <div class="stk-ck-btns" id="stk-ck-save" hidden>
+    <button type="button" onclick="stkConsent.save()">Seçimimi kaydet</button>
+  </div>
+  <button type="button" class="stk-ck-link" id="stk-ck-toggle" onclick="stkConsent.open(true)">Ayrı ayrı seç</button>
+</div>
+
+<!-- WHATSAPP -->
+<a id="stk-wa" href="https://wa.me/905427280728" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın: 0542 728 07 28" onclick="stkWaClick(this)">
+  <span class="stk-wa-txt">WhatsApp'tan yazın</span>
+  <span class="stk-wa-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 01-4.8-1.31l-.34-.2-3.57.94.95-3.48-.22-.36A9.44 9.44 0 012.6 12.05C2.6 6.84 6.84 2.6 12.06 2.6c2.52 0 4.9.99 6.68 2.77a9.38 9.38 0 012.76 6.69c0 5.21-4.24 9.45-9.45 9.45zm8.04-17.48A11.3 11.3 0 0012.05.7C5.8.7.7 5.8.7 12.05c0 2 .52 3.95 1.52 5.67L.6 23.3l5.72-1.5a11.33 11.33 0 005.42 1.38h.01c6.25 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.32-8.02z"/></svg></span>
+</a>
+
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── SLIDER ──
@@ -1263,7 +1494,7 @@ const BRAND_SLUGS=['qbrick','wolfcraft','temple','riken','robustech','rida','gra
 const SECTION_ANCHORS=['hizmetler','hakkimizda','bayilik','iletisim'];
 function getSlug(id){const m={qbrick:'/marka/qbrick-system',wolfcraft:'/marka/wolfcraft',temple:'/marka/temple-tool',riken:'/marka/riken',robustech:'/marka/robustech',rida:'/marka/rida',grabo:'/marka/grabo'};return m[id]||'/';}
 function idFromSlug(path){if(path.includes('qbrick-system'))return'qbrick';if(path.includes('wolfcraft'))return'wolfcraft';if(path.includes('temple-tool'))return'temple';if(path.includes('/riken'))return'riken';if(path.includes('robustech'))return'robustech';if(path.includes('/marka/rida'))return'rida';if(path.includes('/marka/grabo'))return'grabo';return null;}
-const PAGE_TITLES={home:'Santek Endüstri ve Yapı Malzemeleri Ltd. Şti.',qbrick:'Qbrick System — Santek',wolfcraft:'Wolfcraft — Santek',temple:'Temple Tool Co. — Santek',riken:'Riken — Santek',robustech:'Robustech — Santek',rida:'RIDA — Santek',grabo:'GRABO — Santek'};
+const PAGE_TITLES={home:'Santek Endüstri ve Yapı Malzemeleri Ltd. Şti.',qbrick:'Qbrick System — Santek',wolfcraft:'Wolfcraft — Santek',temple:'Temple Tool Co. — Santek',riken:'Riken — Santek',robustech:'Robustech — Santek',rida:'RIDA — Santek',grabo:'GRABO — Santek',kvkk:'KVKK ve Çerez Politikası — Santek'};
 function updateMeta(id){document.title=PAGE_TITLES[id]||PAGE_TITLES.home;}
 function showPage(id,push=true){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -1287,6 +1518,7 @@ window.addEventListener('popstate',e=>{
   if(!e.state)return;
   const{page,anchor}=e.state;
   if(BRAND_SLUGS.includes(page)){showBrandPage(page,false);}
+  else if(page==='kvkk'){showPage('kvkk',false);if(anchor){setTimeout(()=>{const el=document.getElementById(anchor);if(el)el.scrollIntoView({behavior:'smooth'});},100);}}
   else{showPage('home',false);if(anchor){setTimeout(()=>{const el=document.getElementById(anchor);if(el)el.scrollIntoView({behavior:'smooth'});},100);}}
   updateMeta(page||'home');
 });
@@ -1333,10 +1565,61 @@ function qsChangeCart(folder){
 const revObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
 
+
+// ── KVKK / ÇEREZ SAYFASI ──
+function showLegal(anchor){
+  showPage('kvkk',false);
+  const path=anchor==='cerez'?'/cerez-politikasi':'/kvkk';
+  history.pushState({page:'kvkk',anchor},'',path);updateMeta('kvkk');
+  if(anchor){setTimeout(()=>{const el=document.getElementById(anchor);if(el)el.scrollIntoView({behavior:'smooth'});},80);}
+  if(typeof stkConsent!=='undefined'&&anchor==='cerez')stkConsent.close();
+}
+
+// ── ÇEREZ ONAYI (Consent Mode v2) ──
+const stkConsent=(function(){
+  const box=document.getElementById('stk-cookie');
+  const KEY='stk_consent',YEAR=31536000000;
+  function read(){try{const c=JSON.parse(localStorage.getItem(KEY));if(c&&c.v===1&&Date.now()-c.t<YEAR)return c;}catch(e){}return null;}
+  function apply(a,m){
+    gtag('consent','update',{analytics_storage:a?'granted':'denied',ad_storage:m?'granted':'denied',ad_user_data:m?'granted':'denied',ad_personalization:m?'granted':'denied'});
+    window.dataLayer.push({event:'consent_update',consent_analytics:a,consent_marketing:m});
+  }
+  function show(detail){
+    const c=read();
+    document.getElementById('stk-ck-a').checked=!!(c&&c.a);
+    document.getElementById('stk-ck-m').checked=!!(c&&c.m);
+    document.getElementById('stk-ck-opts').hidden=!detail;
+    document.getElementById('stk-ck-save').hidden=!detail;
+    document.getElementById('stk-ck-toggle').hidden=!!detail;
+    box.hidden=false;document.body.classList.add('stk-ck-open');
+    if(detail)setTimeout(()=>document.getElementById('stk-ck-a').focus(),30);
+  }
+  function close(){box.hidden=true;document.body.classList.remove('stk-ck-open');}
+  function set(a,m){
+    try{localStorage.setItem(KEY,JSON.stringify({v:1,a:!!a,m:!!m,t:Date.now()}));}catch(e){}
+    apply(!!a,!!m);close();
+  }
+  function save(){set(document.getElementById('stk-ck-a').checked,document.getElementById('stk-ck-m').checked);}
+  if(!read())show(false);
+  return{open:show,close,set,save};
+})();
+
+// ── WHATSAPP ──
+const WA_BRANDS={qbrick:'Qbrick System',wolfcraft:'Wolfcraft',temple:'Temple Tool',riken:'Riken',robustech:'Robustech',rida:'RIDA',grabo:'GRABO'};
+function stkWaClick(a){
+  const active=document.querySelector('.page.active');
+  const id=active?active.id.replace('page-',''):'home';
+  const msg=WA_BRANDS[id]?'Merhaba, '+WA_BRANDS[id]+' ürünleri hakkında bilgi almak istiyorum.':'Merhaba, bilgi almak istiyorum.';
+  a.href='https://wa.me/905427280728?text='+encodeURIComponent(msg);
+  window.dataLayer=window.dataLayer||[];
+  window.dataLayer.push({event:'outbound_click',outbound_channel:'whatsapp',outbound_url:a.href,lp_id:'site-'+id});
+}
+
 (function initRoute(){
   const path=window.location.pathname;
   const brand=idFromSlug(path);
   if(brand){showBrandPage(brand,false);updateMeta(brand);}
+  else if(path==='/kvkk'||path==='/cerez-politikasi'){const anchor=path==='/kvkk'?'aydinlatma':'cerez';showPage('kvkk',false);updateMeta('kvkk');history.replaceState({page:'kvkk',anchor},'',path);if(anchor==='cerez')setTimeout(()=>{document.getElementById('cerez').scrollIntoView();},300);}
   else if(path.length>1){
     const anchor=path.replace('/','');
     showPage('home',false);

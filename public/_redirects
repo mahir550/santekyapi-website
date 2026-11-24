@@ -10,6 +10,8 @@
 /hakkimizda             /             200
 /bayilik                /             200
 /iletisim               /             200
+/kvkk                   /             200
+/cerez-politikasi       /             200
 
 # Landing pages — Cloudflare Pages auto-strips .html so /lp/qbrick-modular works for /lp/qbrick-modular.html
 # No explicit rules needed — files in public/lp/ are served at their paths.
